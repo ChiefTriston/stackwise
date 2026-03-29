@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Cursor. 200+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <style>
+    /* TOOL PAGE LAYOUT */
+    .tool-page { padding: 56px 0 80px; }
+
+    /* BACK NAV */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text3);
+      margin-bottom: 40px;
+      cursor: pointer;
+      transition: color 0.12s;
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--text2); }
+
+    /* TOOL HEADER */
+    .tool-header { margin-bottom: 48px; }
+
+    .tool-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .tool-category {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .tool-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .tool-tagline {
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.6;
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .tool-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .tool-meta-row {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .meta-item {
+      font-size: 12px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .meta-item span { color: var(--text2); }
+
+    /* VERDICT CARD */
+    .verdict-card {
+      padding: 28px 32px;
+      border: 0.5px solid var(--border2);
+      border-radius: var(--radius-lg);
+      background: var(--bg2);
+      margin-bottom: 40px;
+    }
+
+    .verdict-call {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .verdict-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .verdict-col-label {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 12px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .verdict-list { list-style: none; }
+
+    .verdict-list li {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+      padding: 7px 0;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+
+    .verdict-list li:last-child { border-bottom: none; }
+
+    .verdict-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .strengths li::before { background: var(--green); }
+    .limitations li::before { background: rgba(255,255,255,0.2); }
+
+    /* SECTION */
+    .tool-section { margin-bottom: 48px; }
+
+    .tool-section-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-num {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* PRICING */
+    .pricing-block {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 140px 100px 1fr;
+      gap: 0;
+      padding: 14px 18px;
+      border-bottom: 0.5px solid var(--border);
+      align-items: start;
+    }
+
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row.header { background: rgba(255,255,255,0.02); }
+
+    .pricing-row.header .pr-cell {
+      font-size: 11px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .pr-cell { font-size: 13px; color: var(--text2); line-height: 1.5; }
+    .pr-plan { font-weight: 500; color: var(--text); }
+    .pr-price { color: var(--text); font-family: 'DM Mono', monospace; font-size: 13px; }
+    .pr-free { color: var(--green); }
+
+    /* SIGNALS */
+    .signal-item {
+      padding: 18px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .signal-item:last-child { border-bottom: none; }
+
+    .signal-theme {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .signal-freq {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 8px;
+    }
+
+    .signal-quote {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.55;
+      padding-left: 14px;
+      border-left: 2px solid var(--border2);
+      font-style: italic;
+    }
+
+    .signal-source {
+      font-size: 11px;
+      color: var(--text3);
+      margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .signal-source a { color: var(--text3); text-decoration: underline; text-decoration-color: var(--border2); }
+    .signal-source a:hover { color: var(--text2); }
+
+    /* WORKFLOW */
+    .workflow-body {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .tradeoffs { list-style: none; }
+
+    .tradeoffs li {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.6;
+      padding: 12px 0;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+
+    .tradeoffs li:last-child { border-bottom: none; }
+
+    .tradeoff-dash {
+      color: var(--text3);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ALTERNATIVES */
+    .alt-item {
+      padding: 18px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .alt-item:last-child { border-bottom: none; }
+
+    .alt-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .alt-comparison {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .alt-rule {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    /* ILLUSTRATIVE OUTPUT */
+    .output-block {
+      background: var(--bg2);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .output-section {
+      padding: 16px 18px;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .output-section:last-child { border-bottom: none; }
+
+    .output-label {
+      font-size: 11px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .output-text {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+
+    .output-code {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.7;
+      white-space: pre-wrap;
+    }
+
+    .output-disclaimer {
+      font-size: 11px;
+      color: var(--text3);
+      font-style: italic;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.02);
+      border-top: 0.5px solid var(--border);
+    }
+
+    /* FIT */
+    .fit-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .fit-col-title {
+      font-size: 12px;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 12px;
+    }
+
+    .fit-list { list-style: none; }
+
+    .fit-list li {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+
+    .fit-list li:last-child { border-bottom: none; }
+    .fit-list li::before { content: '—'; color: var(--text3); flex-shrink: 0; }
+
+    /* OVERVIEW */
+    .overview-body p {
+      font-size: 14px;
+      color: var(--text2);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .overview-body p:last-child { margin-bottom: 0; }
+
+    /* SOURCE COUNT */
+    .source-bar {
+      display: flex;
+      gap: 20px;
+      padding: 16px 0;
+      border-top: 0.5px solid var(--border);
+      margin-top: 48px;
+    }
+
+    .source-item {
+      font-size: 12px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .source-item span { color: var(--text2); }
+
+    @media (max-width: 640px) {
+      .verdict-cols { grid-template-columns: 1fr; }
+      .fit-cols { grid-template-columns: 1fr; }
+      .pricing-row { grid-template-columns: 1fr 1fr; }
+      .pricing-row .pr-cell:last-child { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="../index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="container-narrow">
+
+    <a href="../index.html" class="back-link">← All tools</a>
+
+    <!-- TOOL HEADER -->
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Code editor</span>
+        <span class="vdot vdot-h"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">High confidence</span>
+      </div>
+      <h1 class="tool-title">Cursor</h1>
+      <p class="tool-tagline">An AI-first code editor built on VS Code that indexes your entire codebase, enabling multi-file editing, agent workflows, and context-aware completions that go beyond single-file suggestions.</p>
+      <div class="tool-actions">
+        <a href="https://cursor.com" target="_blank" rel="noopener" class="btn btn-primary">Try Cursor ↗</a>
+        <a href="https://cursor.com/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Category <span>Code editor</span></div>
+        <div class="meta-item">Pricing <span>Free · $20/mo · $40/mo</span></div>
+        <div class="meta-item">Sources <span>289 reviewed</span></div>
+        <div class="meta-item">Updated <span>Mar 2026</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Worth it for developers spending 4+ hours daily on complex multi-file work — not worth it for developers who mainly want inline completions and would get 80% of the value from a cheaper tool.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul class="verdict-list strengths">
+            <li>Nvidia reports 3x code output increase across 30,000+ engineers using it daily</li>
+            <li>Full codebase indexing — understands functions across files, not just the open file</li>
+            <li>Composer mode handles multi-file refactoring with a visible diff before any changes apply</li>
+          </ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul class="verdict-list limitations">
+            <li>Users report rejecting ~30% of generated code and 50%+ of debugging suggestions</li>
+            <li>Chat context degrades after 2-3 exchanges — requires restarting conversations to maintain quality</li>
+            <li>Pricing changed in 2025 from 500 fixed requests to usage-based credits, reducing effective monthly requests</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">
+        Pricing
+        <span class="section-num">01</span>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing-row header">
+          <div class="pr-cell">Plan</div>
+          <div class="pr-cell">Price</div>
+          <div class="pr-cell">What's included</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pr-cell pr-plan">Hobby</div>
+          <div class="pr-cell pr-price pr-free">Free</div>
+          <div class="pr-cell">Limited completions and requests. Good for evaluating before committing.</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pr-cell pr-plan">Pro</div>
+          <div class="pr-cell pr-price">$20/mo</div>
+          <div class="pr-cell">Usage-based credits (~225 fast requests/mo after 2025 pricing change), Composer mode, codebase indexing, multi-model access (GPT-5, Claude, Gemini).</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pr-cell pr-plan">Business</div>
+          <div class="pr-cell pr-price">$40/mo</div>
+          <div class="pr-cell">Unlimited fast requests, 5 parallel agents, team management, privacy mode.</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pr-cell pr-plan">Ultra</div>
+          <div class="pr-cell pr-price">$200/mo</div>
+          <div class="pr-cell">Unlimited everything, 8 parallel agents, all models. For heavy daily use.</div>
+        </div>
+      </div>
+      <p style="font-size:12px; color:var(--text3); margin-top:10px; font-family:'DM Mono',monospace;">⚠ Pricing changed June 2025 — CEO issued public apology after unexpected overages. Monitor usage on Pro plan.</p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">
+        Recurring user signals
+        <span class="section-num">02</span>
+      </div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, HN threads, GitHub discussions, and community feedback.</p>
+
+      <div style="margin-bottom: 28px;">
+        <div style="font-size:12px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+
+        <div class="signal-item">
+          <div class="signal-theme">Full codebase context</div>
+          <div class="signal-freq">Commonly reported</div>
+          <div class="signal-quote">"Cursor actually understands my codebase. I can ask it to refactor a function and it knows all the places where it's used, the types involved, everything."</div>
+          <div class="signal-source">— <a href="https://hackceleration.com/cursor-review/" target="_blank">Hackceleration review</a></div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-theme">Speed for incremental work</div>
+          <div class="signal-freq">Commonly reported</div>
+          <div class="signal-quote">"Great for banging out small tickets and improving the product incrementally."</div>
+          <div class="signal-source">— <a href="https://news.ycombinator.com/item?id=43340662" target="_blank">HN discussion</a></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:12px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Critique patterns</div>
+
+        <div class="signal-item">
+          <div class="signal-theme">Code quality degradation</div>
+          <div class="signal-freq">Commonly reported</div>
+          <div class="signal-quote">"A lot more mistakes leaking into my PRs. I feel a lot faster but there's been a noticeable decrease in the quality of my work."</div>
+          <div class="signal-source">— <a href="https://news.ycombinator.com/item?id=43340662" target="_blank">HN discussion</a></div>
+        </div>
+
+        <div class="signal-item">
+          <div class="signal-theme">Context window degradation</div>
+          <div class="signal-freq">Commonly reported</div>
+          <div class="signal-quote">Users consistently report chat responses becoming "questionable" and "less precise" after 2–3 exchanges, requiring frequent conversation restarts.</div>
+          <div class="signal-source">— Pattern across multiple HN threads and forum posts</div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+        <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+        <div style="font-size:13px; color:var(--text2); line-height:1.55;">Experienced developers see major productivity gains; junior developers report more time spent reviewing and fixing AI output than writing code themselves.</div>
+      </div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">
+        Best fit / not ideal for
+        <span class="section-num">03</span>
+      </div>
+      <div class="fit-cols">
+        <div>
+          <div class="fit-col-title">Best fit</div>
+          <ul class="fit-list">
+            <li>Developers spending 4+ hours daily on complex refactoring or large codebase work where full context matters</li>
+            <li>Teams like Nvidia's 30,000+ engineers who need predictable AI-assisted development across shared codebases</li>
+            <li>Developers already on VS Code — switching cost is near zero, settings and extensions carry over</li>
+          </ul>
+        </div>
+        <div>
+          <div class="fit-col-title">Not ideal for</div>
+          <ul class="fit-list">
+            <li>Developers who mainly want inline completions — GitHub Copilot delivers 80% of the value at half the price</li>
+            <li>Teams building production web browsers or complex rendering engines at scale — Composer fails on 1M+ line codebases</li>
+            <li>Budget-conscious developers — usage-based pricing can produce unexpected overages without careful monitoring</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">
+        Typical alternatives
+        <span class="section-num">04</span>
+      </div>
+
+      <div class="alt-item">
+        <div class="alt-name">GitHub Copilot</div>
+        <div class="alt-comparison">Stays inside your existing VS Code setup rather than replacing the editor. Focuses on inline completions and chat rather than Cursor's full multi-file agent approach. $10/mo vs $20/mo.</div>
+        <div class="alt-rule">Choose GitHub Copilot instead if you mainly want inline completions inside your existing editor and don't need multi-file context or Composer — you get 80% of the value at half the price.</div>
+      </div>
+
+      <div class="alt-item">
+        <div class="alt-name">Claude Code</div>
+        <div class="alt-comparison">Terminal-based agentic coding rather than an IDE. Stronger on complex architectural decisions and reasoning tasks but lacks Cursor's visual diff interface and codebase-wide embeddings.</div>
+        <div class="alt-rule">Choose Claude Code instead if you're doing complex architectural work or refactoring that requires deep reasoning over many files and you're comfortable in the terminal.</div>
+      </div>
+
+      <div class="alt-item">
+        <div class="alt-name">Windsurf</div>
+        <div class="alt-comparison">Comparable AI coding features to Cursor at a lower price point. Gained ground in 2025-26 with agentic workflows and voice input. Ranked #1 in some March 2026 developer tool rankings.</div>
+        <div class="alt-rule">Choose Windsurf instead if Cursor's pricing feels steep for your usage level — comparable features at lower cost, though community and ecosystem are smaller.</div>
+      </div>
+    </div>
+
+    <!-- INSIDE THE WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">
+        Inside the workflow
+        <span class="section-num">05</span>
+      </div>
+      <div class="workflow-body">
+        You open Cursor and it looks exactly like VS Code — same sidebar, same file explorer, same terminal. The difference appears the moment you hit Cmd+K on a block of code. You type "refactor this to use async/await" and see a diff appear inline before anything changes. About a third of the time you reject it — the AI generates syntactically correct code but misses your specific requirements or uses an outdated pattern. For bigger tasks you open the chat sidebar with Cmd+L, describe the feature you want to build, and watch Cursor pull in relevant files from across your project. After 2-3 exchanges the responses start getting vaguer — experienced users close the chat and start fresh rather than fighting it. The workflow that actually works: tight, specific prompts with explicit context about your framework, reviewing every diff before accepting, and keeping chat threads short.
+      </div>
+      <ul class="tradeoffs">
+        <li><span class="tradeoff-dash">—</span>Cursor eliminates Stack Overflow and Google searches during coding, but users report rejecting ~30% of generated code and 50%+ of debugging suggestions because the AI generates confident but incorrect solutions</li>
+        <li><span class="tradeoff-dash">—</span>Composer handles multi-file refactoring well for structured requests, but struggles with large Go or complex backend projects containing hundreds of thousands of lines — it fails to maintain coherent context across many architectural layers</li>
+        <li><span class="tradeoff-dash">—</span>Chat threads maintain context for quick iterations, but after 2-3 exchanges the suggestions become noticeably less precise, forcing users to restart conversations frequently to maintain code quality</li>
+      </ul>
+    </div>
+
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">
+        Illustrative output
+        <span class="section-num">06</span>
+      </div>
+      <div class="output-block">
+        <div class="output-section">
+          <div class="output-label">Prompt</div>
+          <div class="output-text">Refactor the UserService to handle password resets — add a forgotPassword method, create email template, update the API routes, add frontend form.</div>
+        </div>
+        <div class="output-section">
+          <div class="output-label">What Cursor does</div>
+          <div class="output-text">Opens a Composer window, scans the codebase for UserService, existing auth routes, and frontend patterns. Generates a multi-file diff showing changes across services/auth.js, routes/users.js, templates/email.html, and components/ForgotPassword.jsx simultaneously. Shows each change as a reviewable diff before applying.</div>
+        </div>
+        <div class="output-section">
+          <div class="output-label">Practical interpretation</div>
+          <div class="output-text">This is Cursor's strongest use case — multi-file structural changes where having full codebase context matters. In practice users report the generated code matching their existing patterns about 70% of the time; the remaining 30% requires manual correction for project-specific logic the AI missed.</div>
+        </div>
+        <div class="output-disclaimer">Illustrative example based on typical use cases described in public sources. Not a live benchmark.</div>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">
+        Overview
+        <span class="section-num">07</span>
+      </div>
+      <div class="overview-body">
+        <p>Cursor is an AI-first code editor built as a fork of VS Code that indexes your entire codebase using semantic embeddings, enabling the AI to understand your project's structure, patterns, and dependencies rather than just the file you have open.</p>
+        <p>The core mechanism is full codebase context via RAG (Retrieval-Augmented Generation). When you ask a question or request a change, Cursor pulls in relevant code from across your project. Inline editing (Cmd+K) handles targeted modifications. Composer mode handles multi-file agent tasks where the AI plans changes across multiple files and shows them as reviewable diffs. Background Agents can run tasks autonomously while you work on something else.</p>
+        <p>Cursor's design heavily favors developers doing intensive daily coding work who need the AI to understand architectural context. If you mainly want tab completion and occasional chat, the value proposition weakens considerably and cheaper alternatives make more sense. The tool's real ROI appears for developers spending 5+ hours weekly on complex refactoring, new feature development, or working in large codebases where the context gap between Cursor and standard Copilot is most visible.</p>
+      </div>
+    </div>
+
+    <!-- SOURCE BAR -->
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>289</span></div>
+      <div class="source-item">Selected <span>17</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>Mar 28 2026</span></div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="../index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
+
+</body>
+</html>
