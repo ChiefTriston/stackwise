@@ -56,9 +56,7 @@
         <span class="tool-category">LangChain</span>
       </div>
       <h1 class="tool-title">LangChain</h1>
-      <p class="tool-tagline">What LangChain Is
-
-LangChain is a development framework that helps engineers build applications powered by large language models, with a particular focus on creating multi-step AI agents that can use tools, retrieve documents, and perform complex reasoning workflows.</p>
+      <p class="tool-tagline">LangChain is a framework for building applications powered by large language models (LLMs), but based on the official source provided, the focus here is specifically on LangSmith, LangChain's observability platform.</p>
       <div class="tool-actions">
         <a href="https://www.langchain.com/articles/llm-observability-tools" target="_blank" rel="noopener" class="btn btn-primary">Try LangChain ↗</a>
         <a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
@@ -70,19 +68,19 @@ LangChain is a development framework that helps engineers build applications pow
 
     <!-- VERDICT -->
     <div class="verdict-card fade-up fade-up-2">
-      
+      <div class="verdict-call">LangSmith is best suited for teams already using LangChain who need comprehensive agent debugging and evaluation workflows with human-in-the-loop feedback. Solo developers and teams not using LangChain may find better value in more specialized or cost-effective observability tools.</div>
       <div class="verdict-cols">
         <div>
           <div class="verdict-col-label">Strengths</div>
-          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Has 1000+ integrations covering AI services, databases, and tool categories according to GitHub discussions</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Described as 'the default orchestration framework for production AI agents' in developer community requests</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Supports extensible architecture allowing new chat model providers like HPC-AI through partner packages under libs/partners/</span></li></ul>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Deep tracing visibility into multi-step agent workflows including tool calls, retrieved documents, and intermediate reasoning</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Structured feedback loops where domain experts can annotate specific runs and convert feedback into evaluation datasets</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Generous free tier with 5k traces/month and comprehensive feature access for solo developers</span></li></ul>
         </div>
         <div>
           <div class="verdict-col-label">Limitations</div>
-          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Lacks native payment execution primitives for agents consuming paid APIs, forcing developers to either hardcode API keys or pre-authorize unlimited spend</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>No built-in spend governance or audit trail for production agents, creating risk of budget exhaustion from malicious prompts or infinite loops</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Missing support for x402 HTTP payment protocol despite its 75M+ transactions on Base mainnet and growing ecosystem adoption</span></li></ul>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Built by LangChain team, potentially creating vendor lock-in concerns for non-LangChain users</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Pay-as-you-go pricing after base limits could become expensive for high-volume production workloads</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Enterprise features like self-hosting and custom SSO require custom pricing with no transparent costs</span></li></ul>
         </div>
       </div>
     </div>
@@ -90,45 +88,7 @@ LangChain is a development framework that helps engineers build applications pow
     <!-- PRICING -->
     <div class="tool-section fade-up fade-up-3">
       <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the LangSmith pricing page, here are the specific pricing details:</p>
-<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Developer Plan - $0/seat per month</p>
-<ul style="list-style:none; padding:0; margin:0 0 10px;">
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 5,000 base traces per month included, then pay-as-you-go</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 Fleet agent included</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 50 Fleet runs per month</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 seat maximum</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Community support only</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Access to tracing, online/offline evaluations, Prompt Hub, Playground, Canvas, annotation queues, and monitoring</span></li>
-</ul>
-<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Plus Plan - $39/seat per month</p>
-<ul style="list-style:none; padding:0; margin:0 0 10px;">
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 10,000 base traces per month included, then pay-as-you-go</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 dev-sized agent deployment included</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited Fleet agents</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 500 Fleet runs per month, then pay-as-you-go</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited seats available</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 3 workspaces</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Email support</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Developer plan features</span></li>
-</ul>
-<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Enterprise Plan - Custom pricing</p>
-<ul style="list-style:none; padding:0; margin:0 0 10px;">
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Contact sales required</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Custom SSO and RBAC</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Alternative hosting options (hybrid and self-hosted)</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Access to deployed engineering team</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Support SLA</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Team training and architectural guidance</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Custom seats, workspaces, and Fleet packages</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Plus plan features</span></li>
-</ul>
-<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources don't specify:</p>
-<ul style="list-style:none; padding:0; margin:0 0 10px;">
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Annual pricing discounts</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Exact pay-as-you-go rates after base trace limits</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Specific costs for additional Fleet runs beyond included amounts</span></li>
-<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Details about startup discount rates mentioned for VC-backed companies</span></li>
-</ul><p style="margin-top:12px;"><a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">LangSmith offers three pricing tiers: Developer plan at $0/seat per month (includes up to 5k base traces/month, then pay-as-you-go), Plus plan at $39/seat per month (includes up to 10k base traces/month, then pay-as-you-go), and Enterprise with custom pricing. Note: This is pricing for LangSmith (LangChain's commercial platform), not LangChain framework itself which is open source.</p><p style="margin-top:12px;"><a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
     </div>
 
     <!-- USER SIGNALS -->
@@ -137,30 +97,34 @@ LangChain is a development framework that helps engineers build applications pow
       <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
       <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
 <div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Extensive integration ecosystem coverage</div>
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Comprehensive feedback collection capabilities</div>
   <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;LangChain has become the default orchestration framework for production AI agents, with integrations covering virtually every AI service, database, and tool category&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Feedback can benefit LLM applications by providing signal for few-shot examples, model fine-tuning, evaluations, personalized user experiences, and improved application observability&rdquo; — <a href="https://github.com/langchain-ai/langsmith-cookbook/blob/main/feedback-examples/streamlit/README.md" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
 </div>
 <div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Production AI agent orchestration capabilities</div>
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Integrated tracing and monitoring features</div>
   <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;LangChain Has 1000+ Integrations&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;The aggregate feedback is displayed at the top of the screen, alongside the median and 99th percentile run latencies&rdquo; — <a href="https://github.com/langchain-ai/langsmith-cookbook/blob/main/feedback-examples/streamlit/README.md" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Streamlined app development with streaming support</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;you will create a ChatGPT-like web app in Streamlit that supports streaming, custom instructions, app feedback, and more&rdquo; — <a href="https://github.com/langchain-ai/langsmith-cookbook/blob/main/feedback-examples/streamlit/README.md" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
 </div>
 <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
 <div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Missing payment execution layer for paid API consumption</div>
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Complex setup and configuration requirements</div>
   <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;One critical gap remains: a payment execution primitive for agents consuming paid APIs&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;To trace your runs and log feedback, you'll need to configure your environment to connect to LangSmith. To do so, define the following environment variables&rdquo; — <a href="https://github.com/langchain-ai/langsmith-cookbook/blob/main/feedback-examples/streamlit/README.md" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
 </div>
 <div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Lack of spend governance and audit trails for API usage</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Today, developers handle this one of two ways: Hardcode API keys in tool implementations — no spend governance, no audit trail, no human approval flow&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Dependency on multiple external services</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;We'll be using OpenAI, so configure up your API key for them as well&rdquo; — <a href="https://github.com/langchain-ai/langsmith-cookbook/blob/main/feedback-examples/streamlit/README.md" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
 </div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Production safety risks with unlimited API spending</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;An agent that goes into a loop or is prompted maliciously can exhaust API budgets in minutes&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Limited user feedback data available from accessible sources</div>
 </div>
     </div>
 
@@ -170,38 +134,86 @@ LangChain is a development framework that helps engineers build applications pow
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
   <div>
     <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
-    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>AI developers building production RAG applications who need proven framework performance - LangChain achieved 100% accuracy on standardized RAG benchmarks alongside LangGraph, LlamaIndex, Haystack, and DSPy</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise teams requiring extensive third-party integrations - LangChain provides 1000+ integrations covering AI services, databases, and tool categories, making it the default orchestration framework for production AI agents</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Development teams building agentic workflows who prioritize ecosystem maturity over token efficiency - while benchmarks show LangChain has higher token overhead compared to alternatives, it offers the broadest integration ecosystem</span></li></ul>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Engineering teams building multi-step LLM agents who need detailed tracing of tool calls, retrieved documents, and intermediate reasoning steps</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations with domain experts who need structured workflows to review LLM outputs and provide feedback that engineering teams can convert into evaluation datasets</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Development teams requiring observability beyond basic error monitoring - specifically teams that need to detect when outputs are technically valid but wrong for their specific domain or use case</span></li></ul>
   </div>
   <div>
     <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
-    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Cost-sensitive applications prioritizing token efficiency - benchmarks reveal LangChain has measurable token overhead compared to alternatives like Mem0, which reduces token costs by 80%</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams requiring built-in payment execution for paid APIs - LangChain lacks native payment primitives, forcing developers to either hardcode API keys without spend governance or pre-authorize unlimited spend with no guardrails</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Developers seeking memory-optimized LLM applications - alternatives like Mem0 demonstrate 26% higher response quality while using 90% fewer tokens compared to standard implementations</span></li></ul>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Solo developers or small teams needing only basic LLM monitoring without complex agent workflows or multi-step tracing requirements</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations without domain experts available to participate in output review and annotation processes, since the platform's strength is facilitating expert feedback loops</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams building simple single-step LLM applications where black-box monitoring is sufficient and detailed agent workflow visibility is unnecessary</span></li></ul>
   </div>
 </div>
     </div>
 
     <!-- ALTERNATIVES -->
-    
+        <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">Mem0</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">Mem0 focuses specifically on providing a universal memory layer for LLM applications that learns from user interactions and reduces token costs by 80%. Unlike LangChain's broad framework approach, Mem0 specializes in persistent memory across sessions, with benchmarks showing 26% higher response quality while using 90% fewer tokens.</div>
+  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Mem0 when you need specialized memory capabilities and token cost optimization for personalized AI experiences. Choose LangChain when you need a comprehensive framework for building diverse LLM applications beyond memory management.</div>
+</div>
+<div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">LiteLLM</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">LiteLLM serves as a focused LLM gateway that manages authentication, load balancing, and cost tracking across 100+ models through a single OpenAI-compatible interface. While LangChain provides a full application development framework, LiteLLM specializes in model access and management, trusted by enterprise teams like Netflix.</div>
+  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LiteLLM when you primarily need unified access and management across multiple LLM providers. Choose LangChain when you need a complete framework for building complex LLM applications with chains, agents, and workflow orchestration.</div>
+</div>
+<div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">LlamaIndex</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">Both LlamaIndex and LangChain are comprehensive RAG frameworks that achieved 100% accuracy in standardized benchmarks using identical components (GPT-4.1-mini, BGE-small embeddings, Qdrant retriever). The frameworks showed comparable performance when building the same agentic RAG workflow, with differences mainly in implementation approach and developer experience.</div>
+  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LlamaIndex when you prioritize data ingestion and indexing capabilities for RAG applications. Choose LangChain when you need broader application development features including complex agent workflows and extensive integrations.</div>
+</div>
+    </div>
 
     <!-- WORKFLOW -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
-      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You start by importing LangChain's core components and initializing your LLM connection — typically OpenAI's chat model with your API key loaded from environment variables. Next, you define your data structures using Pydantic schemas to ensure the AI returns structured JSON responses rather than free text. You then craft prompt templates that include format instructions, which LangChain automatically injects so the model knows exactly what JSON structure to output. The magic happens when you build chains using RunnableBranch for conditional logic — you create multiple execution paths where the AI's intermediate output (like sentiment classification returning 'positive' or 'negative') determines which response generation path runs next. You test your chain by feeding it sample inputs, watching it flow through sentiment analysis, then branch into personalized response generation. When debugging, you examine each step's output to see where the chain breaks or produces unexpected results. The AI handles the classification and text generation automatically, but you control the business logic through the branching conditions and prompt engineering.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>RunnableBranch enables elegant conditional chains that route based on AI outputs like sentiment classification, but users must manually structure their Pydantic schemas and prompt templates to get reliable JSON responses — requiring careful prompt engineering to prevent the model from outputting malformed data that breaks the chain</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>LangChain's modular architecture with separate packages (langchain-core, langchain, langchain-community) provides clean separation of concerns, but users report dependency management issues when Google deprecates underlying SDKs like @google/generative-ai, forcing developers to manually import deprecated packages just to access basic enums like TaskType</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The framework simplifies complex LLM orchestration through chains and agents, but developers must understand the execution flow deeply enough to debug multi-step processes where intermediate AI outputs can cause downstream failures in ways that aren't immediately obvious from error messages</span></li></ul>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You build AI applications by chaining together components like language models, prompts, and data sources using LangChain's framework. You trace your application's behavior through LangSmith's monitoring dashboard, collecting user feedback through thumbs up/down ratings to understand performance. You iterate on your chains by analyzing traced runs, filtering by feedback scores, and adding successful examples to training datasets for improvement.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Setting up comprehensive tracing requires configuring multiple environment variables and projects, adding deployment complexity</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Feedback collection is limited to simple thumbs up/down ratings rather than detailed qualitative insights</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The framework introduces abstraction layers that can make debugging complex chains more difficult when things go wrong</span></li></ul>
     </div>
     
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I want to build a chatbot for my customer service team that can answer questions about our product documentation and collect feedback on response quality.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Using LangChain, you can create a Streamlit web application that:
+
+1. Integrates with your document store to retrieve relevant information
+2. Uses OpenAI's API to generate responses based on retrieved context
+3. Displays a chat interface with streaming responses
+4. Includes thumbs up/down feedback buttons for each response
+5. Automatically traces all interactions in LangSmith for monitoring
+
+However, you'll need to:
+- Set up LangSmith environment variables and OpenAI API keys
+- Handle document preprocessing and chunking separately
+- Implement custom logic for document retrieval
+- Monitor response accuracy manually through the feedback data
+- The feedback system only captures simple binary ratings, not detailed user comments</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">LangChain provides a solid framework for building conversational AI applications with built-in observability and feedback collection, though it requires significant setup and doesn't handle content preparation automatically.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
 
     <!-- OVERVIEW -->
     <div class="tool-section fade-up fade-up-5">
-      <div class="tool-section-title">Overview <span class="section-num">06</span></div>
-      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">What LangChain Is</p>
-<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">LangChain is a development framework that helps engineers build applications powered by large language models, with a particular focus on creating multi-step AI agents that can use tools, retrieve documents, and perform complex reasoning workflows.</p>
-<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">How It Works</p>
-<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The framework provides tracing capabilities that give developers visibility into every step of agent workflows, including tool calls, retrieved documents, and intermediate reasoning processes. LangChain's observability platform, LangSmith, allows subject matter experts to review specific runs, rate output quality, and provide domain-specific feedback that engineering teams can turn into structured evaluation datasets. Rather than just catching obvious technical errors, the system is designed to surface cases where outputs are technically valid but wrong for specific use cases, creating feedback loops between production monitoring and development.</p>
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">LangChain is a framework for building applications powered by large language models (LLMs), but based on the official source provided, the focus here is specifically on LangSmith, LangChain's observability platform. LangSmith addresses the critical challenge that traditional error monitoring falls short when dealing with LLM applications - while basic logs can tell you what broke, they cannot detect more nuanced issues like hallucinations, model drift, or outputs that are technically valid but incorrect for specific domain contexts. The platform solves the harder problem of creating structured workflows where subject matter experts can review LLM outputs, rate quality, and provide actionable feedback to engineering teams, moving beyond scattered alerts and spreadsheets to systematic evaluation processes.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">LangSmith works by providing deep tracing capabilities that offer visibility into every step of complex agent workflows, including tool calls, retrieved documents, and intermediate reasoning steps. Unlike black-box monitoring approaches, it captures the full execution path of multi-step agents, allowing teams to understand not just what happened, but how decisions were made at each stage. The platform creates feedback loops between production and development by enabling domain experts to annotate specific runs and convert that human feedback into structured evaluation datasets that can be used to improve model performance over time.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">LangSmith primarily benefits organizations running complex LLM applications where domain expertise is critical for evaluating output quality, particularly those with multi-step agent workflows that require detailed debugging and evaluation. The platform is especially valuable for teams that need to bridge the gap between technical engineering capabilities and domain expert knowledge. Key tradeoffs include the investment required to set up structured evaluation processes and train domain experts on the platform, versus the significant benefits of catching subtle but important model failures that traditional monitoring would miss. Organizations must weigh the cost and complexity of comprehensive LLM observability against the risks of deploying poorly monitored AI systems in production.</p>
     </div>
 
     <div class="source-bar">
