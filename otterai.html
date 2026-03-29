@@ -1,35 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Otter.ai — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otter.ai — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Otter.ai. 11+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>Otter.ai</h1>
-<p>Otter.ai is an AI-powered transcription tool that converts speech to text in real time during meetings, interviews, and lectures, with automatic speaker identification and live captions that integrate directly into video conferencing platforms.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://otter.ai/tag/product-update" target="_blank">Try Tool</a>
-<a href="https://otter.ai/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Otter.ai</span>
+        <span class="vdot vdot-l"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Low confidence</span>
+      </div>
+      <h1 class="tool-title">Otter.ai</h1>
+      <p class="tool-tagline">Otter.ai is an AI-powered transcription tool that converts speech to text in real time during meetings, interviews, and lectures, with automatic speaker identification and live captions that integrate directly into video conferencing platforms.</p>
+      <div class="tool-actions">
+        <a href="https://otter.ai/tag/product-update" target="_blank" rel="noopener" class="btn btn-primary">Try Otter.ai ↗</a>
+        <a href="https://otter.ai/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>11</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Best for journalists, educators, and business professionals who need real-time transcription with speaker identification for meetings and interviews — avoid if you need reliable API access or are sensitive to AI features that over-promise capabilities.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Converts speech to text in real time during meetings, interviews, and lectures</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Automatically identifies different speakers without manual input</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Integrates directly with video conferencing platforms for seamless recording</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>AI chat feature exaggerates capabilities and over-promises what users actually receive for their subscription cost</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Limited API availability with only unofficial third-party APIs available for developers</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Requires both email and password authentication for API access, creating potential security concerns for automated integrations</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the Otter.ai pricing page, here are the available plans:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Price</strong>: Free</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Monthly transcription</strong>: 300 minutes</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>File imports</strong>: 3 lifetime audio/video imports</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Features</strong>: Live transcription, speaker identification, Zoom/MS Teams/Google Meet integration, AI Chat, mobile apps, multi-language support</span></li>
+</ul>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Monthly price</strong>: $16.99/user</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Annual price</strong>: $8.49/user/month (50% savings)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Monthly transcription</strong>: 1,200 in-app recording minutes</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Meeting length</strong>: Up to 90 minutes per meeting</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>File imports</strong>: 10 monthly audio/video imports</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Additional features</strong>: Advanced AI workflows, unlimited storage, team vocabulary, advanced search/export, Salesforce/HubSpot/Zapier integrations</span></li>
+</ul>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Monthly price</strong>: $30/user (with 20% off for first 3 months)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Annual price</strong>: $24/user/month</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Transcription</strong>: Unlimited meetings and in-app recordings</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Meeting length</strong>: Up to 4 hours per meeting</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>File imports</strong>: Unlimited audio/video imports</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Additional features</strong>: Custom AI workflows, join 3 concurrent meetings, enhanced admin features, prioritized support</span></li>
+</ul>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Price</strong>: Custom (requires demo scheduling)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span><strong>Features</strong>: Unlimited custom AI workflows, Otter Sales Notetaker, custom CRM integrations, SSO,</span></li>
+</ul><p style="margin-top:12px;"><a href="https://otter.ai/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Real-time speech-to-text conversion during meetings</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Automatic speaker identification in transcripts</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Video conferencing platform integration</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">AI chat feature overstates capabilities for editing tasks</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;AI chat frustratingly exaggerates what you get for your money. Continuously claiming that it can help edi...&rdquo; — <a href="https://www.trustpilot.com/review/otter.ai" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustpilot.com</a></div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Journalists and content creators conducting interviews who need real-time speech-to-text conversion with automatic speaker identification</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Business teams using video conferencing platforms who need live captions and AI-driven meeting summaries integrated with their existing workflow</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Educators and students attending lectures who require collaborative note-taking tools with the ability to share and review transcriptions</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Users expecting comprehensive editing capabilities, as the AI chat feature exaggerates what editing assistance you actually receive for your money</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations requiring official API access for custom integrations, since only unofficial third-party APIs are available</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Users who need guaranteed uptime for critical transcription tasks, as the service has accessibility issues that can block user access</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You start your workday by opening Otter.ai in your browser and connecting it to your Google Calendar or Microsoft Calendar — the system automatically detects upcoming meetings. When a scheduled meeting begins, you click 'Join' from the Otter.ai dashboard, which opens your video conferencing platform (Google Meet, Teams, or Zoom) with Otter.ai recording simultaneously. The AI immediately begins transcribing speech in real-time, displaying text as people talk with automatic speaker identification showing who said what. During the 30-minute transcription session, you highlight key phrases by selecting text, add comments by clicking specific transcript sections, and assign action items directly within the conversation interface. You can pause and resume recording using dashboard controls or calendar integration buttons. The AI generates the transcript automatically, but you take control by editing speaker labels when the system misidentifies voices, correcting transcription errors in technical terms, and manually organizing the highlighted sections. After the meeting, you review the AI-generated summary, add photos for visual context through the upload feature, and share the workspace with team members who can collaborate on the same transcript.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Each conversation offers 30 minutes of transcription per session, but users need to manually start new sessions for longer meetings — requiring active monitoring rather than seamless continuous recording for extended discussions</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Automatic speaker identification works for distinct voices, but users report needing to manually correct speaker labels when multiple people have similar vocal patterns or when someone joins mid-conversation — adding a post-meeting cleanup step</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Real-time transcription displays immediately during meetings, but technical jargon and industry-specific terms often appear as incorrect text that requires manual editing passes to match the actual specialized vocabulary used</span></li></ul>
+    </div>
+    
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Record and transcribe our 45-minute product strategy meeting with 6 team members discussing Q4 roadmap priorities and budget allocation decisions</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">**Meeting Summary - Product Strategy Q4 Planning**
+
+**Participants:** Sarah Chen (Product Manager), Mike Rodriguez (Engineering Lead), Lisa Wang (Design), Tom Bradley (Marketing), Jennifer Kim (Sales), Alex Thompson (CEO)
+
+**Key Discussion Points:**
+- Q4 roadmap priorities focused on mobile app enhancement and API integration
+- Budget allocation: 60% engineering resources, 25% design, 15% marketing
+- Launch timeline moved from November to December due to compliance requirements
+
+**Action Items:**
+- Sarah: Finalize mobile wireframes by Oct 15
+- Mike: Assess API integration complexity by Oct 12
+- Tom: Draft go-to-market strategy by Oct 20
+
+**Transcript Excerpt:**
+Sarah: So for the mobile enhancement, we're looking at about three months development time
+Mike: Actually, I think it might be closer to four months given the backend work
+Lisa: The design phase alone will need six weeks minimum
+[Note: Some speaker identification errors occurred during overlapping conversations]</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">This example shows Otter.ai successfully captures meeting structure, identifies most speakers correctly, and generates useful summaries with action items. However, the 30-minute transcription limit per session means longer meetings require multiple recordings, and speaker identification becomes less reliable when multiple people talk simultaneously or speak briefly.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Otter.ai is an AI-powered transcription tool that converts speech to text in real time during meetings, interviews, and lectures, with automatic speaker identification and live captions that integrate directly into video conferencing platforms.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The tool works by recording audio and generating live transcriptions with speaker identification, then uses AI to create meeting summaries tailored to specific meeting types like sales calls, team meetings, or 1:1s. It offers bot-free recording through a desktop app, integrates with business tools like Salesforce, and includes an autonomous SDR Agent that can conduct product demos for website visitors without human intervention. The platform also features AI chat functionality for interacting with meeting data and recently became HIPAA compliant for healthcare use.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Otter.ai's design clearly targets business professionals, healthcare teams, sales organizations, and content creators who need structured documentation from conversations, but some users find the AI chat feature oversells its capabilities and doesn't deliver the editing assistance it promises. The tool works best for teams that have regular meetings requiring follow-up actions and summaries, while individual users seeking simple transcription might find the business-focused features unnecessary. Journalists particularly favor it for interview transcription, though the tool's strength lies more in meeting workflows than standalone recording tasks.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>11</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 11</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Best for journalists, educators, and business professionals who need real-time transcription with speaker identification for meetings and interviews — avoid if you need reliable API access or are sensitive to AI features that over-promise capabilities.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

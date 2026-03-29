@@ -1,35 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Glean — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glean — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Glean. 18+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>Glean</h1>
-<p>Glean is a company-wide AI platform that connects to all enterprise data sources to build comprehensive context across every system, learning from content, activity, and people to deliver relevant answers and automate workflows.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://www.glean.com/glean-vs-copilot" target="_blank">Try Tool</a>
-<a href="https://www.glean.com/pricing-guide" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Glean</span>
+        <span class="vdot vdot-l"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Low confidence</span>
+      </div>
+      <h1 class="tool-title">Glean</h1>
+      <p class="tool-tagline">Glean is a company-wide AI platform that connects to all enterprise data sources to build comprehensive context across every system, learning from content, activity, and people to deliver relevant answers and automate workflows.</p>
+      <div class="tool-actions">
+        <a href="https://www.glean.com/glean-vs-copilot" target="_blank" rel="noopener" class="btn btn-primary">Try Glean ↗</a>
+        <a href="https://www.glean.com/pricing-guide" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>18</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Worth it for enterprise teams that need unified search across Slack, Confluence, and email systems — avoid if you're looking for the discontinued GitHub data management tool or need advanced AI features like document upload.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Integrates with Slack, Confluence, and email systems to search across multiple company data sources simultaneously</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Provides chat functionality that can answer questions by drawing from connected organizational documentation and sources</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Built around three specific capabilities: Search, Assistant, and Agents for enterprise knowledge management</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>The GitHub version is explicitly discontinued and no longer maintained, creating potential confusion about which Glean product is being referenced</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Lacks advanced AI functionality like file and image upload capabilities that users specifically request</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Limited to enterprise use cases requiring integration with existing company systems rather than standalone functionality</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the provided sources, I cannot extract specific pricing information for Glean.</p>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">What the sources contain:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>A pricing guide URL (https://www.glean.com/pricing-guide) but no actual pricing details in the content</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Comparison information with Microsoft Copilot focusing on features and capabilities</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>General enterprise positioning information</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Missing pricing information:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No plan names or tier structures mentioned</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No specific prices (monthly or annual)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No details about free tiers</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No information about usage limits, seat counts, or credits</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise pricing structure not detailed</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources reference Glean as an enterprise AI platform with 100+ integrations and various enterprise features, but they do not contain the actual pricing structure, costs, or plan details needed to provide a complete pricing summary.</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">To get accurate Glean pricing information, the actual content from their pricing page would need to be provided, as the current sources only reference the URL without including the pricing details.</p><p style="margin-top:12px;"><a href="https://www.glean.com/pricing-guide" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Cross-platform search integration with Slack, Confluence, and email</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;We integrated Glean with Slack , confluence , emails etc to search the result across these sources and give the result. This help us in searching through the company data to get the relevant information.&rdquo; — <a href="https://web-v2.prod.trustradius.com/products/glean/reviews/all" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">web-v2.prod.trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Chat functionality that queries across integrated data sources</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;ask question via chat to get response from these sources&rdquo; — <a href="https://web-v2.prod.trustradius.com/products/glean/reviews/all" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">web-v2.prod.trustradius.com</a></div>
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Limited AI functionality compared to expectations</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;More advanced AI functionality&rdquo; — <a href="https://web-v2.prod.trustradius.com/products/glean/reviews/all" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">web-v2.prod.trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Cannot upload and process files or images</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Ability to upload file and images and read from that.&rdquo; — <a href="https://web-v2.prod.trustradius.com/products/glean/reviews/all" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">web-v2.prod.trustradius.com</a></div>
+</div>
+<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Limited user feedback available makes it difficult to identify clear disagreement patterns among users</div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise teams using Slack, Confluence, and email who need to search across multiple internal data sources simultaneously</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations with distributed knowledge across various apps and documents who need unified search capabilities</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Companies requiring AI-powered chat functionality to query their official documentation and internal communications</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Individual users or small teams seeking basic search tools, as Glean is designed as an enterprise Work AI platform</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations needing file upload and image reading capabilities, as reviewers specifically noted this as missing functionality</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams wanting a simple, single-source search solution, since Glean's value depends on integrating multiple data sources</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You start your workday needing to find GitLab's policy on expense approvals. Instead of opening multiple tabs across Slack, Google Drive, the handbook, and Salesforce, you open Glean and type 'expense approval policy for travel over $500.' Glean searches across all connected systems simultaneously — GitLab handbooks, Salesforce records, Slack conversations, and Google Drive documents — but only shows you information you already have access to in each system. The AI summarizes the policy from multiple sources into a concise answer, then provides clickable links back to the original documents so you can verify details. When you need to understand why a customer deal stalled, you ask 'customer objections Q4 Enterprise deals' and Glean pulls from Gong call recordings, Salesforce opportunity notes, and Slack discussions, combining them into a single response rather than forcing you to hunt across three separate tools. You spend the rest of your session clicking through to the original sources to take action — updating the Salesforce record, following up in Slack, or scheduling the next call — because Glean shows you where information lives but doesn't replace the actual work tools.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Natural language queries work well for straightforward information retrieval like 'Q4 sales targets', but GitLab users report the AI sometimes combines conflicting information from different sources without clearly flagging disagreements — requiring manual verification across multiple original documents to determine which version is current</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Glean connects to high-value systems like Salesforce, Gong, and Google Workspace with proper access controls intact, but enterprises switching from Glean cite 'rigid architecture' and 'long rollouts' as reasons for moving to competitors like GoSearch that offer more flexible LLM support and faster implementation</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The platform eliminates the multi-hour weekly searches GitLab team members previously did across fragmented tools, but it indexes content following each underlying tool's retention policies — so Gong data disappears after approximately 365 days, potentially breaking historical context in your search results</span></li></ul>
+    </div>
+    
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I need to find information about GitLab's remote work policy for new hires, but I'm not sure if it's in the handbook, Slack discussions, or maybe mentioned in recent Gong calls with HR</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Based on your search across GitLab's systems, here are the most relevant results:
+
+**GitLab Handbook - Remote Work Guidelines** (handbook.gitlab.com)
+- All positions at GitLab are remote-first by default
+- New hires receive remote work setup stipend of $1,500
+- Requires home office setup meeting security requirements
+
+**Recent Slack Discussion in #people-connect** (3 days ago)
+- HR clarified that new international hires need to complete tax documentation before equipment shipment
+- Timeline: 2-3 weeks for full remote setup completion
+
+**Gong Call - Talent Acquisition Meeting** (Last Tuesday)
+- Discussion about updating onboarding timeline to account for remote setup delays
+- Mention of new async onboarding modules launching Q2
+
+Sources: GitLab Handbook (Remote Work section), Slack #people-connect, Gong recording TAL-2024-0312</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">This example shows Glean's strength in connecting information across multiple enterprise systems that GitLab actually uses. The output provides specific, actionable information with clear source attribution, demonstrating how it reduces the &quot;multiple hours per week searching across tools&quot; problem GitLab reported. However, users still need to verify currency of information and may need to click through to original sources for complete context.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Glean is a company-wide AI platform that connects to all enterprise data sources to build comprehensive context across every system, learning from content, activity, and people to deliver relevant answers and automate workflows. Unlike tools embedded within specific applications, Glean operates as an ecosystem-agnostic platform that unifies information from hundreds of enterprise tools including Google Drive, Slack, Confluence, Jira, Zendesk, and Salesforce through pre-built connectors.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The platform works by maintaining permission-aware integrations that enforce access controls end-to-end while building enterprise context from connected systems. It offers native search and chat capabilities that can be embedded directly into tools like Microsoft Teams, allowing employees to ask questions and receive source-backed, AI-generated answers without switching applications. Glean also provides agents and a library of 100+ actions for running cross-stack automations that can retrieve, reason over, and execute workflows on company data across multiple platforms simultaneously.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Glean's design heavily favors organizations with complex, multi-vendor technology stacks who need to surface information scattered across numerous systems. Companies already deeply embedded in single ecosystems like Microsoft 365 may find less value, since tools like Microsoft Copilot already handle in-app assistance for those environments. The platform appears most beneficial for enterprises struggling with information silos and teams that regularly need to cross-reference data from different departments or systems, though the extensive integration setup likely requires significant IT involvement to implement effectively.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>18</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 18</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Worth it for enterprise teams that need unified search across Slack, Confluence, and email systems — avoid if you're looking for the discontinued GitHub data management tool or need advanced AI features like document upload.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

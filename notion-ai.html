@@ -1,35 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Notion AI — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notion AI — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Notion AI. 17+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>Notion AI</h1>
-<p>Notion AI is an intelligent writing assistant built directly into Notion's workspace platform that generates content, summarizes text, and automates database tasks without requiring users to leave their existing Notion setup.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://www.notion.com/pricing" target="_blank">Try Tool</a>
-<a href="https://news.ycombinator.com/item?id=33623201" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Notion AI</span>
+        <span class="vdot vdot-m"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Medium confidence</span>
+      </div>
+      <h1 class="tool-title">Notion AI</h1>
+      <p class="tool-tagline">Notion AI is an intelligent writing assistant built directly into Notion's workspace platform that generates content, summarizes text, and automates database tasks without requiring users to leave their existing Notion setup.</p>
+      <div class="tool-actions">
+        <a href="https://www.notion.com/pricing" target="_blank" rel="noopener" class="btn btn-primary">Try Notion AI ↗</a>
+        <a href="https://news.ycombinator.com/item?id=33623201" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>17</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Worth it for teams already embedded in Notion who need AI assistance without switching tools - not worth it for users frustrated by slow responses or who need reliable offline AI access.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Lives directly inside your existing Notion workspace, contextualizing tasks using your actual content rather than requiring copy-paste to external AI tools</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Offers both individual ($10/month per user) and team pricing plans with viewers and editors accessing AI features without separate charges</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Introduced 2025 upgrades including meeting summarization, automated research, and email writing specifically tailored to business workflows</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Delivers slow AI responses that frustrate users who have built workflows around Notion</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Provides limited offline access, creating dependency on internet connectivity for AI features</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Suffers from excessive flexibility that becomes 'almost too flexible' - users report it quickly becomes 'a wild hub of different dashboards, pages, templates' that requires pairing back usage</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the sources provided, here is Notion AI's pricing structure:</p>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Free Plan: $0/month</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Trial AI capabilities (generating docs, autofilling databases)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Trial of Notion AI features</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>For individuals organizing personal projects</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Plus Plan: $10/month per member</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Trial AI capabilities (generating docs, autofilling databases)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Trial of Notion AI features</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>For small teams and professionals</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Business Plan: $20/month per member (Recommended)</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Full Notion Agent access - completes complex, multi-step tasks using context from Notion, connected apps, and the web</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>AI Meeting Notes with automated note-taking and follow-ups</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise Search Beta across connected apps like Slack and GitHub</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>For growing businesses</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Enterprise Plan</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Pricing not specified in sources</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Includes SAML SSO and enterprise-level access management</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources do not provide:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Annual pricing discounts</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Specific usage limits for AI features (credits, words, requests per month)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Exact differences between "trial" AI capabilities in Free/Plus vs full access in Business</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise plan pricing</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Whether AI features require separate add-on costs beyond the base plan prices</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The pricing appears to bundle AI capabilities within broader Notion workspace plans rather than offering AI as a standalone service with specific usage quotas.</p><p style="margin-top:12px;"><a href="https://news.ycombinator.com/item?id=33623201" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Integrated workspace AI that contextualizes tasks using actual content</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Unlike standalone tools like ChatGPT, Notion AI lives inside your workspace, contextualizing tasks using your actual content&rdquo; — <a href="https://www.taskfoundry.com/2025/06/notion-ai-review-2025-productivity-workflow.html" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">taskfoundry.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Drag and drop content editing experience</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Drag and drop experience&rdquo; — <a href="https://www.trustradius.com/products/notion/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Effective centralized documentation and SOP management</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Its easy for the team to create and update this content while maintaining a consistent look and feel. The content is also easily searchable&rdquo; — <a href="https://www.trustradius.com/products/notion/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Slow AI response times</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;slow AI responses&rdquo; — <a href="https://computertech.co/notion-ai-alternatives/" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">computertech.co</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Limited offline access capabilities</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;limited offline access&rdquo; — <a href="https://computertech.co/notion-ai-alternatives/" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">computertech.co</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Excessive flexibility creating organizational chaos</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;It's almost too flexible at times... it quickly became a wild hub of different dashboards, pages, templates, etc.&rdquo; — <a href="https://www.trustradius.com/products/notion/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Users split between appreciating Notion's flexibility for customization versus finding it creates too much organizational complexity</div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams who already use Notion heavily and want AI assistance without switching platforms - Notion AI integrates directly into existing Notion workspaces and can contextualize tasks using your actual content</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations managing internal wikis and standard operating procedures - sources show companies like BistroBee successfully use Notion as a centralized hub for SOPs with easy team editing capabilities</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams needing AI for meeting summaries, research automation, and email writing within their existing documentation workflow - 2025 updates specifically target business workflows and team collaboration</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams frustrated with slow AI responses - sources specifically mention 'slow AI responses' as a reason people switch away from Notion AI</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Users who need robust offline access - sources cite 'limited offline access' as a key limitation driving people to seek alternatives</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations wanting a simple, focused tool - one company found Notion 'almost too flexible' and had to pair back usage because it became 'a wild hub of different dashboards, pages, templates'</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">Workflow detail limited — see official documentation for Notion AI.</div>
+    </div>
+    
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Create a marketing campaign database with tasks for 3 blog posts, 15 social posts, and 2 emails for our upcoming fall launches. Include columns for owner, due date, and status. Add timeline and board views.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I've created your marketing campaign database with the following structure:
+
+**Properties:**
+- Task Name (Title)
+- Task Type (Select: Blog Post, Social Post, Email)
+- Owner (Person)
+- Due Date (Date)
+- Status (Select: Not Started, In Progress, Review, Complete)
+- Priority (Select: High, Medium, Low)
+- Campaign (Select: Fall Launch)
+
+**Tasks Created:**
+Blog Posts:
+- &quot;Fall Product Launch Overview&quot; - Due Oct 15
+- &quot;Customer Success Stories with New Features&quot; - Due Oct 22
+- &quot;Behind the Scenes: Development Journey&quot; - Due Oct 29
+
+Social Posts:
+- 5 Instagram posts for product teasers
+- 5 LinkedIn posts for professional audience
+- 5 Twitter posts for quick updates
+
+Emails:
+- &quot;Early Access: Fall Launch Preview&quot; - Due Oct 10
+- &quot;Now Available: Full Fall Collection&quot; - Due Oct 30
+
+**Views Added:**
+- Timeline view showing all tasks chronologically
+- Board view organized by status
+- List view for quick editing
+
+All tasks are set to &quot;Not Started&quot; status. You can now assign owners and adjust dates as needed.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">This example shows Notion AI's strength in quickly building structured databases with logical properties and realistic content, demonstrating its integration with Notion's native features like views and task organization. However, the output would likely need manual refinement of specific dates, more detailed task descriptions, and proper owner assignments to match actual team workflows.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Notion AI is an intelligent writing assistant built directly into Notion's workspace platform that generates content, summarizes text, and automates database tasks without requiring users to leave their existing Notion setup.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The AI operates through contextual prompts within Notion pages and databases, offering features like document generation, text summarization, idea brainstorming, language translation, and database autofilling. It works by analyzing existing content in your Notion workspace and can complete multi-step tasks using context from connected apps and web data through features like Notion Agent in higher-tier plans. Users access these capabilities through trial versions in the free plan, with full functionality requiring paid subscriptions starting at $10 per month for Plus users.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Notion AI is designed for users already invested in Notion's ecosystem who want to enhance their existing workflows rather than learn new tools. It benefits teams and individuals who rely heavily on Notion for documentation, project management, and knowledge organization, but it won't appeal to users seeking standalone AI writing tools or those frustrated with Notion's slower response times and limited offline access. The integration approach means you get convenience if you're a Notion power user, but you're also locked into Notion's interface and limitations.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>17</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 17</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Worth it for teams already embedded in Notion who need AI assistance without switching tools - not worth it for users frustrated by slow responses or who need reliable offline AI access.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

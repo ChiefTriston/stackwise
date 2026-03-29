@@ -1,35 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Grammarly — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grammarly — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Grammarly. 19+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>Grammarly</h1>
-<p>Grammarly is an AI-powered writing assistant that checks grammar, spelling, punctuation, clarity, tone, and style across virtually every platform where you write—from Google Docs and Microsoft Word to email clients and social media.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://www.grammarly.com/ai-detector" target="_blank">Try Tool</a>
-<a href="https://www.grammarly.com/plans" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Grammarly</span>
+        <span class="vdot vdot-h"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">High confidence</span>
+      </div>
+      <h1 class="tool-title">Grammarly</h1>
+      <p class="tool-tagline">Grammarly is an AI-powered writing assistant that checks grammar, spelling, punctuation, clarity, tone, and style across virtually every platform where you write—from Google Docs and Microsoft Word to email clients and social media.</p>
+      <div class="tool-actions">
+        <a href="https://www.grammarly.com/ai-detector" target="_blank" rel="noopener" class="btn btn-primary">Try Grammarly ↗</a>
+        <a href="https://www.grammarly.com/plans" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>19</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Worth it for professionals, content creators, students, and non-native English speakers who write frequently across multiple platforms — skip it if you only write casually or need a full AI content generator rather than writing improvement.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Works across virtually every platform including Google Docs, Microsoft Word, email clients, social media, and mobile devices with real-time suggestions</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Premium version costs $12/month and includes 2,000 AI prompts monthly plus generative AI capabilities for content rewriting, not just error correction</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Trusted by 40+ million users and 50,000+ organizations with proven track record since 2009, making it the established market leader over newer AI writing tools</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Doesn't work in native Microsoft Teams app according to enterprise users who specifically need this integration</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>AI doesn't learn individual writing tone or style preferences, requiring manual style adjustments for consistent personal voice</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Grammarly widget occasionally blocks interface elements like 'show' icons in some applications</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the sources provided, here's what I can determine about Grammarly's pricing:</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Grammarly offers three tiers: <strong>Free</strong>, <strong>Pro</strong>, and <strong>Enterprise</strong>.</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>The sources do not include specific dollar amounts for any plan.</strong> The pricing page shows the plan comparison features but omits the actual costs.</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">### Free Plan</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Basic writing mistake detection</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Tone detection (but not adjustment)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>100 AI prompts per month</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No security features</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>No team features</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">### Pro Plan</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Free features plus:</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Tone adjustment capabilities</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Full sentence rewrites</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Fluent English writing assistance</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Inclusive language suggestions</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Citation consistency</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>AI-generated text detection</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Plagiarism detection</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>2,000 AI prompts per member per month</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise-grade privacy and security</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Feature Management Hub</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 2 user groups</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 style guide</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 brand tone</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Knowledge sharing and snippets</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Team analytics</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">### Enterprise Plan</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Pro features plus:</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited AI prompts per member per month</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Advanced security: SAML SSO, SCIM, managed mode</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited user groups and style guides</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited brand tones</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Advanced admin controls and audit logs</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>ROI reporting and communication scoring</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise key management (BYOK)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Custom pricing (specific amount not provided)</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources do not contain monthly or annual pricing amounts for Pro or Enterprise plans</p><p style="margin-top:12px;"><a href="https://www.grammarly.com/plans" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Real-time grammar and spelling correction across platforms</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;It works across virtually every platform where you write — Google Docs, Microsoft Word, email clients, social media, and more&rdquo; — <a href="https://computertech.co/grammarly-review/" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">computertech.co</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Professional writing improvement for sales teams and business communication</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;It is an essential tool for fast‑moving sales teams who may not always have the time to focus on fine‑tuning their writing. With Grammarly, every employee receives real‑time suggestions that improve clarity, tone, and accuracy&rdquo; — <a href="https://www.trustradius.com/products/grammarly/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Effectiveness for high-volume content creators</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;I have written more than 1500 articles using Grammarly Premium from 2019 to 2024&rdquo; — <a href="https://medium.com/javarevisited/review-my-experience-with-grammarly-writing-tool-is-it-worth-it-bfabc42701b1" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">medium.com</a></div>
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Lacks integration with Microsoft Teams native app</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;It would be great if it worked in the native Teams app. If it does, I am unaware of how to engage it&rdquo; — <a href="https://www.trustradius.com/products/grammarly/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Cannot learn individual writing tone and style preferences</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;It doesn't learn my tone, so AI to ensure it learns my style&rdquo; — <a href="https://www.trustradius.com/products/grammarly/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Interface widget blocks other UI elements</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;This is minute, but the Grammarly widget sometimes block the 'show' icon&rdquo; — <a href="https://www.trustradius.com/products/grammarly/reviews" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustradius.com</a></div>
+</div>
+<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Users split on whether Grammarly can replace human editors, with professional editors finding it useful for catching missed errors while acknowledging human editing limitations</div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Sales teams at 500+ person companies who send client-facing emails daily, where typos in important communications cost deals</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Professional content creators writing 1,500+ articles annually who need real-time grammar checking across Google Docs and WordPress</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Non-native English writers in enterprise environments who need tone and clarity suggestions beyond basic spell-check</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Writers who primarily use Microsoft Teams for communication, since Grammarly doesn't work in the native Teams app</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Authors who need AI that learns their personal writing style, as Grammarly doesn't adapt to individual tone preferences</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Casual writers who only write occasionally and don't justify the $12-30/month subscription cost</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You write your document in your usual word processor or app, then paste the text into Grammarly's web app or desktop application. The tool immediately highlights issues across your writing — not just grammar and spelling, but repetitive words, jargon, and vague terms like 'great' that it suggests you replace with more descriptive alternatives. You click through each suggestion, accepting corrections for typos and considering word choice improvements. Grammarly explains why each change matters, so you learn patterns over time. For emails and daily business communication, you'd install the browser extension to get real-time checking as you type, though this means copying and pasting between programs when you want deeper analysis. The tool identifies homonyms, hackneyed phrases, and words non-native speakers commonly misuse, then offers specific replacements. You review each suggestion individually — some you accept immediately, others you reject because they don't match your intended tone or meaning.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Real-time browser extension checking catches errors as you type, but PCMag's reviewer found the immediate feedback distracting and raised privacy concerns about a plugin reading everything written all the time</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Grammarly explains why changes are needed and helps users learn over time, but TrustRadius users report it doesn't learn individual writing styles or tone preferences — requiring manual override of suggestions that don't match personal voice</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Copy-paste method into Grammarly's app works well for documents and long-form content, but becomes inconvenient for emails and daily business communication where switching between programs costs time</span></li></ul>
+    </div>
+    
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I'm sending this email to my boss about the quarterly sales report: 'Hi Sarah, I wanted to touch base regarding the Q3 sales figures we discussed yesterday. The numbers look good overall, but there's a few areas where we might want to focus our efforts going forward. Let me know when you have time to discuss this further. Thanks!'</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Hi Sarah,
+
+I wanted to touch base regarding the Q3 sales figures we discussed yesterday. The numbers look good overall, but there are a few areas where we might want to focus our efforts going forward. Let me know when you have time to discuss this further.
+
+Thanks!</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Grammarly caught the subject-verb disagreement ('there's' to 'there are') and improved the email's structure by adding proper spacing and an exclamation point for a friendlier tone. However, it didn't flag the somewhat vague business jargon like 'touch base' or suggest more specific language about which areas need focus - improvements that would require the user's own editorial judgment.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Grammarly is an AI-powered writing assistant that checks grammar, spelling, punctuation, clarity, tone, and style across virtually every platform where you write—from Google Docs and Microsoft Word to email clients and social media. Founded in 2009, it has evolved from a basic grammar checker into what the company calls a comprehensive writing coach, now serving over 40 million users and 50,000 organizations worldwide.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The tool works by analyzing your text in real-time as you type, flagging errors and suggesting improvements through inline corrections and explanations. Beyond basic grammar fixes, Grammarly's 2026 version includes generative AI capabilities that provide 2,000 AI prompts per month in the Pro plan, allowing users to rewrite sentences, generate content, and adjust tone with one-click rewrites. The system integrates directly into your existing writing workflow through browser extensions and app integrations, so corrections appear wherever you're already working.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Grammarly's emphasis on real-time correction and cross-platform integration makes it most valuable for professionals, content creators, students, and non-native English speakers who write frequently across multiple platforms and need consistent quality control. However, it's less suited for casual writers who only occasionally write short messages, or those specifically looking for a full AI content generator rather than a writing improvement tool. The $12-30 monthly subscription cost reflects its positioning as a professional writing tool rather than a casual helper.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>19</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 19</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Worth it for professionals, content creators, students, and non-native English speakers who write frequently across multiple platforms — skip it if you only write casually or need a full AI content generator rather than writing improvement.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

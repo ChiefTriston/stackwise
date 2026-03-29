@@ -1,37 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>LangChain — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LangChain — Stackwise</title>
+  <meta name="description" content="Evidence-based review of LangChain. 16+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="tool-page">
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
 
-<h1>LangChain</h1>
-<p>**What LangChain Is**
+<div class="tool-page">
+  <div class="container-narrow">
+
+    <a href="index.html" class="back-link">← All tools</a>
+
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">LangChain</span>
+        <span class="vdot vdot-l"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Low confidence</span>
+      </div>
+      <h1 class="tool-title">LangChain</h1>
+      <p class="tool-tagline">**What LangChain Is**
 
 LangChain is a development framework that helps engineers build applications powered by large language models, with a particular focus on creating multi-step AI agents that can use tools, retrieve documents, and perform complex reasoning workflows.</p>
+      <div class="tool-actions">
+        <a href="https://www.langchain.com/articles/llm-observability-tools" target="_blank" rel="noopener" class="btn btn-primary">Try LangChain ↗</a>
+        <a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>16</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
 
-<div class="actions">
-<a href="https://www.langchain.com/articles/llm-observability-tools" target="_blank">Try Tool</a>
-<a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Insufficient data from available sources to make a reliable purchasing recommendation — need comprehensive reviews, documentation, and performance comparisons to evaluate LangChain properly.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Has 1000+ integrations covering AI services, databases, and tool categories according to GitHub discussions</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Described as 'the default orchestration framework for production AI agents' in developer community requests</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Supports extensible architecture allowing new chat model providers like HPC-AI through partner packages under libs/partners/</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Lacks native payment execution primitives for agents consuming paid APIs, forcing developers to either hardcode API keys or pre-authorize unlimited spend</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>No built-in spend governance or audit trail for production agents, creating risk of budget exhaustion from malicious prompts or infinite loops</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Missing support for x402 HTTP payment protocol despite its 75M+ transactions on Base mainnet and growing ecosystem adoption</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the LangSmith pricing page, here are the specific pricing details:</p>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Developer Plan - $0/seat per month</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 5,000 base traces per month included, then pay-as-you-go</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 Fleet agent included</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 50 Fleet runs per month</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 seat maximum</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Community support only</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Access to tracing, online/offline evaluations, Prompt Hub, Playground, Canvas, annotation queues, and monitoring</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Plus Plan - $39/seat per month</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 10,000 base traces per month included, then pay-as-you-go</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>1 dev-sized agent deployment included</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited Fleet agents</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 500 Fleet runs per month, then pay-as-you-go</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Unlimited seats available</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Up to 3 workspaces</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Email support</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Developer plan features</span></li>
+</ul>
+<p style="font-size:13px; font-weight:500; color:var(--text); margin:14px 0 6px;">Enterprise Plan - Custom pricing</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Contact sales required</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Custom SSO and RBAC</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Alternative hosting options (hybrid and self-hosted)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Access to deployed engineering team</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Support SLA</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Team training and architectural guidance</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Custom seats, workspaces, and Fleet packages</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>All Plus plan features</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources don't specify:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Annual pricing discounts</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Exact pay-as-you-go rates after base trace limits</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Specific costs for additional Fleet runs beyond included amounts</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Details about startup discount rates mentioned for VC-backed companies</span></li>
+</ul><p style="margin-top:12px;"><a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Extensive integration ecosystem coverage</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;LangChain has become the default orchestration framework for production AI agents, with integrations covering virtually every AI service, database, and tool category&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Production AI agent orchestration capabilities</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;LangChain Has 1000+ Integrations&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Missing payment execution layer for paid API consumption</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;One critical gap remains: a payment execution primitive for agents consuming paid APIs&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Lack of spend governance and audit trails for API usage</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Today, developers handle this one of two ways: Hardcode API keys in tool implementations — no spend governance, no audit trail, no human approval flow&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Production safety risks with unlimited API spending</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;An agent that goes into a loop or is prompted maliciously can exhaust API budgets in minutes&rdquo; — <a href="https://github.com/langchain-ai/langchain/issues/36306" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">github.com</a></div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>AI developers building production RAG applications who need proven framework performance - LangChain achieved 100% accuracy on standardized RAG benchmarks alongside LangGraph, LlamaIndex, Haystack, and DSPy</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise teams requiring extensive third-party integrations - LangChain provides 1000+ integrations covering AI services, databases, and tool categories, making it the default orchestration framework for production AI agents</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Development teams building agentic workflows who prioritize ecosystem maturity over token efficiency - while benchmarks show LangChain has higher token overhead compared to alternatives, it offers the broadest integration ecosystem</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Cost-sensitive applications prioritizing token efficiency - benchmarks reveal LangChain has measurable token overhead compared to alternatives like Mem0, which reduces token costs by 80%</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams requiring built-in payment execution for paid APIs - LangChain lacks native payment primitives, forcing developers to either hardcode API keys without spend governance or pre-authorize unlimited spend with no guardrails</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Developers seeking memory-optimized LLM applications - alternatives like Mem0 demonstrate 26% higher response quality while using 90% fewer tokens compared to standard implementations</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You start by importing LangChain's core components and initializing your LLM connection — typically OpenAI's chat model with your API key loaded from environment variables. Next, you define your data structures using Pydantic schemas to ensure the AI returns structured JSON responses rather than free text. You then craft prompt templates that include format instructions, which LangChain automatically injects so the model knows exactly what JSON structure to output. The magic happens when you build chains using RunnableBranch for conditional logic — you create multiple execution paths where the AI's intermediate output (like sentiment classification returning 'positive' or 'negative') determines which response generation path runs next. You test your chain by feeding it sample inputs, watching it flow through sentiment analysis, then branch into personalized response generation. When debugging, you examine each step's output to see where the chain breaks or produces unexpected results. The AI handles the classification and text generation automatically, but you control the business logic through the branching conditions and prompt engineering.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>RunnableBranch enables elegant conditional chains that route based on AI outputs like sentiment classification, but users must manually structure their Pydantic schemas and prompt templates to get reliable JSON responses — requiring careful prompt engineering to prevent the model from outputting malformed data that breaks the chain</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>LangChain's modular architecture with separate packages (langchain-core, langchain, langchain-community) provides clean separation of concerns, but users report dependency management issues when Google deprecates underlying SDKs like @google/generative-ai, forcing developers to manually import deprecated packages just to access basic enums like TaskType</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The framework simplifies complex LLM orchestration through chains and agents, but developers must understand the execution flow deeply enough to debug multi-step processes where intermediate AI outputs can cause downstream failures in ways that aren't immediately obvious from error messages</span></li></ul>
+    </div>
+    
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">06</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">**What LangChain Is**</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">LangChain is a development framework that helps engineers build applications powered by large language models, with a particular focus on creating multi-step AI agents that can use tools, retrieve documents, and perform complex reasoning workflows.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">**How It Works**</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The framework provides tracing capabilities that give developers visibility into every step of agent workflows, including tool calls, retrieved documents, and intermediate reasoning processes. LangChain's observability platform, LangSmith, allows subject matter experts to review specific runs, rate output quality, and provide domain-specific feedback that engineering teams can turn into structured evaluation datasets. Rather than just catching obvious technical errors, the system is designed to surface cases where outputs are technically valid but wrong for specific use cases, creating feedback loops between production monitoring and development.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>16</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 16</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Insufficient data from available sources to make a reliable purchasing recommendation — need comprehensive reviews, documentation, and performance comparisons to evaluate LangChain properly.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

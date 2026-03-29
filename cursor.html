@@ -1,35 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cursor — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Cursor. 18+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>Cursor</h1>
-<p>Cursor is an AI-powered code editor that lets product managers and developers build working prototypes and modify codebases through natural language prompts, with integrated agents that can write, modify, and debug code across thousands of files automatically.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://cursor.com/for/product-managers" target="_blank">Try Tool</a>
-<a href="https://news.ycombinator.com/item?id=43351137" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Cursor</span>
+        <span class="vdot vdot-l"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Low confidence</span>
+      </div>
+      <h1 class="tool-title">Cursor</h1>
+      <p class="tool-tagline">Cursor is an AI-powered code editor that lets product managers and developers build working prototypes and modify codebases through natural language prompts, with integrated agents that can write, modify, and debug code across thousands of files automatically.</p>
+      <div class="tool-actions">
+        <a href="https://cursor.com/for/product-managers" target="_blank" rel="noopener" class="btn btn-primary">Try Cursor ↗</a>
+        <a href="https://news.ycombinator.com/item?id=43351137" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>18</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Skip Cursor until more independent verification emerges — the Nvidia productivity claims lack third-party validation, and the combination of UI instability and misleading marketing suggests the tool isn't ready for professional development workflows.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Nvidia engineers reportedly commit 3x more code with Cursor integration according to internal company claims</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Maintained flat defect rates despite increased code output at Nvidia per company reports</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Contributed to development of DLSS 4 and smaller GPU die sizes in Nvidia's AI-assisted workflows</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>CEO Michael Truell misrepresented a barely-functional browser demo as 'building a browser with GPT-5.2' when it barely compiles and often doesn't run</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>UI and menus change unexpectedly every time the application is closed and reopened according to user reports</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Marketing claims about AI capabilities don't match actual developer testing results on GitHub</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Based on the provided sources, I cannot extract any specific pricing information for Cursor. The sources discuss:</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">1. A user experience with Cursor's AI features and different command modes (inline vs agent)</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">2. Product manager use cases and features like Plan Mode, Ask mode, and prototyping capabilities</p>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Neither source contains information about:</p>
+<ul style="list-style:none; padding:0; margin:0 0 10px;">
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Plan names or pricing tiers</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Monthly or annual subscription costs</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Free tier availability or limits</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Usage limits (minutes, credits, seats, etc.)</span></li>
+<li style="font-size:13px; color:var(--text2); padding:5px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Enterprise or custom pricing options</span></li>
+</ul>
+<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">The sources focus entirely on functionality and user experiences rather than pricing structure. To provide accurate pricing information for Cursor, additional sources containing their pricing page or subscription details would be needed.</p><p style="margin-top:12px;"><a href="https://news.ycombinator.com/item?id=43351137" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Code output volume increase at enterprise scale</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;more than 30,000 engineers now rely on this setup, with internal claims pointing to three times higher code output than previous processes&rdquo; — <a href="https://www.techradar.com/pro/cursor-claims-more-than-30-000-nvidia-engineers-commit-3x-more-code-and-make-coding-a-lot-more-fun-than-it-used-to-be-but-is-it-too-good-to-be-true" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">techradar.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Defect rate maintenance despite increased output</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Nvidia maintains that defect rates stayed flat despite the reported surge in output&rdquo; — <a href="https://www.techradar.com/pro/cursor-claims-more-than-30-000-nvidia-engineers-commit-3x-more-code-and-make-coding-a-lot-more-fun-than-it-used-to-be-but-is-it-too-good-to-be-true" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">techradar.com</a></div>
+</div>
+<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Unstable UI that changes between sessions</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;The UI and menu's kept changing every time I closed and reopene&rdquo; — <a href="https://www.trustpilot.com/review/cursor.com" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustpilot.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Misleading marketing claims about AI capabilities</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Developers quickly discovered the 'browser' barely compiles, often does not run, and was heavily misrepresented in marketing&rdquo; — <a href="https://www.theregister.com/2026/01/26/cursor_opinion/" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">theregister.com</a></div>
+</div>
+<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
+  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Poor overall user experience despite AI integration claims</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;just a poor experience overall&rdquo; — <a href="https://www.trustpilot.com/review/cursor.com" target="_blank" rel="noopener" style="color:var(--text3); text-decoration:underline; text-decoration-color:var(--border2);">trustpilot.com</a></div>
+</div>
+<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
+  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Users disagree on whether Cursor's AI integration delivers meaningful productivity gains versus creating an unstable, overhyped development environment.</div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Large engineering teams at companies like Nvidia with 30,000+ developers who can absorb the overhead of managing UI inconsistencies in exchange for 3x code output increases</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Developers working on experimental projects who can tolerate semi-functional results, as evidenced by Cursor's AI agents producing 3 million lines of code for a barely-compiling browser prototype</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams building AI-assisted workflows for products like DLSS 4 where rapid code generation matters more than immediate stability</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Solo developers or small teams who need consistent, stable UI experiences, since users report menus and UI elements changing every time the application is closed and reopened</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Production-critical projects requiring reliable, working code from the start, given that Cursor's showcase browser project 'barely compiles' and 'often does not run' despite 3 million lines of generated code</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Developers who prioritize code quality over quantity, since the tool focuses on high-volume output rather than functional results, as shown by their week-long browser experiment producing mostly non-working code</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You open Cursor like VS Code, but immediately notice the AI chat panel. When debugging a stubborn error, you select the problematic code and ask Cursor to explain what's wrong. It suggests three potential fixes with confident explanations. You implement the first suggestion, but it doesn't work — this happens about half the time during debugging sessions. You try the second fix, which works. As you continue coding, you use '@' to tag relevant files like '@routes/api.js @models/user.js' then describe what you want: 'Create a user registration endpoint that validates input.' Cursor generates the complete function. You review it line by line, accepting most but rejecting about a third of the suggestions that don't fit your specific use case. After two or three back-and-forth exchanges in the same chat thread, you notice Cursor's suggestions becoming less precise and more generic. You start a new thread to reset its focus. Throughout the session, you never open Stack Overflow or Google — everything stays within Cursor's interface, making your workflow noticeably faster despite the constant need to validate AI output.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Cursor handles recent frameworks like Streamlit, Langgraph, and CrewAI surprisingly well, but it hallucinates with disconcerting confidence — users report accepting bad suggestions because the AI sounds so certain, requiring you to maintain skeptical distance and reject about one-third of all generated code</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The '@' file tagging and Composer mode work excellently for structured requests across multiple files, but longer conversation threads degrade quickly — after 2-3 exchanges, suggestions become questionable and you must start new threads to maintain quality</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Cursor eliminates Stack Overflow searches and dramatically speeds up initial coding, but during debugging it iterates through the same few solution paths repeatedly, and when none work, it loops back to suggesting the same failed approaches, sometimes turning codebases into spaghetti without solving the original problem</span></li></ul>
+    </div>
+    
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">06</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">Cursor is an AI-powered code editor that lets product managers and developers build working prototypes and modify codebases through natural language prompts, with integrated agents that can write, modify, and debug code across thousands of files automatically.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The core mechanism centers on two main features: an agent system that builds working code from text descriptions and shows results in an integrated browser within seconds, and Plan Mode (activated with Cmd+Shift+P) that researches your existing codebase, identifies relevant files and patterns, then generates a structured markdown plan with specific file paths and tasks before writing code. Cursor also includes Ask mode for querying codebases directly and integrates with tools like Jira, Notion, and Figma to consolidate workflows.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">This design heavily favors product managers who need to prototype concepts quickly for stakeholder buy-in and developers working on established codebases where the AI can learn from existing patterns. Nvidia reports their 30,000+ engineers commit three times more code using Cursor, though the tool's marketing often oversells capabilities—their recent claim about building a &quot;working web browser&quot; turned out to be a barely-functional prototype that often wouldn't compile. The tool works best for rapid prototyping and iterating on existing code, but struggles with complex, from-scratch development projects.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>18</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 18</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Skip Cursor until more independent verification emerges — the Nvidia productivity claims lack third-party validation, and the combination of UI instability and misleading marketing suggests the tool isn't ready for professional development workflows.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>

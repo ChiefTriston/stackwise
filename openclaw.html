@@ -1,35 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OpenClaw — Stackwise</title>
-<link rel="stylesheet" href="main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenClaw — Stackwise</title>
+  <meta name="description" content="Evidence-based review of OpenClaw. 19+ sources reviewed. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
 </head>
-
 <body>
 
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
 <div class="tool-page">
+  <div class="container-narrow">
 
-<h1>OpenClaw</h1>
-<p>OpenClaw is an open-source AI assistant that runs locally on your computer and executes tasks directly on your system—it can control your keyboard, mouse, run terminal commands, access files, and manage processes as if it were a person sitting at your desk.</p>
+    <a href="index.html" class="back-link">← All tools</a>
 
-<div class="actions">
-<a href="https://openclaw.ai/shoutouts" target="_blank">Try Tool</a>
-<a href="https://news.ycombinator.com/item?id=46931805" target="_blank" rel="noopener" class="btn btn-ghost">View pricing ↗</a>
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">OpenClaw</span>
+        <span class="vdot vdot-m"></span>
+        <span style="font-size:12px; color:var(--text3); font-family:'DM Mono',monospace;">Medium confidence</span>
+      </div>
+      <h1 class="tool-title">OpenClaw</h1>
+      <p class="tool-tagline">OpenClaw is an open-source AI assistant that runs locally on your computer and executes tasks directly on your system—it can control your keyboard, mouse, run terminal commands, access files, and manage processes as if it were a person sitting at your desk.</p>
+      <div class="tool-actions">
+        <a href="https://openclaw.ai/shoutouts" target="_blank" rel="noopener" class="btn btn-primary">Try OpenClaw ↗</a>
+        <a href="https://news.ycombinator.com/item?id=46931805" target="_blank" rel="noopener" class="btn btn-ghost">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Sources reviewed <span>19</span></div>
+        <div class="meta-item">Buckets filled <span>6 / 6</span></div>
+        <div class="meta-item">Last updated <span>2026-03-28</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Worth it for power users comfortable with security risks who want persistent AI assistance across messaging platforms — avoid if you're new to AI tools or uncomfortable with giving an AI deep system access to your files and communications.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Achieved 165k GitHub stars, 60k Discord members, and 230k X followers in just two weeks, with a 700+ skills library built by the community</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Lives natively in messaging apps like WhatsApp, Telegram, Slack, and Discord without requiring browser access or repeated logins</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Uses readable markdown files (MEMORY.md, USER.md, SOUL.md) to persistently remember user details, family members, preferences, and system information across sessions</span></li></ul>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Skills execute locally with direct access to sensitive files, creating attack vectors for hackers to exploit the system</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Malicious crypto-themed skills use social engineering to trick users into spreading malware and running unverified commands</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Requires always-on system operation to work effectively, increasing exposure to ransomware and malicious scripts</span></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.7;">Pricing details not available from collected sources. </p><p style="margin-top:10px;"><a href="https://news.ycombinator.com/item?id=46931805" target="_blank" rel="noopener" style="font-size:13px; color:var(--accent);">View pricing page ↗</a></p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
+      <p style="font-size:14px; color:var(--text2);">Limited review coverage for this tool.</p>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Developers who want AI agents running 24/7 on their own systems with access to local files, email, and calendar data without browser-based limitations</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Power users comfortable with self-hosting who need AI integration across multiple messaging platforms (WhatsApp, Telegram, Slack, Discord) without manual triggering</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Technical users who want model choice flexibility (Claude, ChatGPT, Gemini) with persistent memory files (MEMORY.md, USER.md, SOUL.md) that remember personal details across sessions</span></li></ul>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
+    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Non-technical users who want simple setup, since OpenClaw requires self-hosting, server deployment, API token configuration, and technical troubleshooting skills</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Security-conscious users handling sensitive data, as OpenClaw executes locally with direct file system access and has been exploited by malicious skills that can spread malware and ransomware</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Users who prefer officially supported enterprise solutions, since Google's Workspace CLI integration is explicitly 'not an officially supported Google product' and OpenClaw relies on unverified community-built skills</span></li></ul>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <p style="font-size:14px; color:var(--text2);">Insufficient comparison data from collected sources.</p>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You wake up to find OpenClaw has already been working — it checked your 5 URLs every hour through the night and sent monitoring reports to your Telegram. You open WhatsApp and type 'refactor the UserProfile component to use hooks instead of class methods' then go make coffee. When you return, OpenClaw has identified 23 files that need changes and asks which ones to proceed with. You approve the list and it executes the changes, though you notice it missed two files in a nested directory that you have to point out. For your next task, you switch to terminal and ask it to write a deployment script for your Docker setup — it generates the script but when you test it, the build fails on the VPS with an error OpenClaw didn't anticipate. You paste the error back and it provides a fix. By lunch, you've cleared three items from your backlog through this back-and-forth pattern: OpenClaw attempts the task, you review and correct, then it adjusts. The heartbeat system means it can work autonomously every 30 minutes, but most meaningful tasks still require your guidance when edge cases appear.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>OpenClaw connects to all your messaging apps and executes tasks while you sleep, but in practice it hallucinates and can dump your entire home directory if you run it on your personal machine — requiring a dedicated VPS that costs $5-12 monthly just to use safely</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>The plugin system handles file operations and web scraping across 50+ integrations, but it missed nested directories during component refactoring and required manual corrections that Claude Code caught automatically in 45 seconds</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>OpenClaw automates workflows through messaging platforms without opening browsers or logging in repeatedly, but malicious crypto-themed skills in the 700+ library exploit the local execution to spread ransomware through social engineering attacks on unsuspecting users</span></li></ul>
+    </div>
+    
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Set up a Telegram bot to monitor my GitHub repo for new issues and automatically respond with a triage message asking for more details if the issue description is under 50 words</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I'll help you set up GitHub issue monitoring with Telegram notifications. Let me create the integration:
+
+1. First, I'm setting up the GitHub webhook listener...
+2. Creating the Telegram bot response logic...
+3. Adding the word count check for issue descriptions...
+
+I've created the webhook endpoint and connected it to your Telegram bot. The bot will now monitor your repo and send triage messages for short issues. However, I noticed the word counting logic might need adjustment - it's currently counting characters instead of words in the issue body. You'll want to modify line 47 in the webhook handler to use `.split(' ').length` instead of `.length` for accurate word counting.
+
+The integration is live, but you should test it with a sample issue first.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;"></div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">OpenClaw is an open-source AI assistant that runs locally on your computer and executes tasks directly on your system—it can control your keyboard, mouse, run terminal commands, access files, and manage processes as if it were a person sitting at your desk. Unlike ChatGPT or Claude's web interfaces, OpenClaw operates as a persistent 24/7 assistant that maintains context and memory between conversations, typically accessed through Discord integration.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">The tool works by combining large language models (like Claude or CoPilot subscriptions routed through API endpoints) with direct system access and a skill-based architecture where community members can build and share new capabilities. It features persistent memory that survives restarts, proactive scheduling through cron jobs, heartbeat monitoring, and integrations with services like Google Workspace through Google's new CLI tools. OpenClaw can autonomously run tests on applications, monitor error webhooks from services like Sentry, resolve issues, and even open pull requests—all while you're away from your computer.</p>
+<p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">This design heavily favors technical users comfortable with command-line interfaces, local system administration, and the security implications of giving an AI direct access to their files and network. Developers and power users benefit from its ability to automate complex workflows and maintain long-term project context, but the tool's local execution model creates significant security risks—hackers have already exploited malicious &quot;skills&quot; to trick users into running harmful commands or spreading malware. Non-technical users or those prioritizing security over automation would be better served by sandboxed web-based AI assistants.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Sources reviewed <span>19</span></div>
+      <div class="source-item">Buckets filled <span>6 / 6</span></div>
+      <div class="source-item">Last updated <span>2026-03-28</span></div>
+    </div>
+
+  </div>
 </div>
 
-<div class="meta">
-<p>Sources: 19</p>
-<p>Buckets: 6/6</p>
-<p>Updated: 2026-03-28</p>
-</div>
-
-<div class="verdict">
-Worth it for power users comfortable with security risks who want persistent AI assistance across messaging platforms — avoid if you're new to AI tools or uncomfortable with giving an AI deep system access to your files and communications.
-</div>
-
-</div>
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
 
 </body>
 </html>
