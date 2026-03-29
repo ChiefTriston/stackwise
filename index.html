@@ -543,32 +543,32 @@ const Qs = [
 ];
 
 const results = {
-  "Write or edit content|Solo — just me|Free or low cost": { title:"Grammarly looks like a strong fit", sub:"Widest browser coverage, solid free tier. Upgrade when you need tone controls.", tools:[["Grammarly","Best free tier, works everywhere","tools/grammarly.html"],["Notion AI","If you already live in Notion","tools/notion-ai.html"]] },
-  "Write or edit content|Solo — just me|Best quality output": { title:"Grammarly Pro or Notion AI", sub:"Depends whether you want a dedicated writing assistant or workspace-integrated AI.", tools:[["Grammarly","Best for editing and polishing text","tools/grammarly.html"],["Notion AI","Best for writing inside a workspace","tools/notion-ai.html"]] },
-  "Build or code something|Solo — just me|Free or low cost": { title:"Start with Cursor's free tier", sub:"Hobby plan covers most solo dev use cases. Full value shows at 5+ hours daily.", tools:[["Cursor","Best full-codebase AI editor","tools/cursor.html"],["GitHub Copilot","Lighter, cheaper, stays in VS Code","#"]] },
-  "Build or code something|Solo — just me|Best quality output": { title:"Cursor Pro at $20/mo is the clear pick", sub:"Multi-file context and Composer mode justify the cost for serious daily development.", tools:[["Cursor","Best AI-native editor","tools/cursor.html"]] },
-  "Automate workflows|Solo — just me|Free or low cost": { title:"Lindy AI is worth a look", sub:"No-code AI agent builder. LangChain if you want full control and can write Python.", tools:[["Lindy AI","Best no-code agent builder","tools/lindy-ai.html"],["LangChain","Best for custom agents","tools/langchain.html"]] },
-  "Search and research|Solo — just me|Free or low cost": { title:"Perplexity AI's free tier is hard to beat", sub:"Real-time search with cited sources. Pro unlocks more searches and model access.", tools:[["Perplexity AI","Best cited AI search","tools/perplexity.html"]] },
-  "Transcribe meetings|Solo — just me|Free or low cost": { title:"Otter.ai free covers the basics", sub:"300 minutes/month free. Upgrade for unlimited transcription and AI summaries.", tools:[["Otter.ai","Best free transcription for solo use","tools/otterai.html"]] },
+  "Write or edit content|Solo — just me|Free or low cost": { title:"Grammarly looks like a strong fit", sub:"Widest browser coverage, solid free tier. Upgrade when you need tone controls.", tools:[["Grammarly","Best free tier, works everywhere","grammarly.html"],["Notion AI","If you already live in Notion","notion-ai.html"]] },
+  "Write or edit content|Solo — just me|Best quality output": { title:"Grammarly Pro or Notion AI", sub:"Depends whether you want a dedicated writing assistant or workspace-integrated AI.", tools:[["Grammarly","Best for editing and polishing text","grammarly.html"],["Notion AI","Best for writing inside a workspace","notion-ai.html"]] },
+  "Build or code something|Solo — just me|Free or low cost": { title:"Start with Cursor's free tier", sub:"Hobby plan covers most solo dev use cases. Full value shows at 5+ hours daily.", tools:[["Cursor","Best full-codebase AI editor","cursor.html"],["GitHub Copilot","Lighter, cheaper, stays in VS Code","#"]] },
+  "Build or code something|Solo — just me|Best quality output": { title:"Cursor Pro at $20/mo is the clear pick", sub:"Multi-file context and Composer mode justify the cost for serious daily development.", tools:[["Cursor","Best AI-native editor","cursor.html"]] },
+  "Automate workflows|Solo — just me|Free or low cost": { title:"Lindy AI is worth a look", sub:"No-code AI agent builder. LangChain if you want full control and can write Python.", tools:[["Lindy AI","Best no-code agent builder","lindy-ai.html"],["LangChain","Best for custom agents","langchain.html"]] },
+  "Search and research|Solo — just me|Free or low cost": { title:"Perplexity AI's free tier is hard to beat", sub:"Real-time search with cited sources. Pro unlocks more searches and model access.", tools:[["Perplexity AI","Best cited AI search","perplexity.html"]] },
+  "Transcribe meetings|Solo — just me|Free or low cost": { title:"Otter.ai free covers the basics", sub:"300 minutes/month free. Upgrade for unlimited transcription and AI summaries.", tools:[["Otter.ai","Best free transcription for solo use","otterai.html"]] },
 };
 
 const trending = [
-  { name:"Lindy AI", href:"tools/lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads", badge:"Trending", badgeClass:"" },
-  { name:"Perplexity AI", href:"tools/perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles", badge:"Trending", badgeClass:"" },
-  { name:"LangChain", href:"tools/langchain.html", why:"LangGraph 1.0 release drove a spike in developer discussion on GitHub and HN.", signal:"Developer community surge", badge:"New release", badgeClass:"new" },
+  { name:"Lindy AI", href:"lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads", badge:"Trending", badgeClass:"" },
+  { name:"Perplexity AI", href:"perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles", badge:"Trending", badgeClass:"" },
+  { name:"LangChain", href:"langchain.html", why:"LangGraph 1.0 release drove a spike in developer discussion on GitHub and HN.", signal:"Developer community surge", badge:"New release", badgeClass:"new" },
 ];
 
 const tools = [
-  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Worth it for daily devs at $20/mo", conf:"h", href:"tools/cursor.html" },
-  { name:"Grammarly", cat:"Writing assistant", cats:["Writing"], verdict:"Strong free tier, solid for professionals", conf:"h", href:"tools/grammarly.html" },
-  { name:"Perplexity AI", cat:"AI search", cats:["Research"], verdict:"Best free search with real citations", conf:"h", href:"tools/perplexity.html" },
-  { name:"Notion AI", cat:"Workspace AI", cats:["Writing","Productivity"], verdict:"Strong if you're already in Notion", conf:"m", href:"tools/notion-ai.html" },
-  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings"], verdict:"Good free tier for solo use", conf:"m", href:"tools/otterai.html" },
-  { name:"LangChain", cat:"Developer framework", cats:["Coding","Automation"], verdict:"Best for complex agent workflows", conf:"m", href:"tools/langchain.html" },
-  { name:"Lindy AI", cat:"AI automation", cats:["Automation"], verdict:"Best no-code agent builder", conf:"m", href:"tools/lindy-ai.html" },
-  { name:"Glean", cat:"Enterprise search", cats:["Research","Productivity"], verdict:"Best for large team knowledge search", conf:"m", href:"tools/glean.html" },
-  { name:"OpenClaw", cat:"Legal AI", cats:["Productivity"], verdict:"Solid for contract review workflows", conf:"m", href:"tools/openclaw.html" },
-  { name:"Proactor AI", cat:"Project management", cats:["Productivity","Automation"], verdict:"Limited coverage — check official site", conf:"l", href:"tools/proactor.html" },
+  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Worth it for daily devs at $20/mo", conf:"h", href:"cursor.html" },
+  { name:"Grammarly", cat:"Writing assistant", cats:["Writing"], verdict:"Strong free tier, solid for professionals", conf:"h", href:"grammarly.html" },
+  { name:"Perplexity AI", cat:"AI search", cats:["Research"], verdict:"Best free search with real citations", conf:"h", href:"perplexity.html" },
+  { name:"Notion AI", cat:"Workspace AI", cats:["Writing","Productivity"], verdict:"Strong if you're already in Notion", conf:"m", href:"notion-ai.html" },
+  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings"], verdict:"Good free tier for solo use", conf:"m", href:"otterai.html" },
+  { name:"LangChain", cat:"Developer framework", cats:["Coding","Automation"], verdict:"Best for complex agent workflows", conf:"m", href:"langchain.html" },
+  { name:"Lindy AI", cat:"AI automation", cats:["Automation"], verdict:"Best no-code agent builder", conf:"m", href:"lindy-ai.html" },
+  { name:"Glean", cat:"Enterprise search", cats:["Research","Productivity"], verdict:"Best for large team knowledge search", conf:"m", href:"glean.html" },
+  { name:"OpenClaw", cat:"Legal AI", cats:["Productivity"], verdict:"Solid for contract review workflows", conf:"m", href:"openclaw.html" },
+  { name:"Proactor AI", cat:"Project management", cats:["Productivity","Automation"], verdict:"Limited coverage — check official site", conf:"l", href:"proactor.html" },
 ];
 
 const cats = ["All","Writing","Coding","Automation","Research","Meetings","Productivity"];
@@ -606,7 +606,7 @@ function showResult() {
   document.getElementById('quizInner').style.display = 'none';
   const r = document.getElementById('quizResult'); r.style.display = 'block';
   const key = answers.join('|');
-  const fb = { title:"Browse tools for your use case", sub:"Use the category filter below to find the best match.", tools:[["Cursor","Best AI code editor","tools/cursor.html"],["Grammarly","Best writing assistant","tools/grammarly.html"]] };
+  const fb = { title:"Browse tools for your use case", sub:"Use the category filter below to find the best match.", tools:[["Cursor","Best AI code editor","cursor.html"],["Grammarly","Best writing assistant","grammarly.html"]] };
   const d = results[key] || fb;
   document.getElementById('resTitle').textContent = d.title;
   document.getElementById('resSub').textContent = d.sub;
