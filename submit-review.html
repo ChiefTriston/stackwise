@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit a review — Stackwise</title>
+  <meta name="description" content="Used a tool we cover? Share your real experience and it may appear as a cited signal on that tool's page." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .page-wrap { padding: 56px 0 80px; }
+    .page-header { margin-bottom: 48px; }
+    .page-tag { font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; font-family: 'DM Mono', monospace; }
+    .page-title { font-size: clamp(28px, 4vw, 40px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 14px; }
+    .page-sub { font-size: 15px; color: var(--text2); line-height: 1.65; max-width: 480px; }
+    .signal-note {
+      margin-top: 20px;
+      padding: 14px 18px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--accent-light);
+      border-color: var(--accent-border);
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="container-narrow">
+
+    <!-- SUCCESS STATE -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">Review received.</h2>
+      <p class="success-sub">Thanks for sharing your experience. If your review adds new signal to our coverage we'll include it on that tool's page, attributed exactly as you specified.</p>
+      <a href="submit-review.html" class="btn btn-ghost" onclick="event.preventDefault(); resetForm()">← Submit another review</a>
+    </div>
+
+    <!-- FORM STATE -->
+    <div id="formState">
+      <div class="page-header">
+        <div class="page-tag">Community</div>
+        <h1 class="page-title">Submit a review</h1>
+        <p class="page-sub">Used a tool we cover? Your real experience may appear as a cited signal on that tool's page — alongside the context you provide.</p>
+        <div class="signal-note">
+          Honest friction points are just as valuable as praise. The most useful reviews are specific — what you actually tried, where it helped, and where it didn't.
+        </div>
+      </div>
+
+      <form id="reviewForm" onsubmit="handleSubmit(event)">
+
+        <div class="form-section">
+          <div class="form-section-label">Which tool</div>
+
+          <div class="field">
+            <label class="field-label" for="revTool">Tool name</label>
+            <input type="text" id="revTool" placeholder="e.g. Cursor, Grammarly, Notion AI..." required />
+          </div>
+
+          <div class="field">
+            <label class="field-label">How long have you been using it?</label>
+            <div class="option-grid">
+              <div class="option-card" onclick="selectOpt(this,'dur')">
+                <div class="option-card-title">Less than a month</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'dur')">
+                <div class="option-card-title">1–3 months</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'dur')">
+                <div class="option-card-title">3–12 months</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'dur')">
+                <div class="option-card-title">Over a year</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">Your context</div>
+
+          <div class="field">
+            <label class="field-label">How would you describe yourself?</label>
+            <span class="field-hint">Helps us understand who your experience represents.</span>
+            <div class="option-grid">
+              <div class="option-card" onclick="selectOpt(this,'ctx')">
+                <div class="option-card-title">Solo / freelancer</div>
+                <div class="option-card-sub">Independent, personal use</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'ctx')">
+                <div class="option-card-title">Small team</div>
+                <div class="option-card-sub">2–20 people, collaborative use</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'ctx')">
+                <div class="option-card-title">Enterprise / large org</div>
+                <div class="option-card-sub">100+ employees, company-wide</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'ctx')">
+                <div class="option-card-title">Evaluating for purchase</div>
+                <div class="option-card-sub">Researching before buying</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Your role <span class="field-optional">(select all that apply)</span></label>
+            <div class="pill-select">
+              <div class="pill" onclick="togglePill(this)">Developer</div>
+              <div class="pill" onclick="togglePill(this)">Designer</div>
+              <div class="pill" onclick="togglePill(this)">Marketer</div>
+              <div class="pill" onclick="togglePill(this)">Product manager</div>
+              <div class="pill" onclick="togglePill(this)">Founder</div>
+              <div class="pill" onclick="togglePill(this)">Writer / content</div>
+              <div class="pill" onclick="togglePill(this)">Sales / ops</div>
+              <div class="pill" onclick="togglePill(this)">Student</div>
+              <div class="pill" onclick="togglePill(this)">Other</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">Your experience</div>
+
+          <div class="field">
+            <label class="field-label" for="revUsecase">What do you actually use it for?</label>
+            <span class="field-hint">"Writing marketing emails" is more useful than "content creation."</span>
+            <textarea id="revUsecase" placeholder="Describe your actual use case..." rows="3" oninput="updateCount(this,'ucCount',300)" required></textarea>
+            <span class="char-count" id="ucCount">0 / 300</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="revPros">What works well?</label>
+            <textarea id="revPros" placeholder="What genuinely works — be as specific as possible..." rows="3" oninput="updateCount(this,'prosCount',400)" required></textarea>
+            <span class="char-count" id="prosCount">0 / 400</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="revCons">What doesn't work, or where does it fall short?</label>
+            <span class="field-hint">Honest friction points are the most valuable part of a real review.</span>
+            <textarea id="revCons" placeholder="Where does it fall short, frustrate, or disappoint..." rows="3" oninput="updateCount(this,'consCount',400)" required></textarea>
+            <span class="char-count" id="consCount">0 / 400</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="revRec">Would you recommend it, and to who?</label>
+            <textarea id="revRec" placeholder="Who should use this tool, and who should skip it..." rows="3" oninput="updateCount(this,'recCount',300)"></textarea>
+            <span class="char-count" id="recCount">0 / 300</span>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-label">
+            Attribution
+            <span class="form-section-note">how we credit you on the page</span>
+          </div>
+
+          <div class="field">
+            <label class="field-label">How should we credit you?</label>
+            <div class="option-grid">
+              <div class="option-card" onclick="selectOpt(this,'attr'); toggleNameField(true)">
+                <div class="option-card-title">Name + role</div>
+                <div class="option-card-sub">e.g. "James, Developer"</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'attr'); toggleNameField(false)">
+                <div class="option-card-title">Role only</div>
+                <div class="option-card-sub">e.g. "Verified developer"</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'attr'); toggleNameField(false)">
+                <div class="option-card-title">Anonymous</div>
+                <div class="option-card-sub">No identifier shown</div>
+              </div>
+              <div class="option-card" onclick="selectOpt(this,'attr'); toggleNameField(false)">
+                <div class="option-card-title">Don't publish</div>
+                <div class="option-card-sub">Use as background signal only</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field" id="nameField" style="display:none;">
+            <label class="field-label" for="revName">Your name</label>
+            <input type="text" id="revName" placeholder="First name or full name" />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="revEmail">Email <span class="field-optional">(optional — only used to verify if needed)</span></label>
+            <input type="email" id="revEmail" placeholder="Email address" />
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary">Submit review</button>
+          <p class="submit-note">We read every submission.<br>Your email is never shared or published.</p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-tool.html">Submit a tool</a>
+    <a href="submit-review.html">Submit a review</a>
+  </div>
+</footer>
+
+<script>
+function togglePill(el) {
+  el.classList.toggle('selected');
+}
+
+function selectOpt(el, group) {
+  el.closest('.option-grid').querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleNameField(show) {
+  document.getElementById('nameField').style.display = show ? 'block' : 'none';
+}
+
+function updateCount(el, countId, max) {
+  const len = el.value.length;
+  const counter = document.getElementById(countId);
+  counter.textContent = len + ' / ' + max;
+  counter.style.color = len > max * 0.9 ? 'rgba(250,204,21,0.7)' : '';
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  // TODO: wire to Google Form or backend
+  document.getElementById('formState').style.display = 'none';
+  document.getElementById('successState').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetForm() {
+  document.getElementById('formState').style.display = 'block';
+  document.getElementById('successState').classList.remove('active');
+  document.getElementById('reviewForm').reset();
+  document.querySelectorAll('.pill.selected').forEach(p => p.classList.remove('selected'));
+  document.querySelectorAll('.option-card.selected').forEach(c => c.classList.remove('selected'));
+  document.getElementById('nameField').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
