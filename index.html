@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackwise — Find the right tool, before you pay for it</title>
+  <meta name="description" content="Evidence-based software tool reviews. Every page is built from 200+ real sources — reviews, discussions, and verified pricing. No sponsored rankings." />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* HOMEPAGE SPECIFIC */
+    .hero {
+      padding: 80px 40px 64px;
+      max-width: 700px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 20px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+      color: var(--text);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--text2);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text2);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* QUIZ */
+    .quiz-wrap {
+      margin: 0 40px;
+      max-width: 560px;
+      border: 0.5px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      background: var(--bg2);
+    }
+
+    .quiz-q {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .quiz-opt {
+      padding: 10px 15px;
+      border: 0.5px solid var(--border);
+      border-radius: 9px;
+      font-size: 13px;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.12s;
+      background: transparent;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .quiz-opt:hover {
+      border-color: var(--border2);
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .quiz-opt.selected {
+      border-color: var(--accent-border);
+      color: var(--text);
+      background: var(--accent-light);
+    }
+
+    .quiz-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .quiz-prog {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: 'DM Mono', monospace;
+    }
+
+    .quiz-btn {
+      padding: 9px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      opacity: 0.35;
+      transition: all 0.12s;
+      font-family: inherit;
+      pointer-events: none;
+    }
+
+    .quiz-btn.on {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quiz-btn.on:hover { background: #8f82f5; }
+
+    .quiz-skip {
+      display: block;
+      margin: 10px 40px 0;
+      font-size: 12px;
+      color: var(--text3);
+      cursor: pointer;
+      transition: color 0.12s;
+    }
+
+    .quiz-skip:hover { color: var(--text2); }
+
+    /* QUIZ RESULT */
+    .quiz-result { display: none; }
+
+    .res-label {
+      font-size: 11px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 10px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .res-title {
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .res-sub {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    .res-tools { display: flex; flex-direction: column; gap: 7px; }
+
+    .res-tool {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border: 0.5px solid var(--border);
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.12s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .res-tool:hover {
+      border-color: var(--border2);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .res-tool-name { font-size: 13px; font-weight: 500; }
+    .res-tool-why { font-size: 12px; color: var(--text3); }
+    .res-arr { font-size: 13px; color: var(--text3); }
+
+    .retake {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text3);
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.12s;
+    }
+
+    .retake:hover { color: var(--text2); }
+
+    /* SECTIONS */
+    .section { margin: 56px 0; padding: 0 40px; }
+
+    /* TRENDING */
+    .trending-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .trend-card {
+      padding: 18px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg2);
+      cursor: pointer;
+      transition: all 0.12s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .trend-card:hover {
+      border-color: var(--border2);
+      background: var(--bg3);
+    }
+
+    .trend-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 9px;
+    }
+
+    .trend-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .trend-why {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .trend-signal {
+      font-size: 11px;
+      color: var(--text3);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .signal-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      display: inline-block;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* CATEGORY BAR */
+    .cat-bar {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    /* TOOLS GRID */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      gap: 0.5px;
+      background: var(--border);
+    }
+
+    .tool-card {
+      padding: 16px 18px;
+      background: var(--bg);
+      cursor: pointer;
+      transition: background 0.12s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .tool-card:hover { background: var(--bg2); }
+    .tool-card.hidden { display: none; }
+
+    .tool-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 3px;
+    }
+
+    .tool-cat {
+      font-size: 11px;
+      color: var(--text3);
+      margin-bottom: 10px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .tool-verdict {
+      font-size: 12px;
+      color: var(--text2);
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    /* SOCIAL PROOF */
+    .proof-block {
+      padding: 36px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg2);
+      text-align: center;
+    }
+
+    .proof-number {
+      font-size: 56px;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .proof-number span {
+      color: var(--accent);
+    }
+
+    .proof-desc {
+      font-size: 15px;
+      color: var(--text2);
+      max-width: 360px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .proof-facts {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .proof-fact {
+      font-size: 12px;
+      color: var(--text3);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .proof-check {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 0.5px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--text3);
+      flex-shrink: 0;
+    }
+
+    /* COMMUNITY CARDS */
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .comm-card {
+      padding: 22px 24px;
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all 0.12s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .comm-card:hover {
+      border-color: var(--border2);
+      background: var(--bg2);
+    }
+
+    .comm-title {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .comm-sub {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .comm-link {
+      font-size: 13px;
+      color: #a99af7;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 48px 20px 40px; }
+      .quiz-wrap { margin: 0 20px; }
+      .quiz-skip { margin-left: 20px; }
+      .section { padding: 0 20px; }
+      .community-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="#tools" class="nav-link">Browse</a>
+    <a href="#tools" class="nav-link">Categories</a>
+    <a href="pages/submit-tool.html" class="nav-link cta">Submit a tool</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade-up fade-up-1">
+  <div class="hero-tag">Evidence-based · No sponsored rankings</div>
+  <h1 class="hero-title">Find the right tool,<br><em>before you pay for it.</em></h1>
+  <p class="hero-sub">Every page is built from 200+ real sources — reviews, discussions, and verified pricing. We do the research so you don't have to.</p>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-wrap fade-up fade-up-2" id="quizWrap">
+  <div id="quizInner">
+    <div class="quiz-q" id="quizQ"></div>
+    <div class="quiz-opts" id="quizOpts"></div>
+    <div class="quiz-foot">
+      <span class="quiz-prog" id="quizProg"></span>
+      <button class="quiz-btn" id="quizBtn" onclick="advance()">Continue</button>
+    </div>
+  </div>
+  <div class="quiz-result" id="quizResult">
+    <div class="res-label">Based on your answers</div>
+    <div class="res-title" id="resTitle"></div>
+    <div class="res-sub" id="resSub"></div>
+    <div class="res-tools" id="resTools"></div>
+    <span class="retake" onclick="resetQuiz()">← Start over</span>
+  </div>
+</div>
+<span class="quiz-skip fade-up fade-up-2" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Skip — browse all tools below</span>
+
+<!-- GAINING TRACTION -->
+<div class="section fade-up fade-up-3">
+  <div class="section-header">
+    <span class="section-label">Gaining traction</span>
+    <span class="section-link">See all →</span>
+  </div>
+  <div class="trending-grid" id="trendGrid"></div>
+</div>
+
+<!-- ALL TOOLS -->
+<div class="section fade-up fade-up-4" id="tools">
+  <div class="section-header">
+    <span class="section-label">All tools</span>
+    <span class="section-link" id="toolCount"></span>
+  </div>
+  <div class="cat-bar" id="catBar"></div>
+  <div class="tools-grid" id="toolsGrid"></div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="section fade-up fade-up-5">
+  <div class="proof-block">
+    <div class="proof-number">200<span>+</span></div>
+    <p class="proof-desc">Sources reviewed per tool on average — reviews, discussions, pricing pages, and community threads.</p>
+    <div class="proof-facts">
+      <div class="proof-fact"><div class="proof-check">✓</div>No sponsored rankings</div>
+      <div class="proof-fact"><div class="proof-check">✓</div>Every verdict is sourced</div>
+      <div class="proof-fact"><div class="proof-check">✓</div>Updated regularly</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
+<div class="section">
+  <div class="section-label">Community</div>
+  <div class="community-grid">
+    <a href="pages/submit-tool.html" class="comm-card">
+      <div class="comm-title">Submit a tool</div>
+      <div class="comm-sub">Know a tool worth covering? Tell us about it and we'll add it to our research queue.</div>
+      <div class="comm-link">Submit a tool →</div>
+    </a>
+    <a href="pages/submit-review.html" class="comm-card">
+      <div class="comm-title">Submit a review</div>
+      <div class="comm-sub">Used a tool we cover? Your real experience may appear as a cited signal on that tool's page.</div>
+      <div class="comm-link">Share your experience →</div>
+    </a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="#">About</a>
+    <a href="#">Methodology</a>
+    <a href="pages/submit-tool.html">Submit a tool</a>
+    <a href="pages/submit-review.html">Submit a review</a>
+  </div>
+</footer>
+
+<script>
+const Qs = [
+  { q: "What are you mainly trying to do?", opts: ["Write or edit content","Build or code something","Automate workflows","Search and research","Transcribe meetings"] },
+  { q: "How would you describe your setup?", opts: ["Solo — just me","Small team, 2–10 people","Larger team or company"] },
+  { q: "What matters most right now?", opts: ["Free or low cost","Best quality output","Easy to set up fast","Fits existing tools"] }
+];
+
+const results = {
+  "Write or edit content|Solo — just me|Free or low cost": { title:"Grammarly looks like a strong fit", sub:"Widest browser coverage, solid free tier. Upgrade when you need tone controls.", tools:[["Grammarly","Best free tier, works everywhere","tools/grammarly.html"],["Notion AI","If you already live in Notion","tools/notion-ai.html"]] },
+  "Write or edit content|Solo — just me|Best quality output": { title:"Grammarly Pro or Notion AI", sub:"Depends whether you want a dedicated writing assistant or workspace-integrated AI.", tools:[["Grammarly","Best for editing and polishing text","tools/grammarly.html"],["Notion AI","Best for writing inside a workspace","tools/notion-ai.html"]] },
+  "Build or code something|Solo — just me|Free or low cost": { title:"Start with Cursor's free tier", sub:"Hobby plan covers most solo dev use cases. Full value shows at 5+ hours daily.", tools:[["Cursor","Best full-codebase AI editor","tools/cursor.html"],["GitHub Copilot","Lighter, cheaper, stays in VS Code","#"]] },
+  "Build or code something|Solo — just me|Best quality output": { title:"Cursor Pro at $20/mo is the clear pick", sub:"Multi-file context and Composer mode justify the cost for serious daily development.", tools:[["Cursor","Best AI-native editor","tools/cursor.html"]] },
+  "Automate workflows|Solo — just me|Free or low cost": { title:"Lindy AI is worth a look", sub:"No-code AI agent builder. LangChain if you want full control and can write Python.", tools:[["Lindy AI","Best no-code agent builder","tools/lindy-ai.html"],["LangChain","Best for custom agents","tools/langchain.html"]] },
+  "Search and research|Solo — just me|Free or low cost": { title:"Perplexity AI's free tier is hard to beat", sub:"Real-time search with cited sources. Pro unlocks more searches and model access.", tools:[["Perplexity AI","Best cited AI search","tools/perplexity.html"]] },
+  "Transcribe meetings|Solo — just me|Free or low cost": { title:"Otter.ai free covers the basics", sub:"300 minutes/month free. Upgrade for unlimited transcription and AI summaries.", tools:[["Otter.ai","Best free transcription for solo use","tools/otterai.html"]] },
+};
+
+const trending = [
+  { name:"Lindy AI", href:"tools/lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads", badge:"Trending", badgeClass:"" },
+  { name:"Perplexity AI", href:"tools/perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles", badge:"Trending", badgeClass:"" },
+  { name:"LangChain", href:"tools/langchain.html", why:"LangGraph 1.0 release drove a spike in developer discussion on GitHub and HN.", signal:"Developer community surge", badge:"New release", badgeClass:"new" },
+];
+
+const tools = [
+  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Worth it for daily devs at $20/mo", conf:"h", href:"tools/cursor.html" },
+  { name:"Grammarly", cat:"Writing assistant", cats:["Writing"], verdict:"Strong free tier, solid for professionals", conf:"h", href:"tools/grammarly.html" },
+  { name:"Perplexity AI", cat:"AI search", cats:["Research"], verdict:"Best free search with real citations", conf:"h", href:"tools/perplexity.html" },
+  { name:"Notion AI", cat:"Workspace AI", cats:["Writing","Productivity"], verdict:"Strong if you're already in Notion", conf:"m", href:"tools/notion-ai.html" },
+  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings"], verdict:"Good free tier for solo use", conf:"m", href:"tools/otterai.html" },
+  { name:"LangChain", cat:"Developer framework", cats:["Coding","Automation"], verdict:"Best for complex agent workflows", conf:"m", href:"tools/langchain.html" },
+  { name:"Lindy AI", cat:"AI automation", cats:["Automation"], verdict:"Best no-code agent builder", conf:"m", href:"tools/lindy-ai.html" },
+  { name:"Glean", cat:"Enterprise search", cats:["Research","Productivity"], verdict:"Best for large team knowledge search", conf:"m", href:"tools/glean.html" },
+  { name:"OpenClaw", cat:"Legal AI", cats:["Productivity"], verdict:"Solid for contract review workflows", conf:"m", href:"tools/openclaw.html" },
+  { name:"Proactor AI", cat:"Project management", cats:["Productivity","Automation"], verdict:"Limited coverage — check official site", conf:"l", href:"tools/proactor.html" },
+];
+
+const cats = ["All","Writing","Coding","Automation","Research","Meetings","Productivity"];
+
+let activecat = "All", sel = null, step = 0, answers = [];
+
+function renderQ() {
+  const q = Qs[step];
+  document.getElementById('quizQ').textContent = q.q;
+  document.getElementById('quizProg').textContent = (step+1) + ' of ' + Qs.length;
+  sel = null;
+  document.getElementById('quizBtn').classList.remove('on');
+  const opts = document.getElementById('quizOpts');
+  opts.innerHTML = '';
+  q.opts.forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt'; b.textContent = o;
+    b.onclick = () => {
+      document.querySelectorAll('.quiz-opt').forEach(x => x.classList.remove('selected'));
+      b.classList.add('selected'); sel = o;
+      document.getElementById('quizBtn').classList.add('on');
+    };
+    opts.appendChild(b);
+  });
+}
+
+function advance() {
+  if (!sel) return;
+  answers.push(sel);
+  if (step < Qs.length - 1) { step++; renderQ(); return; }
+  showResult();
+}
+
+function showResult() {
+  document.getElementById('quizInner').style.display = 'none';
+  const r = document.getElementById('quizResult'); r.style.display = 'block';
+  const key = answers.join('|');
+  const fb = { title:"Browse tools for your use case", sub:"Use the category filter below to find the best match.", tools:[["Cursor","Best AI code editor","tools/cursor.html"],["Grammarly","Best writing assistant","tools/grammarly.html"]] };
+  const d = results[key] || fb;
+  document.getElementById('resTitle').textContent = d.title;
+  document.getElementById('resSub').textContent = d.sub;
+  const c = document.getElementById('resTools'); c.innerHTML = '';
+  d.tools.forEach(([n,w,h]) => {
+    c.innerHTML += `<a href="${h}" class="res-tool"><div><div class="res-tool-name">${n}</div><div class="res-tool-why">${w}</div></div><div class="res-arr">→</div></a>`;
+  });
+}
+
+function resetQuiz() {
+  step = 0; answers = []; sel = null;
+  document.getElementById('quizInner').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  renderQ();
+}
+
+function buildTrending() {
+  const g = document.getElementById('trendGrid');
+  trending.forEach(t => {
+    g.innerHTML += `<a href="${t.href}" class="trend-card">
+      <div class="trend-header"><div class="trend-name">${t.name}</div><span class="trend-badge ${t.badgeClass}">${t.badge}</span></div>
+      <div class="trend-why">${t.why}</div>
+      <div class="trend-signal"><span class="signal-dot"></span>${t.signal}</div>
+    </a>`;
+  });
+}
+
+function buildCats() {
+  const bar = document.getElementById('catBar');
+  cats.forEach(c => {
+    const p = document.createElement('div');
+    p.className = 'pill' + (c === 'All' ? ' active' : '');
+    p.textContent = c;
+    p.onclick = () => {
+      document.querySelectorAll('.cat-bar .pill').forEach(x => x.classList.remove('active'));
+      p.classList.add('active'); activecat = c; filterTools();
+    };
+    bar.appendChild(p);
+  });
+}
+
+function filterTools() {
+  let v = 0;
+  document.querySelectorAll('.tool-card').forEach(c => {
+    const show = activecat === 'All' || c.dataset.cats.includes(activecat);
+    c.classList.toggle('hidden', !show);
+    if (show) v++;
+  });
+  document.getElementById('toolCount').textContent = v + ' tools';
+}
+
+function buildTools() {
+  const g = document.getElementById('toolsGrid');
+  tools.forEach(t => {
+    const d = document.createElement('a');
+    d.className = 'tool-card'; d.href = t.href; d.dataset.cats = t.cats.join(',');
+    d.innerHTML = `<div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div><div class="tool-verdict"><span class="vdot vdot-${t.conf}"></span>${t.verdict}</div>`;
+    g.appendChild(d);
+  });
+  document.getElementById('toolCount').textContent = tools.length + ' tools';
+}
+
+renderQ(); buildTrending(); buildCats(); buildTools();
+</script>
+
+</body>
+</html>
