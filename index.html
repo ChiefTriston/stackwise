@@ -198,8 +198,37 @@ const Qs = [
   { q: "Do you prefer tools that feel simple or tools that give you maximum control?", opts: ["Simple & beginner-friendly","Balanced","Maximum control & advanced features"] }
 ];
 
-const trending = [ /* unchanged */ ];
-const tools = [ /* your full 23-tool list stays exactly the same */ ];
+const trending = [
+  { name:"Lindy AI", href:"lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads" },
+  { name:"Perplexity AI", href:"perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles" }
+];
+
+const tools = [
+  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Worth it for daily devs at $20/mo", conf:"h", href:"cursor.html" },
+  { name:"Grammarly", cat:"Writing assistant", cats:["Writing"], verdict:"Strong free tier, solid for professionals", conf:"h", href:"grammarly.html" },
+  { name:"Perplexity AI", cat:"AI search", cats:["Research"], verdict:"Best free search with real citations", conf:"h", href:"perplexity.html" },
+  { name:"Notion AI", cat:"Workspace AI", cats:["Writing","Productivity"], verdict:"Strong if you're already in Notion", conf:"m", href:"notion-ai.html" },
+  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings"], verdict:"Good free tier for solo use", conf:"m", href:"otterai.html" },
+  { name:"LangChain", cat:"Developer framework", cats:["Coding","Automation"], verdict:"Best for complex agent workflows", conf:"m", href:"langchain.html" },
+  { name:"Lindy AI", cat:"AI automation", cats:["Automation"], verdict:"Best no-code agent builder", conf:"m", href:"lindy-ai.html" },
+  { name:"Glean", cat:"Enterprise search", cats:["Research","Productivity"], verdict:"Best for large team knowledge search", conf:"m", href:"glean.html" },
+  { name:"OpenClaw", cat:"Open-source AI agent", cats:["Automation","Coding"], verdict:"Powerful but requires technical setup", conf:"m", href:"openclaw.html" },
+  { name:"Proactor AI", cat:"Project management", cats:["Productivity","Automation"], verdict:"Limited coverage — check official site", conf:"l", href:"proactor.html" },
+  { name:"ChatGPT", cat:"AI assistant", cats:["Writing","Research","Productivity"], verdict:"Most versatile AI assistant", conf:"h", href:"chatgpt.html" },
+  { name:"Writesonic", cat:"AI writing platform", cats:["Writing"], verdict:"Strong for SEO content", conf:"m", href:"writesonic.html" },
+  { name:"QuillBot", cat:"Writing assistant", cats:["Writing"], verdict:"Best for paraphrasing and grammar", conf:"m", href:"quillbot.html" },
+  { name:"GetGenie", cat:"AI writing platform", cats:["Writing"], verdict:"Best WordPress-integrated AI content tool", conf:"m", href:"getgenie.html" },
+  { name:"InVideo", cat:"Video creation", cats:["Video"], verdict:"Best for beginners making marketing videos", conf:"m", href:"invideo.html" },
+  { name:"HeadshotPro", cat:"Image generation", cats:["Image"], verdict:"Best AI headshot generator", conf:"m", href:"headshotpro.html" },
+  { name:"AISEO", cat:"SEO & content", cats:["Writing"], verdict:"Best for on-page SEO content", conf:"m", href:"aiseo.html" },
+  { name:"NeuronWriter", cat:"SEO & content", cats:["Writing"], verdict:"Best for SEO-optimized long-form content", conf:"m", href:"neuronwriter.html" },
+  { name:"Synthesia", cat:"Video creation", cats:["Video"], verdict:"Best AI avatar video generator", conf:"m", href:"synthesia.html" },
+  { name:"HeyGen", cat:"Video creation", cats:["Video"], verdict:"Best for realistic avatar videos", conf:"m", href:"heygen.html" },
+  { name:"Leonardo.ai", cat:"Image & video", cats:["Image","Video"], verdict:"Best for high-quality marketing visuals", conf:"m", href:"leonardoai.html" },
+  { name:"AdCreative.ai", cat:"Ad creative", cats:["Marketing"], verdict:"Best for generating 150+ ad variations", conf:"m", href:"adcreativeai.html" },
+  { name:"GetResponse", cat:"Email marketing", cats:["Marketing"], verdict:"Best all-in-one email & automation tool", conf:"m", href:"getresponse.html" }
+];
+
 const cats = ["All","Writing","Coding","Automation","Research","Meetings","Productivity","Video","Image","Marketing","SEO"];
 
 let activecat = "All", sel = null, step = 0, answers = [];
@@ -208,7 +237,6 @@ function calculateBestMatches(answers) {
   let scores = {};
   tools.forEach(t => scores[t.name] = 0);
 
-  // Scoring based on every tool page you gave me
   const goal = answers[0] || "";
   if (goal.includes("Written content")) { scores["Grammarly"] += 3; scores["QuillBot"] += 3; scores["Writesonic"] += 2; scores["GetGenie"] += 2; scores["AISEO"] += 2; scores["NeuronWriter"] += 2; }
   if (goal.includes("Videos")) { scores["HeyGen"] += 3; scores["Synthesia"] += 3; scores["InVideo"] += 2; }
@@ -219,8 +247,6 @@ function calculateBestMatches(answers) {
   if (goal.includes("Code")) { scores["Cursor"] += 3; scores["LangChain"] += 2; }
   if (goal.includes("Meeting")) scores["Otter.ai"] += 3;
   if (goal.includes("Research")) { scores["Perplexity AI"] += 3; scores["Glean"] += 2; }
-
-  // Additional scoring from budget, team size, experience, etc. (full weighted logic inside)
 
   return Object.keys(scores)
     .sort((a,b) => scores[b] - scores[a])
@@ -278,10 +304,51 @@ function resetQuiz() {
   renderQ();
 }
 
-function buildTrending() { /* unchanged */ }
-function buildCats() { /* unchanged */ }
-function filterTools() { /* unchanged */ }
-function buildTools() { /* unchanged */ }
+function buildTrending() {
+  const g = document.getElementById('trendGrid');
+  trending.forEach(t => {
+    g.innerHTML += `<a href="${t.href}" class="trend-card">
+      <div class="trend-header"><div class="trend-name">${t.name}</div></div>
+      <div class="trend-why">${t.why}</div>
+      <div class="trend-signal"><span class="signal-dot"></span>${t.signal}</div>
+    </a>`;
+  });
+}
+
+function buildCats() {
+  const bar = document.getElementById('catBar');
+  cats.forEach(c => {
+    const p = document.createElement('div');
+    p.className = 'pill' + (c === 'All' ? ' active' : '');
+    p.textContent = c;
+    p.onclick = () => {
+      document.querySelectorAll('.cat-bar .pill').forEach(x => x.classList.remove('active'));
+      p.classList.add('active'); activecat = c; filterTools();
+    };
+    bar.appendChild(p);
+  });
+}
+
+function filterTools() {
+  let v = 0;
+  document.querySelectorAll('.tool-card').forEach(c => {
+    const show = activecat === 'All' || c.dataset.cats.includes(activecat);
+    c.classList.toggle('hidden', !show);
+    if (show) v++;
+  });
+  document.getElementById('toolCount').textContent = v + ' tools';
+}
+
+function buildTools() {
+  const g = document.getElementById('toolsGrid');
+  tools.forEach(t => {
+    const d = document.createElement('a');
+    d.className = 'tool-card'; d.href = t.href; d.dataset.cats = t.cats.join(',');
+    d.innerHTML = `<div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div><div class="tool-verdict"><span class="vdot vdot-${t.conf}"></span>${t.verdict}</div>`;
+    g.appendChild(d);
+  });
+  document.getElementById('toolCount').textContent = tools.length + ' tools';
+}
 
 renderQ(); buildTrending(); buildCats(); buildTools();
 </script>
