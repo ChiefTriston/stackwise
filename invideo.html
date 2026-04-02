@@ -40,6 +40,19 @@
 
 <nav class="nav">
   <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+
+  <div class="nav-search">
+    <div class="nav-search-wrap">
+      <input
+        id="globalSearch"
+        class="nav-search-input"
+        type="text"
+        placeholder="Search tools (Cursor, Perplexity, Lindy...)"
+        autocomplete="off"
+      />
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
   <div class="nav-links">
     <a href="index.html#tools" class="nav-link">Browse</a>
     <a href="submit-tool.html" class="nav-link">Submit a tool</a>
@@ -227,6 +240,7 @@
   </div>
 </footer>
 
+    <script src="search.js"></script>
 </body>
 </html>
 </DOCUMENT>
