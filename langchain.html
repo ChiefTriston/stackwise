@@ -218,93 +218,181 @@
     <!-- USER SIGNALS -->
     <div class="tool-section fade-up fade-up-3">
       <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
-      <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
-      <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Praise patterns</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Strong job market demand and career value</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;every other organization is looking for the data engineers who know launch in because they want you to build their AI orchestration pipelines&rdquo;</div>
-</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Familiar workflow paradigm for data engineers</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Lanchin is very, very, very similar for, you can say it will look very similar to ETLs or those pipelines that data engineers build&rdquo;</div>
-</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Comprehensive feedback and tracing capabilities</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
-  
-</div>
-<div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin:24px 0 12px;">Critique patterns</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Context window bloat in agent workflows</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;Context window is getting bloated and which is totally unnecessary&rdquo;</div>
-</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">Agent memory limitations and learning deficiencies</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Commonly reported</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; padding:8px 0 8px 14px; border-left:2px solid var(--border2); font-style:italic; margin-top:6px;">&ldquo;it does not learn from its mistake, that is ver&rdquo;</div>
-</div>
-<div style="padding:16px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:13px; font-weight:500; margin-bottom:3px;">React agent architectural limitations</div>
-  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; margin-bottom:4px;">Occasionally reported</div>
-  
-</div>
-<div style="margin-top:20px; padding:16px 18px; background:var(--bg2); border-radius:var(--radius); border:0.5px solid var(--border);">
-  <div style="font-size:12px; font-weight:500; margin-bottom:6px;">Where users disagree</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Mixed signals on agent capabilities - praised for basic tool integration but criticized for fundamental architectural limitations</div>
-</div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:24px;">Patterns from reviews, community discussions, and public feedback.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+        <!-- Praise Column -->
+        <div>
+          <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Praise patterns</div>
+          
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Strong job market demand and career value</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Commonly reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">“every other organization is looking for the data engineers who know launch in because they want you to build their AI orchestration pipelines”</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Familiar workflow paradigm for data engineers</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Commonly reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">“Lanchin is very, very, very similar for, you can say it will look very similar to ETLs or those pipelines that data engineers build”</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Comprehensive feedback and tracing capabilities</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Occasionally reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">LangSmith provides tracing, evaluation, and human feedback loops for production debugging</div>
+          </div>
+        </div>
+
+        <!-- Critique Column -->
+        <div>
+          <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Critique patterns</div>
+          
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Context window bloat in agent workflows</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Commonly reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">“Context window is getting bloated and which is totally unnecessary”</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">Agent memory limitations and learning deficiencies</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Commonly reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">“it does not learn from its mistake, that is ver”</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+            <div style="font-size:13px; font-weight:500; margin-bottom:4px;">React agent architectural limitations</div>
+            <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Occasionally reported</div>
+            <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">Standard react agents have poor planning capabilities for complex multi-step tasks</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Where users disagree -->
+      <div style="margin-top:32px; padding:20px; background:var(--bg2); border:0.5px solid var(--border); border-radius:12px;">
+        <div style="font-size:12px; font-weight:500; margin-bottom:8px;">Where users disagree</div>
+        <div style="font-size:13px; color:var(--text2); line-height:1.55;">Mixed signals on agent capabilities — praised for basic tool integration but criticized for fundamental architectural limitations</div>
+      </div>
     </div>
 
     <!-- BEST FIT -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-  <div>
-    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Best fit</div>
-    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Data engineers building AI orchestration pipelines - LangChain provides familiar ETL-like workflows for integrating LLMs with data processing tools</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Development teams needing comprehensive LLM observability - LangSmith offers tracing, evaluation, and human feedback loops with pricing starting at $0/month for solo developers</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations requiring multi-step agent debugging - provides visibility into tool calls, retrieved documents, and intermediate reasoning steps that black-box monitoring cannot capture</span></li></ul>
-  </div>
-  <div>
-    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:12px;">Not ideal for</div>
-    <ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Teams needing simple chatbot implementations - the complexity of agent orchestration and observability features may be overkill for basic conversational AI</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Organizations with strict data residency requirements on tight budgets - enterprise features like self-hosted deployment require custom pricing contact</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:8px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span style="color:var(--text3); flex-shrink:0;">—</span><span>Solo developers building single-step LLM applications - the agent workflow overhead and observability complexity adds unnecessary complexity for simple use cases</span></li></ul>
-  </div>
-</div>
+
+        <!-- BEST FIT Column -->
+        <div>
+          <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Best fit</div>
+          
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Data engineers building AI orchestration pipelines — LangChain provides familiar ETL-like workflows for integrating LLMs with data processing tools.</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Development teams needing comprehensive LLM observability — LangSmith offers tracing, evaluation, and human feedback loops with pricing starting at $0/month for solo developers.</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Organizations requiring multi-step agent debugging — provides visibility into tool calls, retrieved documents, and intermediate reasoning steps.</div>
+          </div>
+        </div>
+
+        <!-- NOT IDEAL FOR Column -->
+        <div>
+          <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Not ideal for</div>
+          
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Teams needing simple chatbot implementations — the complexity of agent orchestration and observability features may be overkill for basic conversational AI.</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Organizations with strict data residency requirements on tight budgets — enterprise features like self-hosted deployment require custom pricing.</div>
+          </div>
+
+          <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+            <div style="font-size:13px; color:var(--text2); line-height:1.55;">Solo developers building single-step LLM applications — the agent workflow overhead adds unnecessary complexity for simple use cases.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- ALTERNATIVES -->
-        <div class="tool-section fade-up fade-up-4">
+    <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">Mem0</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">Mem0 focuses specifically on providing a universal memory layer for LLM applications that learns from user interactions and reduces token costs by 80%, while LangChain is a broader application framework for building LLM workflows. Mem0 benchmarks show 26% higher response quality compared to OpenAI memory while using 90% fewer tokens, but it's more specialized than LangChain's comprehensive orchestration capabilities.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Mem0 when you need persistent memory and personalization across sessions with proven cost reduction. Choose LangChain when you need a comprehensive framework for building complex AI orchestration pipelines and multi-step workflows.</div>
-</div>
-<div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">LiteLLM</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">LiteLLM serves as a gateway for managing authentication, load balancing, and cost tracking across 100+ LLMs through a unified OpenAI-compatible interface, while LangChain provides a full application framework for building AI workflows. LiteLLM excels at standardizing access to multiple LLM providers but lacks LangChain's comprehensive agent and chain building capabilities.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LiteLLM when you need to manage multiple LLM providers with unified access and cost tracking. Choose LangChain when you need to build complex AI applications with agents, chains, and orchestration workflows.</div>
-</div>
-<div style="padding:18px 0; border-bottom:0.5px solid var(--border);">
-  <div style="font-size:14px; font-weight:500; margin-bottom:6px;">LlamaIndex</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:8px;">Both LlamaIndex and LangChain are comprehensive RAG frameworks that achieved 100% accuracy in standardized benchmarks using identical models and components. The benchmark isolated each framework's overhead and token efficiency across 100 queries run 100 times each, though specific performance differences weren't detailed in the provided sources.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LlamaIndex when you need a RAG-focused framework with proven benchmark performance. Choose LangChain when you need broader AI orchestration capabilities beyond RAG, especially for data engineering pipelines and complex agent workflows.</div>
-</div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+        <!-- Mem0 Card -->
+        <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Mem0</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">
+            Mem0 focuses specifically on providing a universal memory layer for LLM applications that learns from user interactions and reduces token costs by 80%, while LangChain is a broader application framework for building LLM workflows.
+          </div>
+          <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">
+            Choose Mem0 when you need persistent memory and personalization across sessions with proven cost reduction.<br>
+            Choose LangChain when you need a comprehensive framework for building complex AI orchestration pipelines and multi-step workflows.
+          </div>
+        </div>
+
+        <!-- LiteLLM Card -->
+        <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:8px;">LiteLLM</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">
+            LiteLLM serves as a gateway for managing authentication, load balancing, and cost tracking across 100+ LLMs through a unified OpenAI-compatible interface.
+          </div>
+          <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">
+            Choose LiteLLM when you need to manage multiple LLM providers with unified access and cost tracking.<br>
+            Choose LangChain when you need to build complex AI applications with agents, chains, and orchestration workflows.
+          </div>
+        </div>
+
+        <!-- LlamaIndex Card -->
+        <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+          <div style="font-size:14px; font-weight:500; margin-bottom:8px;">LlamaIndex</div>
+          <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">
+            Both LlamaIndex and LangChain are comprehensive RAG frameworks that achieved 100% accuracy in standardized benchmarks.
+          </div>
+          <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">
+            Choose LlamaIndex when you need a RAG-focused framework with proven benchmark performance.<br>
+            Choose LangChain when you need broader AI orchestration capabilities beyond RAG.
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <!-- WORKFLOW -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
-      <div style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:24px;">You build AI agents by chaining together LLMs, tools, and prompts using LangChain's framework, then deploy them in applications like Streamlit chatbots where users interact and provide thumbs up/down feedback. You monitor these interactions through LangSmith's tracing interface, viewing conversation flows, token usage, and user satisfaction scores to iterate on your agent's performance.</div><ul style="list-style:none; padding:0; margin:0;"><li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Context window bloats rapidly as all tool calls accumulate in memory during long conversations, leading to unnecessary token waste and degraded performance over time</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Agents follow a reactive observe-think-act pattern without planning ahead, making them inefficient at complex multi-step tasks that require strategic thinking</span></li>
-<li style="font-size:13px; color:var(--text2); line-height:1.6; padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>High job market demand creates pressure to learn LangChain even when simpler solutions might suffice, as it appears frequently in data engineering job descriptions regardless of actual necessity</span></li></ul>
+
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;">
+        <div style="font-size:14px; color:var(--text2); line-height:1.75;">
+          You build AI agents by chaining together LLMs, tools, and prompts using LangChain's framework, then deploy them in applications like Streamlit chatbots where users interact and provide thumbs up/down feedback. You monitor these interactions through LangSmith's tracing interface.
+        </div>
+      </div>
+
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li style="padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;">
+            <span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span>
+            <span>Context window bloats rapidly as all tool calls accumulate in memory during long conversations, leading to unnecessary token waste and degraded performance over time</span>
+          </li>
+          <li style="padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;">
+            <span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span>
+            <span>Agents follow a reactive observe-think-act pattern without planning ahead, making them inefficient at complex multi-step tasks</span>
+          </li>
+          <li style="padding:12px 0; display:flex; gap:10px;">
+            <span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span>
+            <span>High job market demand creates pressure to learn LangChain even when simpler solutions might suffice</span>
+          </li>
+        </ul>
+      </div>
     </div>
-    
-    <!-- ILLUSTRATIVE OUTPUT -->
+    <!-- ILLUSTRATIVE OUTPUT -->    <!-- ILLUSTRATIVE OUTPUT -->
     <div class="tool-section fade-up fade-up-5">
       <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
       <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
