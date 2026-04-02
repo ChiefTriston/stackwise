@@ -34,6 +34,38 @@
       .verdict-cols { grid-template-columns:1fr; }
       .tool-meta-row { gap:12px; }
     }
+  
+    /* WRITESONIC PRICING NOTES BOX OVERRIDE */
+    .pricing-notes {
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 0.5px solid rgba(124,109,240,0.32);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(124,109,240,0.12), rgba(255,255,255,0.02));
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pricing-note-line {
+      display: block;
+      padding: 12px 0;
+      margin: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--text2);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      letter-spacing: 0;
+      line-height: 1.65;
+    }
+
+    .pricing-note-line + .pricing-note-line {
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+    }
   </style>
 </head>
 <body>
@@ -105,17 +137,63 @@
     <!-- PRICING -->
     <div class="tool-section fade-up fade-up-3">
       <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>FREE PLAN</strong> — $0/month: Limited access, basic features, 1 site audit (up to 100 pages)</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>BASIC PLAN</strong> — $49/month ($39 annually): 1 user, 15 articles/month, basic AI features</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>STANDARD PLAN</strong> — $99/month ($79 annually): 2 users, GEO features, brand presence tracking</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>PROFESSIONAL PLAN</strong> — $249/month ($199 annually): 100 articles/month, full GEO access, GPT-4o mini</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>ADVANCED PLAN</strong> — $499/month ($399 annually): 200 articles/month, sentiment analysis, advanced support</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>ENTERPRISE PLAN</strong> — From $1,499/month: Unlimited everything, SSO, custom integrations, white-glove onboarding</p>
-      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">All plans include unlimited Chatsonic generations and multi-step site audits. Annual billing saves 20%. Plans start at $39/month when billed yearly.</p>
-      <p style="margin-top:12px;"><a href="https://writesonic.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+
+      <div class="pricing-table-wrap">
+        <div class="pricing-table-box">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Plan</th>
+                <th>Price</th>
+                <th>Includes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pricing-col-plan">Free</td>
+                <td class="pricing-col-price free">Start free</td>
+                <td class="pricing-col-includes">SEO and AI content tools with no credit card required.</td>
+              </tr>
+              <tr>
+                <td class="pricing-col-plan">Lite</td>
+                <td class="pricing-col-price">$49/month</td>
+                <td class="pricing-col-includes">Billed annually. Entry paid tier for solopreneurs and freelancers who need professional SEO and AI content tools.</td>
+              </tr>
+              <tr>
+                <td class="pricing-col-plan">Standard</td>
+                <td class="pricing-col-price">$99/month<br>$79/month annual</td>
+                <td class="pricing-col-includes">More SEO and content capacity for users who need higher limits than Lite.</td>
+              </tr>
+              <tr>
+                <td class="pricing-col-plan">Basic</td>
+                <td class="pricing-col-price">$249/month<br>$199/month annual</td>
+                <td class="pricing-col-includes">For growing brands needing full SEO plus AI Search Visibility.</td>
+              </tr>
+              <tr>
+                <td class="pricing-col-plan">Growth</td>
+                <td class="pricing-col-price">$499/month<br>$399/month annual</td>
+                <td class="pricing-col-includes">For scaling teams improving AI search visibility and SEO.</td>
+              </tr>
+              <tr>
+                <td class="pricing-col-plan">Enterprise</td>
+                <td class="pricing-col-price">Custom pricing</td>
+                <td class="pricing-col-includes">Tailored solution for large brands and agencies with custom requirements.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pricing-notes">
+          <div class="pricing-note-line">Start free with SEO and AI content tools — no credit card needed.</div>
+          <div class="pricing-note-line">AI Search Visibility (GEO) is available on Basic and higher plans only.</div>
+          <div class="pricing-note-line">Annual billing saves 20% compared with monthly pricing.</div>
+        </div>
+
+        <a href="https://writesonic.com/pricing" target="_blank" rel="noopener" class="pricing-source-link">View full pricing details ↗</a>
+      </div>
     </div>
 
-    <!-- USER SIGNALS -->
+    <!-- USER SIGNALS -->    <!-- USER SIGNALS -->
     <div class="tool-section fade-up fade-up-3">
       <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
       <p style="font-size:13px; color:var(--text3); margin-bottom:20px;">Patterns from reviews, community discussions, and public feedback.</p>
@@ -258,7 +336,6 @@ As consumers become increasingly environmentally conscious, e-commerce businesse
 </footer>
 
     <script src="search.js"></script>
-  <script src="pricing-cards.js?v=4?v=4?v=3?v=3"></script>
 </body>
 </html>
 </DOCUMENT>
