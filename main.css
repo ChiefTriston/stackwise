@@ -653,3 +653,161 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+/* STACKWISE SHARED PRICING TABLE */
+.pricing-table-wrap {
+  margin-top: 18px;
+}
+
+.pricing-table-box {
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.pricing-table thead th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  font-family: 'DM Mono', monospace;
+  padding: 14px 18px;
+  border-bottom: 0.5px solid var(--border);
+  background: rgba(255,255,255,0.015);
+}
+
+.pricing-table tbody td {
+  padding: 16px 18px;
+  vertical-align: top;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-col-plan {
+  width: 28%;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pricing-col-price {
+  width: 24%;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pricing-col-price.free {
+  color: var(--green);
+}
+
+.pricing-col-includes {
+  width: 48%;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.55;
+}
+
+.pricing-notes {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pricing-note-line {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.5;
+  font-family: 'DM Mono', monospace;
+}
+
+.pricing-note-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-note-list li {
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.55;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.pricing-note-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--text3);
+}
+
+.pricing-source-link {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #a99af7;
+  font-family: 'DM Mono', monospace;
+}
+
+.pricing-hide-original {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .pricing-table,
+  .pricing-table thead,
+  .pricing-table tbody,
+  .pricing-table th,
+  .pricing-table td,
+  .pricing-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .pricing-table thead {
+    display: none;
+  }
+
+  .pricing-table tbody tr {
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .pricing-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table tbody td {
+    border-bottom: none;
+    padding: 10px 16px;
+  }
+
+  .pricing-table tbody td::before {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text3);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 4px;
+  }
+
+  .pricing-col-plan::before { content: "Plan"; }
+  .pricing-col-price::before { content: "Price"; }
+  .pricing-col-includes::before { content: "Includes"; }
+}

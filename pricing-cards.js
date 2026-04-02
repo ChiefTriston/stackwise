@@ -2,212 +2,256 @@ document.addEventListener("DOMContentLoaded", () => {
   const clean = (value = "") =>
     value.replace(/\u00A0/g, " ").replace(/\s+/g, " ").trim();
 
-  const priceHtml = (price) => {
-    const p = clean(price);
-    if (!p) return 'See<span>details</span>';
-    if (/^custom pricing$/i.test(p) || /^custom$/i.test(p)) return 'Custom<span>pricing</span>';
-    if (/^contact/i.test(p)) return 'Contact<span>sales</span>';
-    if (/^free$/i.test(p) || /^forever free/i.test(p)) return 'Free<span>plan</span>';
-    return p
-      .replace(/\/month/gi, '<span>/month</span>')
-      .replace(/\/year/gi, '<span>/year</span>')
-      .replace(/per seat/gi, '<span>per seat</span>');
+  const isNoteText = (text) => {
+    const t = clean(text).toLowerCase();
+    return (
+      t.startsWith("key differences:") ||
+      t.startsWith("annual billing") ||
+      t.startsWith("all plans include") ||
+      t.startsWith("student discounts") ||
+      t.startsWith("discounts available") ||
+      t.startsWith("plans start at") ||
+      t.startsWith("higher-tier plans") ||
+      t.startsWith("pricing model changed") ||
+      t.startsWith("monitor usage")
+    );
   };
 
-  const tagForPlan = (name) => {
-    const v = clean(name).toLowerCase();
-    if (v.includes("free")) return "Best for trying it out";
-    if (v.includes("education") || v.includes("student")) return "Best for students";
-    if (v.includes("enterprise") || v.includes("business")) return "Best for teams";
-    if (v.includes("pro")) return "Best overall value";
-    if (v.includes("plus")) return "Good starting tier";
-    if (v.includes("starter")) return "Best entry paid tier";
-    if (v.includes("creator")) return "Best for creators";
-    if (v.includes("max")) return "Best for power users";
-    if (v.includes("open-source")) return "Best for self-hosting";
-    return "Compare features";
-  };
+  const parsePriceIncludes = (raw) => {
+    let text = clean(raw).replace(/^[—\-:]\s*/, "");
+    if (!text) return { price: "", includes: "" };
 
-  const badgeForPlan = (name) => {
-    const v = clean(name).toLowerCase();
-    if (v === "pro" || v === "pro plan" || v.includes("education pro")) return "Most people";
-    return "";
-  };
+    if (/^additional cost\s*:/i.test(text)) {
+      text = text.replace(/^additional cost\s*:/i, "").trim();
+    }
 
-  const splitFeatures = (details) => {
-    return clean(details)
-      .split(/\s*,\s*|\s*;\s*/g)
-      .map(clean)
-      .filter(Boolean)
-      .slice(0, 5);
-  };
+    const colonIndex = text.indexOf(":");
+    const dashIndex = text.indexOf(" - ");
+    const emDashIndex = text.indexOf(" — ");
 
-  const summarize = (details) => {
-    const parts = clean(details).split(/\s*,\s*/).slice(0, 2);
-    return clean(parts.join(", "));
-  };
+    let splitIndex = -1;
+    let splitLength = 0;
 
-  const parsePriceAndDetails = (rest) => {
-    const value = clean(rest).replace(/^[—\-:]\s*/, "");
-    if (!value) return null;
+    if (colonIndex !== -1 && colonIndex < 120) {
+      splitIndex = colonIndex;
+      splitLength = 1;
+    } else if (dashIndex !== -1) {
+      splitIndex = dashIndex;
+      splitLength = 3;
+    } else if (emDashIndex !== -1) {
+      splitIndex = emDashIndex;
+      splitLength = 3;
+    }
 
-    const colonIdx = value.indexOf(":");
-    const dashIdx = value.indexOf(" - ");
-    const emDashIdx = value.indexOf(" — ");
-
-    if (colonIdx !== -1) {
+    if (splitIndex !== -1) {
       return {
-        price: clean(value.slice(0, colonIdx)),
-        details: clean(value.slice(colonIdx + 1))
+        price: clean(text.slice(0, splitIndex)),
+        includes: clean(text.slice(splitIndex + splitLength))
       };
     }
 
-    let splitIdx = -1;
-    if (dashIdx !== -1) splitIdx = dashIdx;
-    if (emDashIdx !== -1 && (splitIdx === -1 || emDashIdx < splitIdx)) splitIdx = emDashIdx;
+    return { price: text, includes: "" };
+  };
 
-    if (splitIdx !== -1) {
-      return {
-        price: clean(value.slice(0, splitIdx)),
-        details: clean(value.slice(splitIdx + 3))
-      };
+  const extractStrongSegments = (p) => {
+    const segments = [];
+    let currentName = null;
+    let currentText = "";
+
+    [...p.childNodes].forEach((node) => {
+      if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "STRONG") {
+        if (currentName) {
+          segments.push({ name: clean(currentName), raw: clean(currentText) });
+        }
+        currentName = node.textContent;
+        currentText = "";
+      } else {
+        currentText += " " + clean(node.textContent || "");
+      }
+    });
+
+    if (currentName) {
+      segments.push({ name: clean(currentName), raw: clean(currentText) });
     }
 
-    return { price: value, details: "" };
+    return segments;
   };
 
   const parseParagraph = (p) => {
-    const clone = p.cloneNode(true);
-    clone.querySelectorAll("a").forEach(a => a.remove());
+    const text = clean(p.textContent);
+    if (!text) return { plans: [], notes: [] };
 
-    const strong = clone.querySelector("strong");
-    const fullText = clean(clone.textContent);
-    if (!fullText) return null;
-
-    if (/^key differences:/i.test(fullText)) {
-      return { type: "note", note: fullText.replace(/^key differences:\s*/i, "") };
-    }
-    if (/^annual billing/i.test(fullText) || /^all plans include/i.test(fullText)) {
-      return { type: "note", note: fullText };
+    if (isNoteText(text)) {
+      return { plans: [], notes: [text] };
     }
 
-    if (strong) {
-      const name = clean(strong.textContent);
-      let rest = fullText.replace(name, "").trim().replace(/^[—\-:]\s*/, "");
-      const parsed = parsePriceAndDetails(rest);
-      if (!parsed) return null;
-      return { type: "plan", name, price: parsed.price, details: parsed.details };
+    const strongSegments = extractStrongSegments(p);
+
+    if (strongSegments.length > 1) {
+      const plans = strongSegments.map((segment) => {
+        const parsed = parsePriceIncludes(segment.raw);
+        return {
+          name: segment.name,
+          price: parsed.price,
+          includes: parsed.includes
+        };
+      }).filter(plan => clean(plan.name) && (clean(plan.price) || clean(plan.includes)));
+
+      return { plans, notes: [] };
     }
 
-    const colonIdx = fullText.indexOf(":");
-    if (colonIdx !== -1) {
-      const name = clean(fullText.slice(0, colonIdx));
-      const parsed = parsePriceAndDetails(fullText.slice(colonIdx + 1));
-      if (!parsed) return null;
-      return { type: "plan", name, price: parsed.price, details: parsed.details };
+    if (strongSegments.length === 1) {
+      const parsed = parsePriceIncludes(strongSegments[0].raw);
+      return {
+        plans: [{
+          name: strongSegments[0].name,
+          price: parsed.price,
+          includes: parsed.includes
+        }],
+        notes: []
+      };
     }
 
-    return null;
+    const colonIndex = text.indexOf(":");
+    if (colonIndex !== -1 && colonIndex < 80) {
+      const name = clean(text.slice(0, colonIndex));
+      const parsed = parsePriceIncludes(text.slice(colonIndex + 1));
+      return {
+        plans: [{
+          name,
+          price: parsed.price,
+          includes: parsed.includes
+        }],
+        notes: []
+      };
+    }
+
+    return { plans: [], notes: [text] };
   };
 
-  const parseCombinedParagraph = (text) => {
-    const input = clean(text);
-    if (!input) return [];
-
-    const out = [];
-    const regex = /([A-Z][A-Za-z0-9/&+().,' -]{1,40}):\s*((?:\$|Custom pricing|Custom|Free|Forever free)[^-—:]*?(?:\/month|\/year|per seat|savings|\)|only)?(?:\s+or\s+[^-—:]+?)?)\s*[-—]\s*(.*?)(?=\s+[A-Z][A-Za-z0-9/&+().,' -]{1,40}:\s*(?:\$|Custom pricing|Custom|Free|Forever free)|$)/g;
-
-    let match;
-    while ((match = regex.exec(input)) !== null) {
-      out.push({
-        type: "plan",
-        name: clean(match[1]),
-        price: clean(match[2]),
-        details: clean(match[3])
-      });
-    }
-
-    return out;
-  };
-
-  const pricingSections = [...document.querySelectorAll(".tool-section")].filter(section => {
+  const pricingSections = [...document.querySelectorAll(".tool-section")].filter((section) => {
     const title = section.querySelector(".tool-section-title");
     return title && /^pricing\b/i.test(clean(title.textContent));
   });
 
-  pricingSections.forEach(section => {
-    if (section.querySelector(".pricing-cards-wrap")) return;
+  pricingSections.forEach((section) => {
+    if (section.querySelector(".pricing-table-wrap")) return;
 
     const linkEl = [...section.querySelectorAll("a")].find(a =>
-      /pricing/i.test(clean(a.textContent))
+      /view full pricing details/i.test(clean(a.textContent))
     );
 
-    const paragraphs = [...section.querySelectorAll("p")];
-    const plans = [];
-    const notes = [];
+    const directPs = [...section.querySelectorAll(":scope > p")];
+    const directLists = [...section.querySelectorAll(":scope > ul, :scope > ol")];
 
-    paragraphs.forEach(p => {
+    let plans = [];
+    let notes = [];
+    let listNotes = [];
+
+    directPs.forEach((p) => {
+      if (linkEl && p.contains(linkEl)) return;
+
       const parsed = parseParagraph(p);
-      if (parsed?.type === "plan") plans.push(parsed);
-      if (parsed?.type === "note") notes.push(parsed.note);
+      plans = plans.concat(parsed.plans);
+      notes = notes.concat(parsed.notes);
     });
 
-    if (plans.length <= 1) {
-      const combinedText = paragraphs.map(p => clean(p.textContent)).join(" ");
-      parseCombinedParagraph(combinedText).forEach(item => plans.push(item));
-    }
+    directLists.forEach((list) => {
+      [...list.querySelectorAll("li")].forEach((li) => {
+        const text = clean(li.textContent);
+        if (text) listNotes.push(text);
+      });
+    });
+
+    plans = plans
+      .map((plan) => ({
+        name: clean(plan.name),
+        price: clean(plan.price),
+        includes: clean(plan.includes)
+      }))
+      .filter((plan) => plan.name && (plan.price || plan.includes));
+
+    const seen = new Set();
+    plans = plans.filter((plan) => {
+      const key = `${plan.name}|${plan.price}|${plan.includes}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
 
     if (!plans.length) return;
 
-    const deduped = [];
-    const seen = new Set();
-
-    plans.forEach(plan => {
-      const key = `${clean(plan.name)}|${clean(plan.price)}|${clean(plan.details)}`;
-      if (!seen.has(key)) {
-        seen.add(key);
-        deduped.push(plan);
-      }
-    });
-
     const wrap = document.createElement("div");
-    wrap.className = "pricing-cards-wrap";
+    wrap.className = "pricing-table-wrap";
 
-    const grid = document.createElement("div");
-    grid.className = "pricing-grid";
+    const box = document.createElement("div");
+    box.className = "pricing-table-box";
 
-    deduped.forEach(plan => {
-      const badge = badgeForPlan(plan.name);
-      const tag = tagForPlan(plan.name);
-      const features = splitFeatures(plan.details);
-      const note = summarize(plan.details);
-      const featuredClass = badge ? " featured" : "";
+    const table = document.createElement("table");
+    table.className = "pricing-table";
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>Includes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
 
-      const card = document.createElement("div");
-      card.className = `pricing-card${featuredClass}`;
-      card.innerHTML = `
-        ${badge ? `<div class="pricing-badge">${badge}</div>` : ""}
-        <div class="pricing-top">
-          <div>
-            <div class="pricing-name">${plan.name}</div>
-            <div class="pricing-tag">${tag}</div>
-          </div>
-          <div class="pricing-price">${priceHtml(plan.price)}</div>
-        </div>
-        ${note ? `<p class="pricing-note">${note}</p>` : ""}
-        ${features.length ? `<ul class="pricing-list">${features.map(item => `<li>${item}</li>`).join("")}</ul>` : ""}
-      `;
-      grid.appendChild(card);
+    const tbody = table.querySelector("tbody");
+
+    plans.forEach((plan) => {
+      const tr = document.createElement("tr");
+
+      const tdPlan = document.createElement("td");
+      tdPlan.className = "pricing-col-plan";
+      tdPlan.textContent = plan.name;
+
+      const tdPrice = document.createElement("td");
+      tdPrice.className = "pricing-col-price";
+      tdPrice.textContent = plan.price || "—";
+      if (/^free$/i.test(plan.price) || /^\$0\b/.test(plan.price)) {
+        tdPrice.classList.add("free");
+      }
+
+      const tdIncludes = document.createElement("td");
+      tdIncludes.className = "pricing-col-includes";
+      tdIncludes.textContent = plan.includes || "—";
+
+      tr.appendChild(tdPlan);
+      tr.appendChild(tdPrice);
+      tr.appendChild(tdIncludes);
+      tbody.appendChild(tr);
     });
 
-    wrap.appendChild(grid);
+    box.appendChild(table);
+    wrap.appendChild(box);
 
-    if (notes.length) {
-      const noteEl = document.createElement("p");
-      noteEl.className = "pricing-note";
-      noteEl.style.marginTop = "14px";
-      noteEl.textContent = notes.join(" ");
-      wrap.appendChild(noteEl);
+    if (notes.length || listNotes.length) {
+      const notesWrap = document.createElement("div");
+      notesWrap.className = "pricing-notes";
+
+      notes.forEach((note) => {
+        const line = document.createElement("div");
+        line.className = "pricing-note-line";
+        line.textContent = `△ ${note}`;
+        notesWrap.appendChild(line);
+      });
+
+      if (listNotes.length) {
+        const ul = document.createElement("ul");
+        ul.className = "pricing-note-list";
+        listNotes.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        notesWrap.appendChild(ul);
+      }
+
+      wrap.appendChild(notesWrap);
     }
 
     if (linkEl) {
@@ -216,7 +260,12 @@ document.addEventListener("DOMContentLoaded", () => {
       wrap.appendChild(linkClone);
     }
 
-    paragraphs.forEach(p => p.classList.add("pricing-hide-original"));
+    directPs.forEach((p) => p.classList.add("pricing-hide-original"));
+    directLists.forEach((list) => list.classList.add("pricing-hide-original"));
+    if (linkEl && linkEl.parentElement) {
+      linkEl.parentElement.classList.add("pricing-hide-original");
+    }
+
     section.appendChild(wrap);
   });
 });
