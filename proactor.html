@@ -33,6 +33,38 @@
       .verdict-cols { grid-template-columns:1fr; }
       .tool-meta-row { gap:12px; }
     }
+  
+    /* PROACTOR PRICING NOTES BOX OVERRIDE */
+    .pricing-notes {
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 0.5px solid rgba(124,109,240,0.32);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(124,109,240,0.12), rgba(255,255,255,0.02));
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pricing-note-line {
+      display: block;
+      padding: 12px 0;
+      margin: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--text2);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      letter-spacing: 0;
+      line-height: 1.65;
+    }
+
+    .pricing-note-line + .pricing-note-line {
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+    }
   </style>
 </head>
 <body>
@@ -104,7 +136,12 @@
       <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>Basic (Free)</strong> - $0/month: 30 minutes transcription per month, 100 AI credits, preview of AI advice</p>
 <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>Pro</strong> - $15.99/month (billed annually): 1,350 minutes transcription per month, 3,400 AI credits, full access to AI advice, To-do exports, cross-meeting recall, real-time AI advice during meetings</p>
 <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>Business</strong> - $39.99/month (billed annually): Enhanced features for teams and enterprises with additional transcription time and AI credits</p>
-<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Key differences: Free plan provides basic transcription and limited AI features. Pro unlocks unlimited AI summaries, proactive real-time advice, task generation, and memory across meetings. Business adds team collaboration features and higher usage limits. Annual billing saves 20% compared to monthly rates.</p><p style="margin-top:12px;"><a href="https://proactor.ai/pricing/" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+<div class="pricing-notes">
+  <div class="pricing-note-line">Free plan provides basic transcription and limited AI features.</div>
+  <div class="pricing-note-line">Pro unlocks unlimited AI summaries, proactive real-time advice, task generation, and memory across meetings.</div>
+  <div class="pricing-note-line">Business adds team collaboration features and higher usage limits.</div>
+  <div class="pricing-note-line">Annual billing saves 20% compared to monthly rates.</div>
+</div><p style="margin-top:12px;"><a href="https://proactor.ai/pricing/" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
     </div>
 
     <!-- USER SIGNALS -->
@@ -249,6 +286,5 @@ Transcription Time: 45 minutes (15 minutes remaining this month on Basic plan)</
 </footer>
 
     <script src="search.js"></script>
-  <script src="pricing-cards.js?v=4?v=4?v=3?v=3"></script>
 </body>
 </html>
