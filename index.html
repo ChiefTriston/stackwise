@@ -55,6 +55,64 @@
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     /* CATEGORY BAR */
     .cat-bar { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 16px; }
+    /* NAV SEARCH */
+    .nav-search { flex: 1; display: flex; justify-content: center; min-width: 240px; }
+    .nav-search-wrap { position: relative; width: 100%; max-width: 420px; }
+    .nav-search-input {
+      width: 100%;
+      padding: 11px 18px 11px 42px;
+      border: 0.5px solid var(--border);
+      border-radius: 999px;
+      background: var(--bg2);
+      color: var(--text);
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.12s, background 0.12s;
+    }
+    .nav-search-input:focus {
+      border-color: var(--accent-border);
+      background: var(--bg3);
+    }
+    .nav-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: var(--text3);
+      pointer-events: none;
+    }
+    .search-results {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 14px 36px rgba(0,0,0,0.16);
+      overflow: hidden;
+      z-index: 3000;
+    }
+    .search-result-item {
+      display: block;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.12s;
+    }
+    .search-result-item:last-child { border-bottom: none; }
+    .search-result-item:hover { background: var(--bg2); }
+    .search-result-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+    .search-result-desc { font-size: 12px; color: var(--text3); line-height: 1.45; }
+    .search-empty {
+      padding: 14px;
+      font-size: 12px;
+      color: var(--text3);
+    }
     /* TOOLS GRID */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; gap: 0.5px; background: var(--border); }
     .tool-card { padding: 16px 18px; background: var(--bg); cursor: pointer; transition: background 0.12s; text-decoration: none; color: inherit; display: block; }
@@ -85,6 +143,9 @@
       .section { padding: 0 20px; }
       .community-grid { grid-template-columns: 1fr; }
       .tools-grid { grid-template-columns: 1fr 1fr; }
+      .nav-search { order: 3; width: 100%; justify-content: stretch; }
+      .nav-search-wrap { max-width: none; }
+      .nav-links { width: 100%; justify-content: space-between; }
     }
   </style>
 </head>
@@ -92,10 +153,26 @@
 
 <nav class="nav">
   <a href="/" class="nav-logo">Stack<span>wise</span></a>
+
+  <div class="nav-search">
+    <div class="nav-search-wrap">
+      <span class="nav-search-icon">🔎</span>
+      <input
+        id="globalSearch"
+        class="nav-search-input"
+        type="text"
+        placeholder="Search tools (Cursor, Perplexity, Lindy...)"
+        autocomplete="off"
+      />
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+
   <div class="nav-links">
-    <a href="#tools" class="nav-link">Browse</a>
-    <a href="#tools" class="nav-link">Categories</a>
-    <a href="submit-tool.html" class="nav-link cta">Submit a tool</a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="#tools" class="nav-link">All Tools</a>
+    <a href="submit-tool.html" class="nav-link">Submit Tool</a>
+    <a href="submit-review.html" class="nav-link">Submit Review</a>
   </div>
 </nav>
 
@@ -348,6 +425,77 @@ function buildTools() {
     g.appendChild(d);
   });
   document.getElementById('toolCount').textContent = tools.length + ' tools';
+}
+
+const searchInput = document.getElementById('globalSearch');
+const searchResults = document.getElementById('searchResults');
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function buildSearchResults(query) {
+  if (!searchInput || !searchResults) return;
+  const normalized = query.toLowerCase().trim();
+
+  if (normalized.length < 2) {
+    searchResults.style.display = 'none';
+    searchResults.innerHTML = '';
+    return;
+  }
+
+  const filtered = tools.filter(tool =>
+    tool.name.toLowerCase().includes(normalized) ||
+    tool.cat.toLowerCase().includes(normalized) ||
+    tool.verdict.toLowerCase().includes(normalized) ||
+    tool.cats.some(cat => cat.toLowerCase().includes(normalized))
+  );
+
+  if (!filtered.length) {
+    searchResults.innerHTML = `<div class="search-empty">No matches found for "${escapeHtml(query)}"</div>`;
+    searchResults.style.display = 'block';
+    return;
+  }
+
+  searchResults.innerHTML = filtered
+    .slice(0, 8)
+    .map(tool => `
+      <a href="${tool.href}" class="search-result-item">
+        <div class="search-result-name">${tool.name}</div>
+        <div class="search-result-desc">${tool.cat} · ${tool.verdict}</div>
+      </a>
+    `)
+    .join('');
+
+  searchResults.style.display = 'block';
+}
+
+if (searchInput && searchResults) {
+  searchInput.addEventListener('input', e => buildSearchResults(e.target.value));
+
+  searchInput.addEventListener('focus', e => {
+    if (e.target.value.trim().length >= 2) {
+      buildSearchResults(e.target.value);
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav-search-wrap')) {
+      searchResults.style.display = 'none';
+    }
+  });
+
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      searchResults.style.display = 'none';
+      searchInput.blur();
+    }
+  });
 }
 
 renderQ(); buildTrending(); buildCats(); buildTools();
