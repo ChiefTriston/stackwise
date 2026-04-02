@@ -84,6 +84,20 @@
     .langchain-usage-list li:first-child::before {
       top: 0;
     }
+
+    .langchain-usage-extra {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .langchain-usage-extra strong {
+      color: #efeaff;
+      font-weight: 600;
+    }
     @media(max-width:640px) {
       .verdict-cols { grid-template-columns:1fr; }
       .tool-meta-row { gap:12px; }
@@ -167,8 +181,8 @@
     <li>LangSmith Deployment: $0.001 per node execution for agent runs</li>
     <li>Production deployments charged separately by usage (agent runs and uptime)</li>
   </ul>
-</div>
-<p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;"><strong>Startup Program</strong>: Up to $10,000 in credits for eligible VC-backed startups with less than $10M funding and at least $25K seed funding raised</p><p style="margin-top:12px;"><a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
+  <div class="langchain-usage-extra"><strong>Startup Program:</strong> Up to $10,000 in credits for eligible VC-backed startups with less than $10M funding and at least $25K seed funding raised.</div>
+</div><p style="margin-top:12px;"><a href="https://docs.smith.langchain.com/pricing" target="_blank" rel="noopener" style="font-size:12px; color:var(--accent); font-family:'DM Mono',monospace;">View full pricing details ↗</a></p>
     </div>
 
     <!-- USER SIGNALS -->
