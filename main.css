@@ -535,3 +535,121 @@ textarea {
   .nav-search-wrap { max-width: none; }
   .nav-links { width: 100%; justify-content: space-between; }
 }
+/* STACKWISE SHARED PRICING CARDS */
+.pricing-cards-wrap {
+  margin-top: 18px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pricing-card {
+  position: relative;
+  padding: 22px;
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg2);
+}
+
+.pricing-card.featured {
+  border-color: var(--accent-border);
+  background: linear-gradient(180deg, rgba(124,109,240,0.08), rgba(255,255,255,0.02));
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--accent-light);
+  border: 0.5px solid var(--accent-border);
+  color: #a99af7;
+  font-family: 'DM Mono', monospace;
+}
+
+.pricing-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.pricing-name {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.pricing-tag {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 4px;
+}
+
+.pricing-price {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.pricing-price span {
+  font-size: 12px;
+  color: var(--text3);
+  margin-left: 4px;
+}
+
+.pricing-note {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.pricing-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-list li {
+  font-size: 13px;
+  color: var(--text2);
+  padding-left: 16px;
+  position: relative;
+}
+
+.pricing-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.pricing-source-link {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 12px;
+  color: #a99af7;
+}
+
+.pricing-hide-original {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
