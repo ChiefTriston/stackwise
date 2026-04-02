@@ -33,6 +33,38 @@
       .verdict-cols { grid-template-columns:1fr; }
       .tool-meta-row { gap:12px; }
     }
+  
+    /* GLEAN PRICING NOTES BOX OVERRIDE */
+    .pricing-notes {
+      margin-top: 14px;
+      padding: 18px 20px;
+      border: 0.5px solid rgba(124,109,240,0.32);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(124,109,240,0.12), rgba(255,255,255,0.02));
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .pricing-note-line {
+      display: block;
+      padding: 12px 0;
+      margin: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--text2);
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      letter-spacing: 0;
+      line-height: 1.65;
+    }
+
+    .pricing-note-line + .pricing-note-line {
+      border-top: 0.5px solid rgba(255,255,255,0.07);
+    }
   </style>
 </head>
 <body>
@@ -101,7 +133,35 @@
     <!-- PRICING -->
     <div class="tool-section fade-up fade-up-3">
       <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
-      <p style="font-size:13px; color:var(--text2);">Pricing details not available from collected sources. <a href="https://www.glean.com/pricing-guide" target="_blank" rel="noopener" style="color:var(--accent);">View pricing page ↗</a></p>
+
+      <div class="pricing-table-wrap">
+        <div class="pricing-table-box">
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Plan</th>
+                <th>Price</th>
+                <th>Includes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="pricing-col-plan">Enterprise</td>
+                <td class="pricing-col-price">Custom quote</td>
+                <td class="pricing-col-includes">Company-wide search, AI assistant, agents, permission-aware connectors, governance, security, and rollout scope tailored through sales.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pricing-notes">
+          <div class="pricing-note-line">Glean does not publish public self-serve pricing. Most teams need to request a demo or contact sales to get a quote.</div>
+          <div class="pricing-note-line">What usually affects the quote: company size and rollout scope, number and complexity of connected systems, enabled AI features, security and compliance requirements, support / SLA expectations, and deployment needs. Glean’s own materials on enterprise AI/search pricing emphasize factors like connector count, security/compliance features, SLA requirements, deployment model, and total cost of ownership.</div>
+          <div class="pricing-note-line">What to expect from the buying process: this is a sales-led enterprise product, not a buy-now tool. Expect discovery, demo, scoping, and then a custom proposal rather than a visible monthly checkout page.</div>
+        </div>
+
+        <a href="https://www.glean.com/pricing-guide" target="_blank" rel="noopener" class="pricing-source-link">View pricing details ↗</a>
+      </div>
     </div>
 
     <!-- USER SIGNALS -->
@@ -228,6 +288,5 @@
 </footer>
 
     <script src="search.js"></script>
-  <script src="pricing-cards.js?v=4?v=4?v=3?v=3"></script>
 </body>
 </html>
