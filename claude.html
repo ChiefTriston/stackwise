@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude — Stackwise</title>
+  <meta name="description" content="Evidence-based review of Claude. Real pricing, workflow, and user signals." />
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .tool-page { padding:56px 0 80px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; cursor:pointer; transition:color 0.12s; text-decoration:none; }
+    .back-link:hover { color:var(--text2); }
+    .tool-header { margin-bottom:48px; }
+    .tool-meta { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .tool-category { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; letter-spacing:0.07em; text-transform:uppercase; }
+    .tool-title { font-size:clamp(32px,5vw,48px); font-weight:400; letter-spacing:-0.04em; line-height:1.05; margin-bottom:12px; }
+    .tool-tagline { font-size:16px; color:var(--text2); line-height:1.6; max-width:600px; margin-bottom:24px; }
+    .tool-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .tool-meta-row { display:flex; gap:20px; margin-top:20px; padding-top:20px; border-top:0.5px solid var(--border); flex-wrap:wrap; }
+    .meta-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .meta-item span { color:var(--text2); }
+    .verdict-card { padding:28px 32px; border:0.5px solid var(--border2); border-radius:var(--radius-lg); background:var(--bg2); margin-bottom:40px; }
+    .verdict-call { font-size:17px; font-weight:500; line-height:1.45; letter-spacing:-0.01em; margin-bottom:24px; color:var(--text); }
+    .verdict-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    .verdict-col-label { font-size:11px; letter-spacing:0.07em; text-transform:uppercase; color:var(--text3); margin-bottom:12px; font-family:'DM Mono',monospace; }
+    .tool-section { margin-bottom:48px; }
+    .tool-section-title { font-size:14px; font-weight:500; color:var(--text); margin-bottom:16px; padding-bottom:12px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .section-num { font-size:11px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-bar { display:flex; gap:20px; padding:16px 0; border-top:0.5px solid var(--border); margin-top:48px; flex-wrap:wrap; }
+    .source-item { font-size:12px; color:var(--text3); font-family:'DM Mono',monospace; }
+    .source-item span { color:var(--text2); }
+    @media(max-width:640px) {
+      .verdict-cols { grid-template-columns:1fr; }
+      .tool-meta-row { gap:12px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+
+  <div class="nav-search">
+    <div class="nav-search-wrap">
+      <input
+        id="globalSearch"
+        class="nav-search-input"
+        type="text"
+        placeholder="Search tools (Cursor, Perplexity, Lindy...)"
+        autocomplete="off"
+      />
+      <div id="searchResults" class="search-results"></div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
+<div class="tool-page">
+  <div class="container-narrow">
+
+    <a href="index.html" class="back-link">← All tools</a>
+
+    <div class="tool-header fade-up fade-up-1">
+      <div class="tool-meta">
+        <span class="tool-category">Claude</span>
+      </div>
+      <h1 class="tool-title">Claude</h1>
+      <p class="tool-tagline">If you waste hours switching browser tabs for competitor research, manually cleaning file systems and writing business scripts, or rebuilding context across long coding sessions while getting generic outputs from vague prompts, Claude solves that pain for business owners, power users, and engineers who want one daily driver instead of ChatGPT web, Google, and traditional IDEs.</p>
+      <div class="tool-actions">
+        <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener" class="btn btn-primary">Try Claude ↗</a>
+        <a href="https://claude.com/pricing" target="_blank" rel="noopener" class="btn btn-ghost" style="display:inline-flex">View pricing &#x2197;</a>
+      </div>
+      <div class="tool-meta-row">
+        <div class="meta-item">Last updated <span></span></div>
+        <div class="meta-item">Sources <span>0</span></div>
+      </div>
+    </div>
+
+    <!-- VERDICT -->
+    <div class="verdict-card fade-up fade-up-2">
+      <div class="verdict-call">Best for business owners and engineers who do daily file management, scripting, competitor research, or multi-file coding and want local agentic access plus all-in-one artifacts that work well once properly prompted. Skip it if you refuse paid plans or expect instant value from vague prompts—free tier limits make Claude Code unavailable and heavy web use frustrating.</div>
+      <div class="verdict-cols">
+        <div>
+          <div class="verdict-col-label">Strengths</div>
+          <li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Claude Code runs locally with filesystem access and executes commands or edits in your chosen permission mode for uninterrupted business automation and system cleanup</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Web Claude delivers built-in web search and artifacts like interactive calculators or normalized comparison tables in Google Docs without connecting multiple tools</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-h" style="margin-top:5px;"></span><span>Claude Code supports full codebase awareness for autonomous multi-file tasks that replace manual coding and traditional IDEs for many daily workflows</span></li>
+        </div>
+        <div>
+          <div class="verdict-col-label">Limitations</div>
+          <li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Claude Code requires at least the Pro plan; free tier has usage limits and no local agent access</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Permission modes either interrupt workflow frequently or require full trust in bypass mode</span></li>
+<li style="font-size:13px; color:var(--text2); line-height:1.5; padding:7px 0; border-bottom:0.5px solid var(--border); display:flex; gap:8px;"><span class="vdot vdot-l" style="margin-top:5px;"></span><span>Heavy agent use burns tokens quickly on Pro or Max plans and still requires clear prompting plus human oversight</span></li>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Pricing <span class="section-num">01</span></div>
+      <p style="font-size:13px; color:var(--text2); line-height:1.65; margin-bottom:8px;">Free: $0 – basic chat with usage limits; no Claude Code access. Pro: ~$20/month (or $17 annual) – unlocks Claude Code local agent, higher limits, advanced models, Research, artifacts, and Google Docs/Drive integration. Max: $100/month (5x usage) to $200/month (20x usage) – dramatically higher limits for heavy CLI/agent use. Team/Enterprise: custom per-user pricing with SSO and admin controls. Behavioral note: agentic Claude Code tasks (file edits, command execution) consume credits much faster than simple web chat, so heavy daily users often move to Max tiers quickly.</p>
+    </div>
+
+    <!-- USER SIGNALS -->
+    <div class="tool-section fade-up fade-up-3">
+      <div class="tool-section-title">Recurring user signals <span class="section-num">02</span></div>
+      <p style="font-size:13px; color:var(--text3); margin-bottom:24px;">Patterns from reviews, community discussions, and public feedback.</p>
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div><div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Praise patterns</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">productivity impact as capable assistant</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  
+</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">all-in-one functionality and speed</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">"Everything you need is already built in. You don't need to connect 30 different tools and watch 20 different tutorials before it's actually useful. You open it, you set it up right, and it just works."</div>
+</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">versatility for knowledge work and coding</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  
+</div></div>
+  <div><div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Critique patterns</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">paid subscription requirement for Claude Code</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">"they don't offer it for their free plan at zero dollars. In order to have access to Claude Code, you need at least their pro plan"</div>
+</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">permission request interruptions</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">"given that when Claude's really in the thick of things, it's asking me for edits every five, fricking seconds"</div>
+</div>
+<div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+  <div style="font-size:13px; font-weight:500; margin-bottom:4px;">prompting and context management learning curve</div>
+  <div style="font-size:11px; color:var(--text3); font-family:'DM Mono',monospace;">Mentioned by some users</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-top:12px; padding-left:14px; border-left:2px solid #7c6df0;">"Claude is only as good as what you give it. The more context, the more specific you are about what you actually want, the better the output gets"</div>
+</div></div>
+</div>
+<div style="margin-top:32px; padding:20px; background:var(--bg2); border:0.5px solid var(--border); border-radius:12px;">
+  <div style="font-size:12px; font-weight:500; margin-bottom:8px;">Where users disagree</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55;">Power users who prefer terminal-based Claude Code for maximum autonomy and filesystem access disagree with users who find the terminal interface intimidating and prefer the more familiar GUI experience of tools like Cursor</div>
+</div>
+    </div>
+
+    <!-- BEST FIT -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Best fit / not ideal for <span class="section-num">03</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Best fit</div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Business owners who need daily file management, script automation, and system cleanup via the local Claude Code agent</div></div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Engineers who want to shift from manual coding to higher-level problem solving with strong codebase awareness</div></div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Power users willing to invest time in clear prompting who want one all-in-one tool for research, strategy, and interactive artifacts</div></div>
+  </div>
+  <div>
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:16px;">Not ideal for</div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Users expecting immediate value from vague prompts or without learning specific prompting techniques</div></div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Cost-conscious people who only need basic chat and refuse paid Pro plan access</div></div>
+    <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px;"><div style="font-size:13px; color:var(--text2); line-height:1.55;">Teams wanting complete hands-off automation without any human oversight or review</div></div>
+  </div>
+</div>
+    </div>
+
+    <!-- ALTERNATIVES -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">ChatGPT</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Unlike ChatGPT web interface, Claude Code runs locally with direct computer and file system access while web Claude builds artifacts faster with built-in search and less tool switching.</div>
+  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ChatGPT when you want maximum free usage or simple chat. Choose Claude when you need local agentic edits, file system integration, or all-in-one artifacts without multiple disconnected tools.</div>
+</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
+  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Cursor</div>
+  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Cursor is a familiar VS Code-based IDE with AI; Claude Code is the terminal-first agent that supports broader non-code knowledge work like business automation and system cleanup.</div>
+  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Cursor for pure in-editor coding comfort. Choose Claude Code when you want full autonomous file system operations and command execution beyond just code.</div>
+</div></div>
+    </div>
+
+    <!-- WORKFLOW -->
+    <div class="tool-section fade-up fade-up-4">
+      <div class="tool-section-title">Inside the workflow <span class="section-num">05</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px;"><div style="font-size:14px; color:var(--text2); line-height:1.75;">You open your project directory in terminal and launch Claude Code (or use the VS Code extension). You describe a goal in plain English such as 'restructure my business scripts folder, remove duplicates, and build an automation for ROI calculations'. Claude Code scans the filesystem, proposes a plan, then—in your chosen permission mode—reads files, makes edits, runs scripts or commands, and iterates until complete. You watch the terminal output, review diffs if needed, and redirect or approve changes. For research or non-coding tasks you switch to web Claude, open tabs or provide context, and it builds Google Docs or Excel artifacts instantly.</div></div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;"><ul style="list-style:none; padding:0; margin:0;"><li style="padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Bypass permissions mode gives maximum speed for file edits and system cleanup but requires full trust as it grants broad access; ask-before mode is safer but interrupts workflow frequently</span></li>
+<li style="padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Terminal interface unlocks more powerful local operations than web but feels intimidating for beginners compared to GUI tools</span></li>
+<li style="padding:12px 0; border-bottom:0.5px solid var(--border); display:flex; gap:10px;"><span style="color:var(--text3); flex-shrink:0; margin-top:1px;">—</span><span>Model upgrades deliver capability jumps but require ongoing adaptation and still demand human review for safety and correctness</span></li></ul></div>
+    </div>
+
+    <!-- ILLUSTRATIVE OUTPUT -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Illustrative output <span class="section-num">06</span></div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Prompt</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">I'm trying to decide between a few laptops and I have the product pages open in different tabs. Can you look at each one, pull out the specs, and put them in a Google Doc so I can compare them side by side? I care most about: processor, RAM, storage, screen size, battery life, and weight. Let me know which one wins on each category.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Output</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">Claude reads each open tab, normalizes labels (e.g. 'RAM' vs 'Memory'), creates a Google Doc comparison table with columns for each laptop, color-codes winners per spec, and adds a quick recommendation summary at the top.</div>
+  </div>
+  <div style="padding:16px 18px; border-bottom:0.5px solid var(--border);">
+    <div style="font-size:11px; color:var(--text3); text-transform:uppercase; letter-spacing:0.07em; font-family:'DM Mono',monospace; margin-bottom:10px;">Practical interpretation</div>
+    <div style="font-size:13px; color:var(--text2); line-height:1.65;">This shows Claude's practical agentic value: it eliminates manual tab-switching and data entry, turning scattered browser research into an instantly usable, scannable artifact.</div>
+  </div>
+  <div style="font-size:11px; color:var(--text3); font-style:italic; padding:12px 18px; background:rgba(255,255,255,0.02);">Illustrative example based on typical use cases described in public sources. Output quality varies.</div>
+</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="tool-section fade-up fade-up-5">
+      <div class="tool-section-title">Overview <span class="section-num">07</span></div>
+      <p style="font-size:14px; color:var(--text2); line-height:1.75; margin-bottom:16px;">If you waste hours switching browser tabs for competitor research, manually cleaning file systems and writing business scripts, or rebuilding context across long coding sessions while getting generic outputs from vague prompts, Claude solves that pain for business owners, power users, and engineers who want one daily driver instead of ChatGPT web, Google, and traditional IDEs. You use web Claude for research, strategy, and artifacts: open product pages in tabs, tell it which specs matter, and it reads across sites, normalizes labels, then builds a Google Docs comparison table with winners highlighted. For agentic work you run Claude Code locally in terminal or VS Code extension: it scans your filesystem or codebase, proposes a plan, then in your chosen permission mode reads files, makes edits, runs commands, and iterates until the task is complete. Business owners handling operations and engineers doing daily coding benefit most when they treat it as a capable assistant for both knowledge work and code generation, but they accept the Pro plan requirement plus the safety-versus-speed choice of permission modes and the need for clear prompting to avoid generic results.</p>
+    </div>
+
+    <div class="source-bar">
+      <div class="source-item">Last updated <span></span></div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
+
+
+<script src="search.js"></script>
+<script src="pricing-cards.js"></script>
+</body>
+</html>
