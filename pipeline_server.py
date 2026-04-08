@@ -761,7 +761,7 @@ def _run_collect(slug: str, tool_name: str, official_url: str, pricing_url: str,
         _log(slug, f"Python: {sys.executable}")
         _log(slug, f"Command: {' '.join(cmd)}")
 
-                try:
+        try:
             proc = subprocess.Popen(
                 cmd,
                 stdout=subprocess.PIPE,
