@@ -7,15 +7,17 @@ Runs on localhost:8420 — no external access.
 
 Wraps all pipeline operations as JSON API endpoints:
   POST /api/collect          — run source collection
-  POST /api/build-prompt     — generate synthesis prompt
-  POST /api/upload-json      — accept structured JSON, build page
+  POST /api/step-prompt      — generate synthesis prompt for step 1-4
+  POST /api/step-upload      — validate + merge a step payload into staging
+  POST /api/build            — build page from completed 4-step staging
+  POST /api/boost-prompt     — generate research booster prompt for weak sources
+  POST /api/boost-upload     — apply booster output + reset staging to step 1
   POST /api/deploy           — git add + commit + push
   POST /api/lock             — lock sections in content_locks.json
   POST /api/unlock           — unlock sections
   POST /api/rebuild          — rebuild HTML from structured JSON
   GET  /api/tools            — list all tools with status
   GET  /api/tool/<slug>      — detailed tool status
-  GET  /api/prompt/<slug>    — get generated prompt text
   GET  /api/logs/<slug>      — get pipeline logs
 
 Usage:
