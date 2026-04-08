@@ -698,9 +698,7 @@ def _run_youtube_ingest(slug: str) -> bool:
         return False
 
 def _cleanup_youtube_files(slug: str) -> None:
-    """Clean ALL previous YouTube artifacts for this slug before re-ingest.
-    Called ONLY on existing-tool Edit YouTube flow."""
-    _log(slug, "🧹 Cleaning old YouTube files before re-ingest...")
+    """Clean all previous YouTube artifacts for this slug before re-ingest."""
 
     signals_path = RESEARCH_DIR / f"{slug}_youtube_signals.json"
     if signals_path.exists():
