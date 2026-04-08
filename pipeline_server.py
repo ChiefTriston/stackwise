@@ -693,7 +693,9 @@ def _run_youtube_ingest(slug: str) -> bool:
             return False
     except Exception as e:
         _log(slug, f"❌ YouTube ingest failed: {e}")
-        return Falsedef _cleanup_youtube_files(slug: str) -> None:
+        return False
+
+def _cleanup_youtube_files(slug: str) -> None:
     """Clean ALL previous YouTube artifacts for this slug before re-ingest.
     Called ONLY on existing-tool Edit YouTube flow."""
     _log(slug, "🧹 Cleaning old YouTube files before re-ingest...")
