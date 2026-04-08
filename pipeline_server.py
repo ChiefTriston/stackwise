@@ -1575,7 +1575,7 @@ class PipelineHandler(BaseHTTPRequestHandler):
             return
 
         else:
-                        self._send_json({"error": "Not found"}, 404)
+            self._send_json({"error": "Not found"}, 404)
 
     def do_POST(self):
         path = self.path.split("?")[0]
