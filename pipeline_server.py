@@ -2335,7 +2335,7 @@ tr:hover td { background: rgba(255,255,255,0.012); }
 
         <!-- Research Booster Button -->
     <div id="boosterSection" style="margin: 20px 0; padding: 16px; background: var(--bg3); border-radius: var(--r); border: 1px solid var(--amber-b); display: none;">
-      <div style="font: 500 12px ''JetBrains Mono'', monospace; color: var(--amber); margin-bottom: 8px;">🔥 SOURCES ARE WEAK — BOOST RECOMMENDED</div>
+      <div style="font: 500 12px 'JetBrains Mono', monospace; color: var(--amber); margin-bottom: 8px;">🔥 SOURCES ARE WEAK — BOOST RECOMMENDED</div>
       <button onclick="generateBoosterPrompt()" 
               style="width:100%; padding: 14px; background: var(--amber); color: #000; font-weight: 600; border-radius: var(--r); font-size: 13px;">
         Generate Research Booster Prompt
