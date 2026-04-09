@@ -105,9 +105,11 @@ _jobs: dict[str, dict] = {}  # slug -> {status, log, started, ...}
 _job_lock = threading.Lock()
 
 
-def _log(slug: str, msg: str):
+def _log(slug: str, msg: str, create_if_missing: bool = True):
     with _job_lock:
         if slug not in _jobs:
+            if not create_if_missing:
+                return
             _jobs[slug] = {"status": "running", "log": [], "started": datetime.now().isoformat()}
         _jobs[slug]["log"].append(f"[{datetime.now().strftime('%H:%M:%S')}] {msg}")
 
@@ -1777,7 +1779,7 @@ class PipelineHandler(BaseHTTPRequestHandler):
             signals_path = RESEARCH_DIR / f"{slug}_youtube_signals.json"
             _save_json(signals_path, signals_data)
 
-            _log(slug, "✅ Manual youtube_signals.json uploaded")
+            _log(slug, "✅ Manual youtube_signals.json uploaded", create_if_missing=False)
             self._send_json({"ok": True, "message": "YouTube signals uploaded successfully"})
             return
 
