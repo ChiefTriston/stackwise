@@ -3316,11 +3316,17 @@ setInterval(refresh, 12000);
       <div id="manualStatus" style="margin-top:12px;font-size:13px;"></div>
     </div>
 
-    <!-- Baked-in prompt button -->
-    <button onclick="copyExtractionPrompt()" 
-            style="width:100%; padding:14px; background:var(--accent2); color:#fff; font-weight:600; border-radius:var(--r); margin-top:12px;">
-      📋 Copy Per-Video Extraction Prompt
-    </button>
+    <!-- Prompt buttons -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+      <button onclick="copyExtractionPrompt()" 
+              style="padding:14px;background:var(--accent2);color:#fff;font-weight:600;border-radius:var(--r);">
+        📋 Copy Per-Video Prompt
+      </button>
+      <button onclick="copyAggregationPrompt()" 
+              style="padding:14px;background:#10b981;color:#fff;font-weight:600;border-radius:var(--r);">
+        📋 Copy Aggregation Prompt
+      </button>
+    </div>
 
     <div class="m-foot">
       <button class="m-cancel" onclick="hideModal('mYoutubeEdit')">Cancel</button>
