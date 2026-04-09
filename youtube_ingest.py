@@ -541,64 +541,67 @@ def main() -> int:
             transcript_path=transcript_path,
         )
 
-    # ── FINAL AGGREGATION (runs ONCE after all videos) ──
-    print(f"\n[AGGREGATE] Building final youtube_signals.json for {tool_slug}...")
+    # ── FINAL STEP: Decide whether to auto-aggregate or stop for manual workflow ──
+    if args.youtube_only:
+        print(f"\n✅ YouTube ingest complete for {tool_slug}")
+        print(f"   → Transcripts ready in: {TRANSCRIPT_DIR}")
+        print(f"   → Next: Use the two prompt buttons in the dashboard to create your final youtube_signals.json")
+    else:
+        # Old automatic path (kept for backward compatibility / Full Auto mode)
+        print(f"\n[AGGREGATE] Building final youtube_signals.json for {tool_slug}...")
 
-    signals = {
-        "tool_name": tool_name,
-        "tool_slug": tool_slug,
-        "generated_utc": datetime.utcnow().isoformat(timespec="seconds") + "Z",
-        "source_count": len(jobs),
-        "sources": []
-    }
-
-    for job in jobs:
-        video_id = job["video_id"]
-
-        # Load transcript text
-        transcript_text = ""
-        transcript_file = transcript_path_for(tool_slug, video_id)
-        if transcript_file.exists():
-            try:
-                transcript_text = transcript_file.read_text(encoding="utf-8")
-            except Exception:
-                transcript_text = "[transcript load failed]"
-
-        # Load segments (correctly extract the "segments" key)
-        segments = []
-        segment_file = segment_json_path_for(tool_slug, video_id)
-        if segment_file.exists():
-            try:
-                segment_data = json.loads(segment_file.read_text(encoding="utf-8"))
-                segments = segment_data.get("segments", [])
-            except Exception:
-                segments = []
-
-        entry = {
-            "video_id": video_id,
-            "url": job.get("url"),
-            "title": job.get("title"),
-            "channel": job.get("channel"),
-            "uploader": job.get("uploader"),
-            "upload_date": job.get("upload_date"),
-            "duration": job.get("duration"),
-            "view_count": job.get("view_count", 0),
-            "matched_buckets": job.get("matched_buckets", []),
-            "matched_queries": job.get("matched_queries", []),
-            "query_hits": job.get("query_hits", []),
-            "audio_path": str(audio_path_for(tool_slug, video_id)),
-            "transcript_path": str(transcript_file) if transcript_file.exists() else None,
-            "transcript": transcript_text,
-            "segments": segments,
+        signals = {
+            "tool_name": tool_name,
+            "tool_slug": tool_slug,
+            "generated_utc": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+            "source_count": len(jobs),
+            "sources": []
         }
-        signals["sources"].append(entry)
 
-    signals_path = RESEARCH_DIR / f"{tool_slug}_youtube_signals.json"
-    signals_path.write_text(
-        json.dumps(signals, indent=2, ensure_ascii=False),
-        encoding="utf-8"
-    )
-    print(f"✅ Created {signals_path.name} with {len(jobs)} YouTube sources")
+        for job in jobs:
+            video_id = job["video_id"]
+            transcript_text = ""
+            transcript_file = transcript_path_for(tool_slug, video_id)
+            if transcript_file.exists():
+                try:
+                    transcript_text = transcript_file.read_text(encoding="utf-8")
+                except Exception:
+                    transcript_text = "[transcript load failed]"
+
+            segments = []
+            segment_file = segment_json_path_for(tool_slug, video_id)
+            if segment_file.exists():
+                try:
+                    segment_data = json.loads(segment_file.read_text(encoding="utf-8"))
+                    segments = segment_data.get("segments", [])
+                except Exception:
+                    segments = []
+
+            entry = {
+                "video_id": video_id,
+                "url": job.get("url"),
+                "title": job.get("title"),
+                "channel": job.get("channel"),
+                "uploader": job.get("uploader"),
+                "upload_date": job.get("upload_date"),
+                "duration": job.get("duration"),
+                "view_count": job.get("view_count", 0),
+                "matched_buckets": job.get("matched_buckets", []),
+                "matched_queries": job.get("matched_queries", []),
+                "query_hits": job.get("query_hits", []),
+                "audio_path": str(audio_path_for(tool_slug, video_id)),
+                "transcript_path": str(transcript_file) if transcript_file.exists() else None,
+                "transcript": transcript_text,
+                "segments": segments,
+            }
+            signals["sources"].append(entry)
+
+        signals_path = RESEARCH_DIR / f"{tool_slug}_youtube_signals.json"
+        signals_path.write_text(
+            json.dumps(signals, indent=2, ensure_ascii=False),
+            encoding="utf-8"
+        )
+        print(f"✅ Created {signals_path.name} with {len(jobs)} YouTube sources")
 
     print("\n[DONE]")
     return 0
