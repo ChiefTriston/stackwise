@@ -3161,6 +3161,46 @@ async function saveYoutubeEdit() {
   }
 }
 
+async function handleYoutubeSignalsUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const slug = document.getElementById('ytSlug').textContent.trim();
+  if (!slug) {
+    toast('No tool selected', false);
+    return;
+  }
+
+  const expectedName = `${slug}_youtube_signals.json`;
+  if (file.name !== expectedName) {
+    toast(`Wrong filename.<br>Expected: <strong>${expectedName}</strong>`, false);
+    return;
+  }
+
+  const text = await file.text();
+  let jsonData;
+  try {
+    jsonData = JSON.parse(text);
+  } catch (err) {
+    toast('Invalid JSON file', false);
+    return;
+  }
+
+  const res = await api('/api/youtube-upload-signals', 'POST', {
+    slug: slug,
+    signals: jsonData
+  });
+
+  if (res.ok) {
+    toast('✅ YouTube signals uploaded successfully!', true);
+    document.getElementById('manualStatus').innerHTML =
+      `<span style="color:var(--green)">✓ Uploaded on ${new Date().toLocaleDateString()}</span>`;
+    refresh();
+  } else {
+    toast(res.message || 'Upload failed', false);
+  }
+}
+
 refresh();
 setInterval(refresh, 12000);
 </script>
