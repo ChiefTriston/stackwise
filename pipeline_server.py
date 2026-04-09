@@ -3280,6 +3280,49 @@ Rules:
   });
 }
 
+function copyAggregationPrompt() {
+  const slug = document.getElementById('ytSlug').textContent.trim();
+  const toolName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  const prompt = `You are an expert synthesizer combining multiple detailed video research extractions into one final high-quality youtube_signals.json file for the AI tool "${toolName}".
+
+**Task**
+Merge the following per-video JSON outputs into **one cohesive final file**.
+- Deduplicate repeated information.
+- Prioritize the most specific, evidence-based, and insightful details.
+- Synthesize an overall picture of user experience, workflows, strengths, and weaknesses.
+
+**Return ONLY valid JSON** using this exact structure (no extra text):
+
+{
+  "source_count": number,
+  "sources": [
+    // Paste ALL the original per-video JSON objects here as an array
+  ],
+  "overall_summary": "One strong, insightful paragraph summarizing the overall YouTube sentiment and key takeaways about the tool",
+  "key_themes": ["most important recurring theme 1", "most important recurring theme 2", ...],
+  "strongest_praise": ["most compelling positive point 1", "most compelling positive point 2", ...],
+  "strongest_critiques": ["most important criticism 1", "most important criticism 2", ...],
+  "common_workflows": ["detailed real-world workflow description 1", "detailed real-world workflow description 2", ...],
+  "user_sentiment": "Overall user sentiment summary (positive / mixed / negative with nuance)",
+  "best_for": "Who the tool is genuinely best for based on YouTube feedback",
+  "not_for": "Who should avoid this tool or will likely be frustrated",
+  "notable_friction": ["major friction point 1", "major friction point 2", ...]
+}
+
+**Rules**
+- Keep every high-quality detail from the input videos.
+- Be objective, balanced, and specific.
+- Do not invent information that wasn’t in any of the videos.
+- Make the overall_summary useful for someone deciding whether to buy or use the tool.
+
+**Now combine the following per-video JSON outputs:**`;
+
+  navigator.clipboard.writeText(prompt).then(() => {
+    toast('✅ Aggregation prompt copied! Paste all your per-video JSONs at the bottom.', true);
+  });
+}
+
 refresh();
 setInterval(refresh, 12000);
 </script>
