@@ -3212,26 +3212,33 @@ setInterval(refresh, 12000);
   <div class="modal">
     <div class="m-title">YouTube for <span id="ytSlug"></span></div>
 
-    <!-- Automatic section (existing behavior) -->
+    <!-- Automatic section -->
     <div class="m-label">YouTube URLs (one per line, max 3)</div>
     <textarea class="m-textarea" id="ytUrls" rows="4" placeholder="https://youtube.com/watch?v=..."></textarea>
-    <button class="m-submit" onclick="saveYoutubeEdit()" style="margin-bottom:20px;">Save & Re-ingest Videos</button>
+    <button class="m-submit" onclick="saveYoutubeEdit()" style="margin-bottom:24px;width:100%;">Save & Re-ingest Videos</button>
 
-    <div style="height:1px; background:var(--border); margin:20px 0;"></div>
+    <div style="height:1px;background:var(--border);margin:24px 0;"></div>
 
-    <!-- Manual section (new) -->
+    <!-- Manual Signals Section (Polished) -->
     <div class="m-label">Manual YouTube Signals</div>
     <div class="m-hint" id="manualHint">
       Transcripts have been created.<br>
       <strong>Create your final youtube_signals.json manually, then upload it here.</strong>
     </div>
 
-    <div style="border:2px dashed var(--border); border-radius:var(--r); padding:24px; text-align:center; margin:12px 0; cursor:pointer;" id="manualUploadArea" onclick="document.getElementById('manualFileInput').click()">
+    <div id="manualUploadArea"
+         style="border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; margin:16px 0; cursor:pointer; transition:all 0.2s;"
+         onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(129,140,248,0.08)'"
+         onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">
+      
       <input type="file" id="manualFileInput" accept=".json" style="display:none;" onchange="handleYoutubeSignalsUpload(event)">
-      <div style="color:var(--text3); font-size:13px;">Click to upload or drag & drop<br><strong id="uploadFilename"></strong></div>
+      
+      <div style="font-size:15px;color:var(--text2);margin-bottom:8px;">📤 Drop or click to upload</div>
+      <div style="color:var(--text3);font-size:13px;" id="uploadFilenameDisplay">
+        <strong id="uploadFilename"></strong>
+      </div>
+      <div id="manualStatus" style="margin-top:12px;font-size:13px;"></div>
     </div>
-
-    <div id="manualStatus" style="font-size:12px; color:var(--text3); text-align:center; margin-top:8px;"></div>
 
     <div class="m-foot">
       <button class="m-cancel" onclick="hideModal('mYoutubeEdit')">Cancel</button>
