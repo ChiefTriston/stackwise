@@ -3228,15 +3228,15 @@ setInterval(refresh, 12000);
 
     <div style="height:1px;background:var(--border);margin:24px 0;"></div>
 
-    <!-- Manual Signals Section (Polished) -->
+    <!-- Manual Signals Section -->
     <div class="m-label">Manual YouTube Signals</div>
     <div class="m-hint" id="manualHint">
       Transcripts have been created.<br>
       <strong>Create your final youtube_signals.json manually, then upload it here.</strong>
     </div>
 
-    <div id="manualUploadArea"
-         style="border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; margin:16px 0; cursor:pointer; transition:all 0.2s;"
+    <div style="border:2px dashed var(--border); border-radius:var(--r); padding:32px 24px; text-align:center; margin:16px 0; cursor:pointer; transition:all 0.2s;"
+         id="manualUploadArea"
          onmouseover="this.style.borderColor='var(--accent)'; this.style.background='rgba(129,140,248,0.08)'"
          onmouseout="this.style.borderColor='var(--border)'; this.style.background='transparent'">
       
@@ -3248,6 +3248,12 @@ setInterval(refresh, 12000);
       </div>
       <div id="manualStatus" style="margin-top:12px;font-size:13px;"></div>
     </div>
+
+    <!-- Baked-in prompt button -->
+    <button onclick="copyExtractionPrompt()" 
+            style="width:100%; padding:14px; background:var(--accent2); color:#fff; font-weight:600; border-radius:var(--r); margin-top:12px;">
+      📋 Copy Per-Video Extraction Prompt
+    </button>
 
     <div class="m-foot">
       <button class="m-cancel" onclick="hideModal('mYoutubeEdit')">Cancel</button>
