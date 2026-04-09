@@ -3165,13 +3165,32 @@ setInterval(refresh, 12000);
 <!-- YouTube Edit Modal -->
 <div class="overlay" id="mYoutubeEdit">
   <div class="modal">
-    <div class="m-title">Edit YouTube URLs — <span id="ytSlug"></span></div>
-    <div class="m-hint">One URL per line (max 3). This will update the override and re-run ingest.</div>
-    <div class="m-label">YouTube URLs</div>
+    <div class="m-title">YouTube for <span id="ytSlug"></span></div>
+
+    <!-- Automatic section (existing behavior) -->
+    <div class="m-label">YouTube URLs (one per line, max 3)</div>
     <textarea class="m-textarea" id="ytUrls" rows="4" placeholder="https://youtube.com/watch?v=..."></textarea>
+    <button class="m-submit" onclick="saveYoutubeEdit()" style="margin-bottom:20px;">Save & Re-ingest Videos</button>
+
+    <div style="height:1px; background:var(--border); margin:20px 0;"></div>
+
+    <!-- Manual section (new) -->
+    <div class="m-label">Manual YouTube Signals</div>
+    <div class="m-hint" id="manualHint">
+      Transcripts have been created.<br>
+      <strong>Create your final youtube_signals.json manually, then upload it here.</strong>
+    </div>
+
+    <div style="border:2px dashed var(--border); border-radius:var(--r); padding:24px; text-align:center; margin:12px 0; cursor:pointer;" id="manualUploadArea" onclick="document.getElementById('manualFileInput').click()">
+      <input type="file" id="manualFileInput" accept=".json" style="display:none;" onchange="handleYoutubeSignalsUpload(event)">
+      <div style="color:var(--text3); font-size:13px;">Click to upload or drag & drop<br><strong>{slug}_youtube_signals.json</strong></div>
+    </div>
+
+    <div id="manualStatus" style="font-size:12px; color:var(--text3); text-align:center; margin-top:8px;"></div>
+
     <div class="m-foot">
       <button class="m-cancel" onclick="hideModal('mYoutubeEdit')">Cancel</button>
-      <button class="m-submit" onclick="saveYoutubeEdit()">Save & Re-ingest</button>
+      <button class="m-submit" onclick="hideModal('mYoutubeEdit')">Done</button>
     </div>
   </div>
 </div>
