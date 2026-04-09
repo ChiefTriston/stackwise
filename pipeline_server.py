@@ -3132,6 +3132,9 @@ async function submitBooster() {
 function openYoutubeEdit(slug) {
   cur = slug;
   document.getElementById('ytSlug').textContent = slug;
+  // Show correct filename
+  document.getElementById('uploadFilename').textContent = `${slug}_youtube_signals.json`;
+  
   api('/api/youtube-override/' + slug).then(d => {
     document.getElementById('ytUrls').value = (d.youtube_urls || []).join('\n');
   }).catch(() => {
@@ -3225,7 +3228,7 @@ setInterval(refresh, 12000);
 
     <div style="border:2px dashed var(--border); border-radius:var(--r); padding:24px; text-align:center; margin:12px 0; cursor:pointer;" id="manualUploadArea" onclick="document.getElementById('manualFileInput').click()">
       <input type="file" id="manualFileInput" accept=".json" style="display:none;" onchange="handleYoutubeSignalsUpload(event)">
-      <div style="color:var(--text3); font-size:13px;">Click to upload or drag & drop<br><strong>{slug}_youtube_signals.json</strong></div>
+      <div style="color:var(--text3); font-size:13px;">Click to upload or drag & drop<br><strong id="uploadFilename"></strong></div>
     </div>
 
     <div id="manualStatus" style="font-size:12px; color:var(--text3); text-align:center; margin-top:8px;"></div>
