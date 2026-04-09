@@ -3213,6 +3213,73 @@ async function handleYoutubeSignalsUpload(e) {
   }
 }
 
+function copyExtractionPrompt() {
+  const slug = document.getElementById('ytSlug').textContent.trim();
+  const toolName = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  const prompt = `You are an expert research analyst extracting high-signal structured evidence from a YouTube video transcript about the AI tool "${toolName}".
+
+Extract **every relevant piece of information** from the transcript that belongs in these four research buckets. Be thorough and comprehensive — include every useful detail, example, quote, tradeoff, or observation.
+
+**Buckets to focus on (ignore everything else):**
+- workflow
+- reviews (praise + critiques)
+- alternatives / comparisons
+- discussions / user sentiment / friction / community observations
+
+**Do NOT extract anything related to pricing, cost, billing, subscription plans, or deals.**
+
+Return ONLY valid JSON using this exact structure:
+
+{
+  "video_title": "exact video title from the transcript",
+  "speaker_context": "Detailed description of who is speaking and their experience level/duration with the tool",
+  "workflow": {
+    "loop": "Detailed 3-6 sentence second-person description of the actual day-to-day usage loop",
+    "tradeoffs": ["specific real-world tradeoff 1", "specific real-world tradeoff 2", ...],
+    "use_cases": ["specific use case 1", "specific use case 2", ...]
+  },
+  "reviews": {
+    "verdict": "Honest overall verdict in 1-2 sentences",
+    "praise": [
+      {"theme": "short clear theme", "quote": "exact or near-verbatim quote if available, otherwise null", "specificity": "high|medium|low"}
+    ],
+    "critiques": [
+      {"theme": "short clear theme", "quote": "exact or near-verbatim quote if available, otherwise null", "specificity": "high|medium|low"}
+    ],
+    "best_for": "Who this tool is genuinely best for",
+    "not_for": "Who should avoid or would struggle with this tool"
+  },
+  "alternatives": {
+    "tools_replaced": ["tool name 1", "tool name 2", ...],
+    "tools_compared": [
+      {"name": "tool name", "comparison": "detailed 1-2 sentence honest comparison"}
+    ],
+    "decision_rule": "Choose X when... Choose ${toolName} when..."
+  },
+  "discussions": {
+    "friction_points": ["specific friction point 1", "specific friction point 2", ...],
+    "security_notes": ["any security, privacy, or trust related comments"],
+    "community_observations": ["notable community sentiment, common user opinions, or recurring themes"]
+  },
+  "evidence_quality": "high|medium|low",
+  "days_of_use": number or null
+}
+
+Rules:
+- Be as detailed and specific as the transcript allows.
+- Only include what is actually in the transcript — do not invent or generalize.
+- Use null when information is truly absent.
+- Quotes should be close to verbatim when possible.
+- Focus on real user experience, friction, workflow details, and honest opinions.
+
+--- PASTE THE FULL TRANSCRIPT BELOW THIS LINE ---`;
+
+  navigator.clipboard.writeText(prompt).then(() => {
+    toast('✅ Extraction prompt copied! Paste your transcript below it in your LLM.', true);
+  });
+}
+
 refresh();
 setInterval(refresh, 12000);
 </script>
