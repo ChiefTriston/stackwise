@@ -2487,6 +2487,8 @@ function nextStep(t) {
     const nextN = doneCount + 1;
     const nextName = STEP_NAMES[nextN] || '?';
     return '<div class="next-step">Continue with <em>Step ' + nextN + ' — ' + nextName + '</em>. Paste the prompt into your LLM, then upload the JSON response.</div>';
+  } else if (t.status === 'needs_synthesis' && t.has_youtube) {
+    return '<div class="next-step" style="color:var(--amber)">YouTube transcripts ready.<br><em>Upload your youtube_signals.json now.</em></div>';
   }
   switch(t.status) {
     case 'needs_synthesis':
