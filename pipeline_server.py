@@ -1765,6 +1765,22 @@ class PipelineHandler(BaseHTTPRequestHandler):
             })
             return
 
+        elif path == "/api/youtube-upload-signals":
+            body = self._read_json()
+            slug = body.get("slug", "")
+            signals_data = body.get("signals", {})  # the full youtube_signals.json content
+
+            if not slug or not isinstance(signals_data, dict):
+                self._send_json({"ok": False, "message": "slug and signals object required"}, 400)
+                return
+
+            signals_path = RESEARCH_DIR / f"{slug}_youtube_signals.json"
+            _save_json(signals_path, signals_data)
+
+            _log(slug, "✅ Manual youtube_signals.json uploaded")
+            self._send_json({"ok": True, "message": "YouTube signals uploaded successfully"})
+            return
+
         elif path == "/api/boost-prompt":
             # Generate research booster prompt for weak sources
             body = self._read_json()
