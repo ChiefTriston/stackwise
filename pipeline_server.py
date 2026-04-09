@@ -3132,14 +3132,23 @@ async function submitBooster() {
 function openYoutubeEdit(slug) {
   cur = slug;
   document.getElementById('ytSlug').textContent = slug;
-  // Show correct filename
+
+  // Show correct expected filename
   document.getElementById('uploadFilename').textContent = `${slug}_youtube_signals.json`;
-  
+
+  // Load current YouTube override URLs
   api('/api/youtube-override/' + slug).then(d => {
     document.getElementById('ytUrls').value = (d.youtube_urls || []).join('\n');
   }).catch(() => {
     document.getElementById('ytUrls').value = '';
   });
+
+  // Check if signals already exist and show status
+  const ytPath = `${slug}_youtube_signals.json`;
+  const statusEl = document.getElementById('manualStatus');
+  // We can’t easily check file existence from JS, so we clear it and let upload handle it
+  statusEl.innerHTML = `<span style="color:var(--text3)">No signals file yet</span>`;
+
   showModal('mYoutubeEdit');
 }
 
