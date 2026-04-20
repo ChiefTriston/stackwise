@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>How We Review AI Tools — Stackwise Methodology</title>
+  <meta name="description" content="How Stackwise reviews AI tools: our source collection process, scoring methodology, verdict framework, and content freshness policy." />
+  <meta name="author" content="Riley Voss" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://stackwiseaihub.com/methodology.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stackwiseaihub.com/methodology.html" />
+  <meta property="og:title" content="How We Review AI Tools — Stackwise Methodology" />
+  <meta property="og:description" content="Our source collection process, scoring methodology, and verdict framework." />
+  <meta property="og:site_name" content="Stackwise" />
+
+  <link rel="alternate" type="application/rss+xml" title="Stackwise — AI Tool Reviews" href="https://stackwiseaihub.com/feed.xml" />
+
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    .method-page { padding: 56px 0 80px; }
+    .method-header { margin-bottom: 48px; }
+    .method-title { font-size: clamp(28px, 4vw, 40px); font-weight: 400; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .method-subtitle { font-size: 16px; color: var(--text2); line-height: 1.6; max-width: 600px; }
+    .method-section { margin-bottom: 40px; }
+    .method-section-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 0.5px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .method-num { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
+    .method-body { font-size: 14px; color: var(--text2); line-height: 1.75; max-width: 640px; }
+    .method-body p { margin-bottom: 16px; }
+    .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .source-card { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; padding: 20px; }
+    .source-card-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; font-family: 'DM Mono', monospace; margin-bottom: 8px; }
+    .source-card-text { font-size: 13px; color: var(--text2); line-height: 1.55; }
+    .verdict-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .verdict-table th { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.07em; font-family: 'DM Mono', monospace; text-align: left; padding: 10px 18px; background: rgba(255,255,255,0.02); border-bottom: 0.5px solid var(--border); }
+    .verdict-table td { font-size: 13px; color: var(--text2); padding: 12px 18px; border-bottom: 0.5px solid var(--border); }
+    .verdict-table td:first-child { font-weight: 500; color: var(--text); }
+    @media(max-width:640px) { .source-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Stack<span>wise</span></a>
+  <div class="nav-links">
+    <a href="index.html#tools" class="nav-link">Browse</a>
+    <a href="submit-tool.html" class="nav-link">Submit a tool</a>
+    <a href="submit-review.html" class="nav-link cta">Submit a review</a>
+  </div>
+</nav>
+
+<div class="method-page">
+  <div class="container-narrow">
+
+    <a href="index.html" class="back-link" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--text3); margin-bottom:40px; text-decoration:none;">← Home</a>
+
+    <div class="method-header">
+      <h1 class="method-title">How we review tools</h1>
+      <p class="method-subtitle">Every Stackwise review follows the same structured process — from source collection through verdict. Here's how it works.</p>
+    </div>
+
+    <!-- Step 1: Sources -->
+    <div class="method-section">
+      <div class="method-section-title">Source collection <span class="method-num">01</span></div>
+      <div class="method-body">
+        <p>Each review starts with a broad collection phase. We gather material from multiple source categories to build a complete picture of how a tool actually performs in practice — not just how the vendor describes it.</p>
+      </div>
+      <div class="source-grid">
+        <div class="source-card">
+          <div class="source-card-label">Community discussions</div>
+          <div class="source-card-text">Real conversations from forums, Reddit threads, and community boards where users share unfiltered opinions about tools they use daily.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-card-label">User reviews</div>
+          <div class="source-card-text">Written reviews from people who have used the tool — focusing on recurring themes rather than individual outliers.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-card-label">Video walkthroughs</div>
+          <div class="source-card-text">YouTube tutorials, demos, and honest review videos that show the tool in actual use — not just feature overviews.</div>
+        </div>
+        <div class="source-card">
+          <div class="source-card-label">Official documentation</div>
+          <div class="source-card-text">The tool's own site, pricing pages, changelogs, and documentation. Used for factual accuracy, not editorial framing.</div>
+        </div>
+      </div>
+      <div class="method-body">
+        <p>We typically collect from 15–30 distinct sources per tool. Sources that are obviously promotional, outdated, or too thin to contribute meaningful signal are filtered out before analysis.</p>
+      </div>
+    </div>
+
+    <!-- Step 2: Scoring -->
+    <div class="method-section">
+      <div class="method-section-title">Source evaluation <span class="method-num">02</span></div>
+      <div class="method-body">
+        <p>Not all sources carry equal weight. A detailed user review from someone who used a tool for six months carries more signal than a feature comparison listicle. Sources are evaluated on relevance, depth, and independence from the vendor.</p>
+        <p>Official sources (the tool's own website) are used for factual details like pricing and feature lists, but editorial signal — what the tool is actually like to use — comes from independent sources. This separation is deliberate: vendors describe their ideal use case, users describe reality.</p>
+      </div>
+    </div>
+
+    <!-- Step 3: Synthesis -->
+    <div class="method-section">
+      <div class="method-section-title">Pattern synthesis <span class="method-num">03</span></div>
+      <div class="method-body">
+        <p>Once sources are collected and scored, we look for recurring patterns. If twelve different users mention that a tool's free tier is too limited to evaluate properly, that becomes a critique pattern. If eight reviewers independently highlight the same workflow advantage, that becomes a praise pattern.</p>
+        <p>This pattern-based approach means no single reviewer's opinion drives the verdict. The page reflects the weight of evidence across many voices — including points where users genuinely disagree with each other.</p>
+      </div>
+    </div>
+
+    <!-- Step 4: Verdict -->
+    <div class="method-section">
+      <div class="method-section-title">Verdict framework <span class="method-num">04</span></div>
+      <div class="method-body">
+        <p>Every tool page includes a structured verdict with three components:</p>
+      </div>
+      <div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; overflow:hidden; margin-bottom:24px;">
+        <table class="verdict-table">
+          <thead>
+            <tr><th>Component</th><th>What it tells you</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Verdict statement</td><td>A one-sentence summary of who this tool is best for and what it does well — based on the pattern evidence, not marketing claims.</td></tr>
+            <tr><td>Strengths & limitations</td><td>The top 3 praise patterns and top 3 critique patterns, drawn directly from user signals.</td></tr>
+            <tr><td>Confidence level</td><td>How much evidence supports the verdict. "High" means a rich, diverse source base. "Medium" means adequate but with gaps. "Low" means limited public data was available.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="method-body">
+        <p>Confidence levels are not editorial opinions — they reflect the depth of available evidence. A tool with a "Medium" confidence rating isn't necessarily worse than one with "High" — it means fewer independent sources were available to verify patterns.</p>
+      </div>
+    </div>
+
+    <!-- Step 5: Pricing -->
+    <div class="method-section">
+      <div class="method-section-title">Pricing verification <span class="method-num">05</span></div>
+      <div class="method-body">
+        <p>Pricing data is collected directly from each tool's official pricing page. When pricing structures are complex (usage-based, per-seat, or tiered), we include behavioral notes flagging common gotchas like overage charges or feature gating.</p>
+        <p>Pricing sections are manually reviewed and locked after verification. This means automated updates don't overwrite confirmed pricing data — it stays accurate until the next manual review.</p>
+      </div>
+    </div>
+
+    <!-- Step 6: Freshness -->
+    <div class="method-section">
+      <div class="method-section-title">Content freshness <span class="method-num">06</span></div>
+      <div class="method-body">
+        <p>AI tools change fast. A review from six months ago may describe a product that no longer exists in the same form. Every Stackwise page shows a "Last reviewed" date — the date a human last verified the content against current sources.</p>
+        <p>We aim to re-review each tool at least every 90 days. When a tool announces major pricing changes, feature overhauls, or significant updates, we prioritize an earlier refresh.</p>
+      </div>
+    </div>
+
+    <!-- What we don't do -->
+    <div class="method-section">
+      <div class="method-section-title">What we don't do</div>
+      <div class="method-body">
+        <p>We don't accept payment for favorable reviews. We don't copy feature lists from vendor marketing pages. We don't assign star ratings or numerical scores — the evidence speaks through patterns, not arbitrary numbers. And we don't pretend that a tool is universally good or bad — the "Best fit" and "Not ideal for" sections exist because every tool has a right audience and a wrong one.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-left">© 2026 Stackwise — Evidence-based AI tool reviews</div>
+  <div class="footer-right">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="methodology.html">How we review</a>
+    <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
+  </div>
+</footer>
+
+</body>
+</html>
