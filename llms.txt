@@ -1,0 +1,33 @@
+# Stackwise
+> Evidence-based AI tool reviews with real user signals, honest verdicts, and verified pricing.
+
+## Tool Reviews
+- [adcreativeai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/adcreativeai.html): AdCreative.ai suits e-commerce marketers who run regular ad tests across Facebook, Instagram, and Google and need many v
+- [aiseo Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/aiseo.html): Marketers and writers who regularly generate long-form SEO content from AI drafts should use AISEO on the Scale plan for
+- [chatgpt Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/chatgpt.html): Product managers, analysts and power users who regularly turn uploaded files into roadmaps, summaries and plans should u
+- [Claude Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/claude.html): Power users and agency owners who invest time building Projects, Custom Instructions, and Skills should use Claude—it be
+- [cursor Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/cursor.html): Cursor is an AI-powered IDE that excels at rapid prototyping and codebase exploration, making it valuable for product ma
+- [getgenie Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/getgenie.html): GetGenie is a WordPress-integrated AI writing tool that excels at SEO-optimized content creation by combining keyword re
+- [getresponse Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/getresponse.html): GetResponse is a comprehensive email marketing and automation platform best suited for businesses seeking an all-in-one 
+- [glean Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/glean.html): Glean is best suited for mid-market to enterprise organizations that need AI-powered search and insights across multiple
+- [grammarly Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/grammarly.html): Grammarly is a comprehensive AI writing assistant best suited for individual users who need grammar checking, style impr
+- [grok Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/grok.html): Grok is xAI's flagship AI model emphasizing truthful responses and low hallucination rates, with API integration capabil
+- [HeadshotPro Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/headshotpro.html): HeadshotPro is a cost-effective AI headshot generator that produces professional-looking results in 2 hours for $29+, ma
+- [heygen Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/heygen.html): HeyGen is best for individuals and small teams needing quick avatar-based videos with voice cloning and multi-language s
+- [invideo Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/invideo.html): InVideo AI is ideal for content creators and marketers who need to quickly produce professional-looking videos from text
+- [langchain Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/langchain.html): LangChain is valuable for data engineers building AI orchestration pipelines and basic agent workflows, especially given
+- [leonardoai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/leonardoai.html): Leonardo.AI appears to be an AI image generation platform with API capabilities, but the available sources provide insuf
+- [lindy-ai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/lindy-ai.html): Lindy is an AI agent platform that offers both self-service no-code agent building and full-service custom agent develop
+- [neuronwriter Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/neuronwriter.html): NEURONwriter is best for teams seeking a comprehensive, end-to-end content platform that handles everything from researc
+- [notion-ai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/notion-ai.html): Notion AI is best suited for product teams and small businesses that want to centralize their workflows in a single plat
+- [openclaw Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/openclaw.html): OpenClaw is a powerful open-source AI assistant that runs 24/7 on your own hardware with persistent memory and extensive
+- [otterai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/otterai.html): Otter.ai is a comprehensive AI-powered meeting transcription service that works well for teams needing automated note-ta
+- [perplexity Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/perplexity.html): Perplexity is best suited for product teams and researchers who need rapid competitive intelligence and market research 
+- [proactor Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/proactor.html): Proactor is a solid AI transcription app for professionals, students, and teams who need real-time speech-to-text conver
+- [quillbot Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/quillbot.html): QuillBot is a solid writing assistance tool best suited for students, content creators, and professionals who need relia
+- [synthesia Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/synthesia.html): Synthesia is best suited for organizations and L&amp;amp;D professionals who need to create multilingual training videos
+- [writesonic Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/writesonic.html): Writesonic's Chatsonic is best for marketers and content creators who need an all-in-one AI chat platform that integrate
+
+## About
+- [About Stackwise](https://stackwiseaihub.com/about.html): Who we are and how we review tools.
+- [Methodology](https://stackwiseaihub.com/methodology.html): Our review process and source methodology.
