@@ -35,6 +35,7 @@
 - [Proactor Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/proactor.html): Sales and account executives who run back-to-back calls and want an always-listening AI teammate that surfaces suggestio
 - [QuillBot Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/quillbot.html): Students and content writers who spend hours rephrasing source material to dodge plagiarism detectors should use QuillBo
 - [Reclaim.ai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/reclaimai.html): Use Reclaim if you are a solopreneur or individual contributor who already lives in Google Calendar and a separate task 
+- [Sender Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/sender.html): Use Sender if you are a small-to-mid e-commerce store sending under 50k emails per month and value a clean interface plu
 - [Springbolt ID Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/springbolt-id.html): Use Springbolt ID if you run a self-hosted stack, already manage your own JWKS endpoints, and want a zero-dependency off
 - [Survicate Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/survicate.html): Product teams that validate features and pricing hypotheses through targeted in-app and website surveys should use Survi
 - [Synthesia Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/synthesia.html): L&amp;amp;D teams and corporate training managers who produce ongoing libraries of localized, interactive compliance or 
