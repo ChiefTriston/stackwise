@@ -20,6 +20,7 @@
 - [LangChain Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/langchain.html): Use LangChain if you are a data engineer or Python backend developer who prototypes RAG pipelines and agents by composin
 - [Leonardo.ai Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/leonardoai.html): Use Leonardo if you are a concept artist or illustrator who needs precise anatomy, custom fine-tuned models, and an inte
 - [Lindy AI Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/lindy-ai.html): Solo operators and small teams who handle high-volume email, calendar, and cross-tool workflows should use Lindy when th
+- [Manychat Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/manychat.html): Instagram-first marketers and e-commerce teams who need comment-to-DM lead capture and broadcast sequences should use Ma
 - [NeuronWriter Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/neuronwriter.html): Solo SEO writers and small content teams who produce 8-15 optimized articles per month and want one interface for resear
 - [Notion AI Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/notion-ai.html): Product managers and teams who already run their roadmaps, meeting notes, and wikis inside Notion should use it for zero
 - [OmniSEO Review 2026: Pricing, Pros &amp; Cons](https://stackwiseaihub.com/omniseo.html): Solo Shopify operators or small e-commerce teams who already run daily on-page updates and can afford to move to the $79
