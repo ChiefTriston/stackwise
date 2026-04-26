@@ -204,18 +204,63 @@
     <div class="res-title" id="resTitle"></div>
     <div class="res-sub" id="resSub"></div>
     <div class="res-tools" id="resTools"></div>
-    <span class="retake" onclick="resetQuiz()">â† Start over</span>
+    <span class="retake" ← Start over</span>
   </div>
 </div>
-<span class="quiz-skip fade-up fade-up-2" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Skip â€” browse all tools below</span>
+<span class="quiz-skip fade-up fade-up-2" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Skip — browse all tools below</span>
 
 <!-- GAINING TRACTION -->
 <div class="section fade-up fade-up-3">
   <div class="section-header">
     <span class="section-label">Gaining traction</span>
-    <span class="section-link">See all â†’</span>
+    <span class="section-link" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">See all →</span>
   </div>
   <div class="trending-grid" id="trendGrid"></div>
+</div>
+
+<!-- BROWSE BY CATEGORY -->
+<div class="section fade-up fade-up-3">
+  <div class="section-header">
+    <span class="section-label">Browse by category</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+    <a href="best-ai-writing-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Writing & Content</div>
+      <div style="font-size:11px;color:var(--text3);">AI writing assistants, SEO tools, editors</div>
+    </a>
+    <a href="best-ai-coding-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Coding & Dev</div>
+      <div style="font-size:11px;color:var(--text3);">IDE copilots, code assistants, dev tools</div>
+    </a>
+    <a href="best-ai-marketing-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Marketing & Sales</div>
+      <div style="font-size:11px;color:var(--text3);">Email, social, ads, campaign automation</div>
+    </a>
+    <a href="best-ai-productivity-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Productivity</div>
+      <div style="font-size:11px;color:var(--text3);">Calendar, tasks, workflow automation</div>
+    </a>
+    <a href="best-ai-video-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Video & Media</div>
+      <div style="font-size:11px;color:var(--text3);">Avatars, generators, editors, presentations</div>
+    </a>
+    <a href="best-ai-research-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Research & Search</div>
+      <div style="font-size:11px;color:var(--text3);">AI search engines, knowledge management</div>
+    </a>
+    <a href="best-ai-meetings-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Meetings</div>
+      <div style="font-size:11px;color:var(--text3);">Transcription, notes, recording</div>
+    </a>
+    <a href="best-ai-image-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Image & Design</div>
+      <div style="font-size:11px;color:var(--text3);">Image generators, headshots, design tools</div>
+    </a>
+    <a href="best-ai-automation-tools.html" style="text-decoration:none;padding:16px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--border2)'" onmouseout="this.style.borderColor='var(--border)'">
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Automation & Agents</div>
+      <div style="font-size:11px;color:var(--text3);">AI agents, no-code workflows, bots</div>
+    </a>
+  </div>
 </div>
 
 <!-- ALL TOOLS -->
