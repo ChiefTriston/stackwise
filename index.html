@@ -209,6 +209,35 @@
 </div>
 <span class="quiz-skip fade-up fade-up-2" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Skip — browse all tools below</span>
 
+<!-- STACK BUILDER -->
+<div class="section fade-up fade-up-3" id="stackBuilder">
+  <div class="section-header">
+    <span class="section-label">Build your AI stack</span>
+    <span class="section-link" id="stackCost" style="font-family:'DM Mono',monospace;"></span>
+  </div>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:20px;line-height:1.6;">Pick one tool for each slot. See the total cost and get a shareable stack.</p>
+  
+  <!-- Role selector -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;" id="roleBar">
+    <button class="pill active" onclick="setRole('marketer')">Marketer</button>
+    <button class="pill" onclick="setRole('developer')">Developer</button>
+    <button class="pill" onclick="setRole('founder')">Founder</button>
+    <button class="pill" onclick="setRole('creator')">Creator</button>
+    <button class="pill" onclick="setRole('researcher')">Researcher</button>
+  </div>
+
+  <!-- Stack slots -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;" id="stackGrid"></div>
+
+  <!-- Share bar -->
+  <div id="stackShare" style="display:none;margin-top:20px;padding:20px;background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;text-align:center;">
+    <div style="font-size:13px;color:var(--text2);margin-bottom:12px;">Your AI stack is ready</div>
+    <div id="stackSummary" style="font-size:12px;color:var(--text3);font-family:'DM Mono',monospace;margin-bottom:14px;line-height:1.8;"></div>
+    <button onclick="copyStack()" style="padding:9px 20px;font-size:12px;font-weight:500;background:var(--accent);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:inherit;">Copy stack to clipboard</button>
+    <span id="copyMsg" style="font-size:11px;color:var(--accent);margin-left:10px;display:none;">Copied!</span>
+  </div>
+</div>
+
 <!-- GAINING TRACTION -->
 <div class="section fade-up fade-up-3">
   <div class="section-header">
@@ -644,6 +673,188 @@ if (searchInput && searchResults) {
     }
   });
 }
+
+/* ==================== STACK BUILDER ==================== */
+const stackSlots = {
+  marketer: [
+    {label:'Writing',icon:'✍️',cat:'Writing',desc:'Blog posts, copy, emails'},
+    {label:'Research',icon:'🔍',cat:'Research',desc:'Market research, competitive intel'},
+    {label:'Email & Automation',icon:'📧',cat:'Marketing',desc:'Campaigns, sequences, CRM'},
+    {label:'Video',icon:'🎬',cat:'Video',desc:'Avatars, ads, presentations'},
+    {label:'Design',icon:'🎨',cat:'Image',desc:'Graphics, headshots, creatives'},
+    {label:'SEO',icon:'📊',cat:'SEO',desc:'Content optimization, rankings'},
+  ],
+  developer: [
+    {label:'Code Editor',icon:'💻',cat:'Coding',desc:'IDE, copilot, autocomplete'},
+    {label:'Research',icon:'🔍',cat:'Research',desc:'Docs, APIs, debugging'},
+    {label:'Automation',icon:'⚡',cat:'Automation',desc:'CI/CD, workflows, agents'},
+    {label:'Writing',icon:'✍️',cat:'Writing',desc:'Docs, READMEs, specs'},
+    {label:'Meetings',icon:'🎙️',cat:'Meetings',desc:'Stand-ups, retros, notes'},
+    {label:'Chat Assistant',icon:'💬',cat:'Productivity',desc:'General AI assistant'},
+  ],
+  founder: [
+    {label:'Chat Assistant',icon:'💬',cat:'Productivity',desc:'Strategy, brainstorming, drafts'},
+    {label:'Writing',icon:'✍️',cat:'Writing',desc:'Pitch decks, blog, copy'},
+    {label:'Marketing',icon:'📧',cat:'Marketing',desc:'Email, ads, outreach'},
+    {label:'Research',icon:'🔍',cat:'Research',desc:'Market research, competitors'},
+    {label:'Meetings',icon:'🎙️',cat:'Meetings',desc:'Investor calls, team syncs'},
+    {label:'Automation',icon:'⚡',cat:'Automation',desc:'Workflows, integrations'},
+  ],
+  creator: [
+    {label:'Writing',icon:'✍️',cat:'Writing',desc:'Scripts, captions, articles'},
+    {label:'Video',icon:'🎬',cat:'Video',desc:'Editing, avatars, clips'},
+    {label:'Design',icon:'🎨',cat:'Image',desc:'Thumbnails, graphics, art'},
+    {label:'Research',icon:'🔍',cat:'Research',desc:'Trends, topics, SEO'},
+    {label:'Chat Assistant',icon:'💬',cat:'Productivity',desc:'Ideas, outlines, repurposing'},
+    {label:'Automation',icon:'⚡',cat:'Automation',desc:'Scheduling, workflows'},
+  ],
+  researcher: [
+    {label:'Research',icon:'🔍',cat:'Research',desc:'Papers, data, analysis'},
+    {label:'Chat Assistant',icon:'💬',cat:'Productivity',desc:'Synthesis, Q&A, writing'},
+    {label:'Writing',icon:'✍️',cat:'Writing',desc:'Reports, papers, briefs'},
+    {label:'Meetings',icon:'🎙️',cat:'Meetings',desc:'Interviews, lectures, notes'},
+    {label:'Automation',icon:'⚡',cat:'Automation',desc:'Data pipelines, agents'},
+    {label:'Code',icon:'💻',cat:'Coding',desc:'Scripts, notebooks, analysis'},
+  ],
+};
+
+let currentRole = 'marketer';
+let selectedStack = {};
+
+function setRole(role) {
+  currentRole = role;
+  selectedStack = {};
+  document.querySelectorAll('#roleBar .pill').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  renderStack();
+}
+
+function getToolsForCat(cat) {
+  return tools.filter(t => t.cats && t.cats.includes(cat)).slice(0, 5);
+}
+
+function extractPrice(tool) {
+  // Try to extract a numeric price from the verdict or cat
+  const text = tool.verdict || '';
+  const m = text.match(/\$(\d+)/);
+  return m ? parseInt(m[1]) : 0;
+}
+
+function renderStack() {
+  const grid = document.getElementById('stackGrid');
+  grid.innerHTML = '';
+  const slots = stackSlots[currentRole] || [];
+  
+  slots.forEach((slot, idx) => {
+    const selected = selectedStack[slot.label];
+    const options = getToolsForCat(slot.cat);
+    
+    const card = document.createElement('div');
+    card.style.cssText = 'background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;padding:16px;transition:border-color 0.15s;';
+    
+    if (selected) {
+      card.innerHTML = `
+        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+          <span>${slot.icon} ${slot.label}</span>
+          <span style="cursor:pointer;color:var(--text3);font-size:14px;" onclick="clearSlot('${slot.label}')" title="Remove">×</span>
+        </div>
+        <a href="${selected.href}" style="font-size:14px;font-weight:500;color:var(--accent);text-decoration:none;display:block;margin-bottom:4px;">${selected.name}</a>
+        <div style="font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;">${selected.cat}</div>
+      `;
+      card.style.borderColor = 'var(--accent-border)';
+    } else {
+      let optsHtml = options.map(t => 
+        `<div onclick="event.stopPropagation();pickTool('${slot.label}',${tools.indexOf(t)})" 
+              style="padding:8px 12px;cursor:pointer;border-radius:6px;transition:background 0.1s;font-size:13px;color:var(--text);" 
+              onmouseover="this.style.background='var(--bg)'" 
+              onmouseout="this.style.background='transparent'">
+          ${t.name} <span style="font-size:11px;color:var(--text3);">${t.cat}</span>
+        </div>`
+      ).join('');
+      
+      if (options.length === 0) {
+        optsHtml = '<div style="font-size:12px;color:var(--text3);padding:8px;">No tools in this category yet</div>';
+      }
+      
+      card.innerHTML = `
+        <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:8px;">${slot.icon} ${slot.label}</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:10px;">${slot.desc}</div>
+        <div id="slotOpts_${idx}" style="display:none;">
+          ${optsHtml}
+        </div>
+        <div onclick="toggleSlotOpts(${idx})" style="font-size:12px;color:var(--accent);cursor:pointer;display:flex;align-items:center;gap:4px;" id="slotToggle_${idx}">
+          Choose tool <span style="font-size:10px;">▼</span>
+        </div>
+      `;
+    }
+    
+    grid.appendChild(card);
+  });
+  
+  updateStackCost();
+}
+
+function toggleSlotOpts(idx) {
+  const opts = document.getElementById('slotOpts_' + idx);
+  const toggle = document.getElementById('slotToggle_' + idx);
+  if (opts.style.display === 'none') {
+    opts.style.display = 'block';
+    toggle.innerHTML = 'Hide options <span style="font-size:10px;">▲</span>';
+  } else {
+    opts.style.display = 'none';
+    toggle.innerHTML = 'Choose tool <span style="font-size:10px;">▼</span>';
+  }
+}
+
+function pickTool(slotLabel, toolIdx) {
+  selectedStack[slotLabel] = tools[toolIdx];
+  renderStack();
+}
+
+function clearSlot(slotLabel) {
+  delete selectedStack[slotLabel];
+  renderStack();
+}
+
+function updateStackCost() {
+  const picked = Object.values(selectedStack);
+  const count = picked.length;
+  const costEl = document.getElementById('stackCost');
+  const shareEl = document.getElementById('stackShare');
+  
+  if (count === 0) {
+    costEl.textContent = '';
+    shareEl.style.display = 'none';
+    return;
+  }
+  
+  costEl.textContent = `${count} tool${count > 1 ? 's' : ''} selected`;
+  
+  if (count >= 2) {
+    shareEl.style.display = 'block';
+    const summary = Object.entries(selectedStack)
+      .map(([slot, t]) => `${slot}: ${t.name}`)
+      .join(' · ');
+    document.getElementById('stackSummary').textContent = summary;
+  } else {
+    shareEl.style.display = 'none';
+  }
+}
+
+function copyStack() {
+  const lines = Object.entries(selectedStack)
+    .map(([slot, t]) => `${slot}: ${t.name}`)
+    .join('\n');
+  const text = `My AI Stack (via stackwiseaihub.com)\n\n${lines}`;
+  navigator.clipboard.writeText(text).then(() => {
+    const msg = document.getElementById('copyMsg');
+    msg.style.display = 'inline';
+    setTimeout(() => msg.style.display = 'none', 2000);
+  });
+}
+
+// Initialize stack builder
+renderStack();
 
 /* ==================== SAVE / BOOKMARK ==================== */
 function getSaved() {
