@@ -247,6 +247,28 @@
 </div>
 
 <!-- COMMUNITY -->
+
+<!-- NEWSLETTER -->
+<div class="section">
+  <div style="border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:36px;text-align:center;background:var(--bg2);">
+    <div style="font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;font-family:'DM Mono',monospace;">Stay updated</div>
+    <div style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:8px;color:var(--text);">Get notified when we review new tools</div>
+    <div style="font-size:14px;color:var(--text2);margin-bottom:24px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6;">One email when new reviews drop. No spam, no affiliate pitches, just tools worth knowing about.</div>
+    <div style="display:flex;gap:8px;max-width:420px;margin:0 auto;" id="nlForm">
+      <input type="email" id="nlEmail" placeholder="you@company.com" 
+             style="flex:1;padding:11px 16px;font-size:13px;background:var(--bg);border:0.5px solid var(--border);border-radius:9px;color:var(--text);outline:none;font-family:inherit;transition:border-color 0.15s;"
+             onfocus="this.style.borderColor='var(--border2)'" onblur="this.style.borderColor='var(--border)'"
+             onkeydown="if(event.key==='Enter')nlSubmit()" />
+      <button onclick="nlSubmit()" id="nlBtn"
+              style="padding:11px 22px;font-size:13px;font-weight:500;background:var(--accent);color:#fff;border:none;border-radius:9px;cursor:pointer;transition:opacity 0.15s;font-family:inherit;white-space:nowrap;"
+              onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Subscribe</button>
+    </div>
+    <div id="nlMsg" style="font-size:12px;margin-top:12px;display:none;"></div>
+    <div style="font-size:11px;color:var(--text3);margin-top:12px;">Join free — unsubscribe anytime</div>
+  </div>
+</div>
+
+<!-- COMMUNITY -->
 <div class="section">
   <div class="section-label">Community</div>
   <div class="community-grid">
@@ -549,6 +571,63 @@ if (searchInput && searchResults) {
       searchInput.blur();
     }
   });
+}
+
+/* ==================== NEWSLETTER SIGNUP ==================== */
+function nlSubmit() {
+  const email = document.getElementById('nlEmail').value.trim();
+  const msg = document.getElementById('nlMsg');
+  const btn = document.getElementById('nlBtn');
+  
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = 'var(--text3)';
+    msg.style.display = 'block';
+    return;
+  }
+  
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  btn.style.opacity = '0.5';
+  
+  // TODO: Replace FORM_ID and ENTRY_ID with your actual Google Form values
+  // 1. Create form at forms.google.com with one "Email" field
+  // 2. Get pre-filled link to find the entry ID
+  // 3. Replace the values below
+  const FORM_ID = '1FAIpQLSeW1XbjUiiNiAQMN_-Ebfd0w6asUwsJWGrRRj9HhnwzxktNyA';
+  const ENTRY_ID = 'entry.674435147';
+  const url = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse?${ENTRY_ID}=${encodeURIComponent(email)}&submit=Submit`;
+  
+  // Submit via hidden iframe (Google Forms doesn't support CORS)
+  const iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  iframe.name = 'nl_iframe';
+  document.body.appendChild(iframe);
+  
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+  form.target = 'nl_iframe';
+  
+  const input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = ENTRY_ID;
+  input.value = email;
+  form.appendChild(input);
+  
+  document.body.appendChild(form);
+  form.submit();
+  
+  // Show success after brief delay (we can't read the iframe response due to CORS)
+  setTimeout(() => {
+    document.getElementById('nlForm').innerHTML = '<div style="font-size:14px;color:var(--text);font-weight:500;">You\'re in.</div>';
+    msg.textContent = 'We\'ll email you when new reviews drop.';
+    msg.style.color = 'var(--accent)';
+    msg.style.display = 'block';
+    // Clean up
+    form.remove();
+    setTimeout(() => iframe.remove(), 5000);
+  }, 1000);
 }
 
 renderQ(); buildTrending(); buildCats(); buildTools();
