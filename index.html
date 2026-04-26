@@ -121,9 +121,12 @@
     .tool-card { padding: 16px 18px; background: var(--bg); cursor: pointer; transition: background 0.12s; text-decoration: none; color: inherit; display: block; }
     .tool-card:hover { background: var(--bg2); }
     .tool-card.hidden { display: none; }
-    .tool-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+    .tool-name { font-size: 14px; font-weight: 500; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: flex-start; }
     .tool-cat { font-size: 11px; color: var(--text3); margin-bottom: 10px; font-family: 'DM Mono', monospace; }
     .tool-verdict { font-size: 12px; color: var(--text2); line-height: 1.4; display: flex; align-items: flex-start; gap: 4px; }
+    .save-btn { background: none; border: none; cursor: pointer; padding: 2px; font-size: 14px; color: var(--text3); transition: all 0.15s; line-height: 1; flex-shrink: 0; }
+    .save-btn:hover { color: var(--accent); transform: scale(1.15); }
+    .save-btn.saved { color: var(--accent); }
     /* SOCIAL PROOF */
     .proof-block { padding: 36px; border: 0.5px solid var(--border); border-radius: var(--radius-lg); background: var(--bg2); text-align: center; }
     .proof-number { font-size: 56px; font-weight: 400; letter-spacing: -0.05em; color: var(--text); line-height: 1; margin-bottom: 12px; }
@@ -219,7 +222,10 @@
 <div class="section fade-up fade-up-4" id="tools">
   <div class="section-header">
     <span class="section-label">All tools</span>
-    <span class="section-link" id="toolCount"></span>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <span id="savedCount" style="font-size:12px;color:var(--accent);cursor:pointer;display:none;" onclick="toggleSavedFilter()"></span>
+      <span class="section-link" id="toolCount"></span>
+    </div>
   </div>
   
   <!-- Inline search + filter bar -->
@@ -454,10 +460,18 @@ function buildTrending() {
 
 function buildCats() {
   const bar = document.getElementById('catBar');
-  cats.forEach(c => {
+  const allCats = ["All", "Saved", ...cats.slice(1)];
+  allCats.forEach(c => {
     const p = document.createElement('div');
     p.className = 'pill' + (c === 'All' ? ' active' : '');
-    p.textContent = c;
+    if (c === 'Saved') {
+      const sc = getSaved().length;
+      p.textContent = sc > 0 ? `Saved (${sc})` : 'Saved';
+      p.id = 'savedPill';
+      if (sc === 0) p.style.opacity = '0.4';
+    } else {
+      p.textContent = c;
+    }
     p.onclick = () => {
       document.querySelectorAll('.cat-bar .pill').forEach(x => x.classList.remove('active'));
       p.classList.add('active'); activecat = c; filterTools();
@@ -468,9 +482,17 @@ function buildCats() {
 
 function filterTools() {
   const q = (document.getElementById('inlineSearch').value || '').toLowerCase().trim();
+  const saved = getSaved();
   let v = 0;
   document.querySelectorAll('.tool-card').forEach(c => {
-    const catMatch = activecat === 'All' || c.dataset.cats.includes(activecat);
+    let catMatch;
+    if (activecat === 'All') {
+      catMatch = true;
+    } else if (activecat === 'Saved') {
+      catMatch = saved.includes(c.dataset.slug);
+    } else {
+      catMatch = c.dataset.cats.includes(activecat);
+    }
     let searchMatch = true;
     if (q.length >= 2) {
       const name = (c.dataset.name || '').toLowerCase();
@@ -490,16 +512,21 @@ document.getElementById('inlineSearch').addEventListener('input', filterTools);
 
 function buildTools() {
   const g = document.getElementById('toolsGrid');
+  const saved = getSaved();
   tools.forEach(t => {
+    const slug = t.href.replace('.html', '');
+    const isSaved = saved.includes(slug);
     const d = document.createElement('a');
     d.className = 'tool-card'; d.href = t.href;
     d.dataset.cats = t.cats.join(',');
     d.dataset.name = t.name.toLowerCase();
     d.dataset.verdict = t.verdict.toLowerCase();
-    d.innerHTML = `<div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div><div class="tool-verdict"><span class="vdot vdot-${t.conf}"></span>${t.verdict}</div>`;
+    d.dataset.slug = slug;
+    d.innerHTML = `<div class="tool-name"><span>${t.name}</span><button class="save-btn ${isSaved ? 'saved' : ''}" data-slug="${slug}" onclick="event.preventDefault();event.stopPropagation();toggleSave('${slug}',this)" title="${isSaved ? 'Remove from saved' : 'Save this tool'}">${isSaved ? '&#9733;' : '&#9734;'}</button></div><div class="tool-cat">${t.cat}</div><div class="tool-verdict"><span class="vdot vdot-${t.conf}"></span>${t.verdict}</div>`;
     g.appendChild(d);
   });
   document.getElementById('toolCount').textContent = tools.length + ' tools';
+  updateSavedCount();
 }
 
 const searchInput = document.getElementById('globalSearch');
@@ -571,6 +598,51 @@ if (searchInput && searchResults) {
       searchInput.blur();
     }
   });
+}
+
+/* ==================== SAVE / BOOKMARK ==================== */
+function getSaved() {
+  try { return JSON.parse(localStorage.getItem('sw_saved') || '[]'); }
+  catch(e) { return []; }
+}
+
+function setSaved(arr) {
+  try { localStorage.setItem('sw_saved', JSON.stringify(arr)); } catch(e) {}
+}
+
+function toggleSave(slug, btn) {
+  let saved = getSaved();
+  if (saved.includes(slug)) {
+    saved = saved.filter(s => s !== slug);
+    btn.classList.remove('saved');
+    btn.innerHTML = '&#9734;';
+    btn.title = 'Save this tool';
+  } else {
+    saved.push(slug);
+    btn.classList.add('saved');
+    btn.innerHTML = '&#9733;';
+    btn.title = 'Remove from saved';
+  }
+  setSaved(saved);
+  updateSavedCount();
+  if (activecat === 'Saved') filterTools();
+}
+
+function updateSavedCount() {
+  const saved = getSaved();
+  const pill = document.getElementById('savedPill');
+  if (pill) {
+    pill.textContent = saved.length > 0 ? `Saved (${saved.length})` : 'Saved';
+    pill.style.opacity = saved.length > 0 ? '1' : '0.4';
+  }
+}
+
+function toggleSavedFilter() {
+  activecat = 'Saved';
+  document.querySelectorAll('.cat-bar .pill').forEach(x => x.classList.remove('active'));
+  const pill = document.getElementById('savedPill');
+  if (pill) pill.classList.add('active');
+  filterTools();
 }
 
 /* ==================== NEWSLETTER SIGNUP ==================== */
