@@ -221,6 +221,14 @@
     <span class="section-label">All tools</span>
     <span class="section-link" id="toolCount"></span>
   </div>
+  
+  <!-- Inline search + filter bar -->
+  <div style="margin-bottom:16px;">
+    <input type="text" id="inlineSearch" placeholder="Search by name, category, or use case..." 
+           style="width:100%;padding:11px 16px;font-size:13px;background:var(--bg2);border:0.5px solid var(--border);border-radius:10px;color:var(--text);outline:none;font-family:inherit;transition:border-color 0.15s;"
+           onfocus="this.style.borderColor='var(--border2)'" onblur="this.style.borderColor='var(--border)'" />
+  </div>
+  
   <div class="cat-bar" id="catBar"></div>
   <div class="tools-grid" id="toolsGrid"></div>
 </div>
@@ -256,12 +264,13 @@
 </div>
 
 <footer class="footer">
-  <div class="footer-left">Â© 2026 Stackwise â€” Evidence-based tool reviews</div>
+  <div class="footer-left">© 2026 Stackwise — Evidence-based AI tool reviews</div>
   <div class="footer-right">
-    <a href="#">About</a>
-    <a href="#">Methodology</a>
-    <a href="submit-tool.html">Submit a tool</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="methodology.html">How we review</a>
     <a href="submit-review.html">Submit a review</a>
+    <a href="submit-tool.html">Submit a tool</a>
   </div>
 </footer>
 
@@ -436,20 +445,35 @@ function buildCats() {
 }
 
 function filterTools() {
+  const q = (document.getElementById('inlineSearch').value || '').toLowerCase().trim();
   let v = 0;
   document.querySelectorAll('.tool-card').forEach(c => {
-    const show = activecat === 'All' || c.dataset.cats.includes(activecat);
+    const catMatch = activecat === 'All' || c.dataset.cats.includes(activecat);
+    let searchMatch = true;
+    if (q.length >= 2) {
+      const name = (c.dataset.name || '').toLowerCase();
+      const cats = (c.dataset.cats || '').toLowerCase();
+      const verdict = (c.dataset.verdict || '').toLowerCase();
+      searchMatch = name.includes(q) || cats.includes(q) || verdict.includes(q);
+    }
+    const show = catMatch && searchMatch;
     c.classList.toggle('hidden', !show);
     if (show) v++;
   });
   document.getElementById('toolCount').textContent = v + ' tools';
 }
 
+// Wire inline search to filter
+document.getElementById('inlineSearch').addEventListener('input', filterTools);
+
 function buildTools() {
   const g = document.getElementById('toolsGrid');
   tools.forEach(t => {
     const d = document.createElement('a');
-    d.className = 'tool-card'; d.href = t.href; d.dataset.cats = t.cats.join(',');
+    d.className = 'tool-card'; d.href = t.href;
+    d.dataset.cats = t.cats.join(',');
+    d.dataset.name = t.name.toLowerCase();
+    d.dataset.verdict = t.verdict.toLowerCase();
     d.innerHTML = `<div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div><div class="tool-verdict"><span class="vdot vdot-${t.conf}"></span>${t.verdict}</div>`;
     g.appendChild(d);
   });
