@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-  <title>Stackwise â€” Find the right tool, before you pay for it</title>
-  <meta name="description" content="Evidence-based software tool reviews. Every page is built from 200+ real sources â€” reviews, discussions, and verified pricing. No sponsored rankings." />
+  <title>Stackwise — Find the right tool, before you pay for it</title>
+  <meta name="description" content="Evidence-based software tool reviews. Every page is built from 200+ real sources — reviews, discussions, and verified pricing. We do the research so you don’t have to." />
   <link rel="stylesheet" href="main.css" />
   <style>
     /* HOMEPAGE SPECIFIC */
@@ -184,9 +184,9 @@
 
 <!-- HERO -->
 <div class="hero fade-up fade-up-1">
-  <div class="hero-tag">Evidence-based Â· No sponsored rankings</div>
+  <div class="hero-tag">Evidence-based · No sponsored rankings</div>
   <h1 class="hero-title">Find the right tool,<br><em>before you pay for it.</em></h1>
-  <p class="hero-sub">Every page is built from 200+ real sources â€” reviews, discussions, and verified pricing. We do the research so you don't have to.</p>
+  <p class="hero-sub">Every page is built from 200+ real sources — reviews, discussions, and verified pricing. We do the research so you don’t have to.</p>
 </div>
 
 <!-- QUIZ -->
@@ -329,11 +329,11 @@
 <div class="section fade-up fade-up-5">
   <div class="proof-block">
     <div class="proof-number">200<span>+</span></div>
-    <p class="proof-desc">Sources reviewed per tool on average â€” reviews, discussions, pricing pages, and community threads.</p>
+    <p class="proof-desc">Sources reviewed per tool on average — reviews, discussions, pricing pages, and community threads.</p>
     <div class="proof-facts">
-      <div class="proof-fact"><div class="proof-check">âœ“</div>No sponsored rankings</div>
-      <div class="proof-fact"><div class="proof-check">âœ“</div>Every verdict is sourced</div>
-      <div class="proof-fact"><div class="proof-check">âœ“</div>Updated regularly</div>
+      <div class="proof-fact"><div class="proof-check">✓</div>No sponsored rankings</div>
+      <div class="proof-fact"><div class="proof-check">✓</div>Every verdict is sourced</div>
+      <div class="proof-fact"><div class="proof-check">✓</div>Updated regularly</div>
     </div>
   </div>
 </div>
@@ -367,12 +367,12 @@
     <a href="submit-tool.html" class="comm-card">
       <div class="comm-title">Submit a tool</div>
       <div class="comm-sub">Know a tool worth covering? Tell us about it and we'll add it to our research queue.</div>
-      <div class="comm-link">Submit a tool â†’</div>
+      <div class="comm-link">Submit a tool →</div>
     </a>
     <a href="submit-review.html" class="comm-card">
       <div class="comm-title">Submit a review</div>
       <div class="comm-sub">Used a tool we cover? Your real experience may appear as a cited signal on that tool's page.</div>
-      <div class="comm-link">Share your experience â†’</div>
+      <div class="comm-link">Share your experience →</div>
     </a>
   </div>
 </div>
@@ -397,7 +397,7 @@ const trending = [
 ];
 
 const tools = [
-  { name:"Cursor", cat:"Code editor", cats:["Coding","Automation","Meetings"], verdict:"Solo developers or small-team engineers who live in multi-file refactors,…", conf:"m", href:"cursor.html" },
+  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Use Cursor if you spend your days refactoring and iterating across multiple files...", conf:"m", href:"cursor.html" },
   { name:"Grammarly", cat:"Writing assistant", cats:["Writing","Marketing"], verdict:"Use Grammarly if you are a non-native speaker or professional who writes...", conf:"m", href:"grammarly.html" },
   { name:"Perplexity", cat:"AI search", cats:["Research"], verdict:"Product managers and researchers who live in fast, source-verified lookups...", conf:"m", href:"perplexity.html" },
   { name:"Notion AI", cat:"Productivity", cats:["Productivity","Research"], verdict:"Product managers and teams who already run their roadmaps, meeting notes,...", conf:"m", href:"notion-ai.html" },
@@ -888,7 +888,7 @@ function buildSearchResults(query) {
     .map(tool => `
       <a href="${tool.href}" class="search-result-item">
         <div class="search-result-name">${tool.name}</div>
-        <div class="search-result-desc">${tool.cat} Â· ${tool.verdict}</div>
+        <div class="search-result-desc">${tool.cat} · ${tool.verdict}</div>
       </a>
     `)
     .join('');
