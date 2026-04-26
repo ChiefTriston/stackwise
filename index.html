@@ -390,6 +390,69 @@
 
 <script>
 
+
+const trending = [
+  { name:"Lindy AI", href:"lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads" },
+  { name:"Perplexity AI", href:"perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles" }
+];
+
+const tools = [
+  { name:"Cursor", cat:"Code editor", cats:["Coding"], verdict:"Use Cursor if you spend your days refactoring and iterating across multiple files...", conf:"m", href:"cursor.html" },
+  { name:"Grammarly", cat:"Writing assistant", cats:["Writing","Marketing"], verdict:"Use Grammarly if you are a non-native speaker or professional who writes...", conf:"m", href:"grammarly.html" },
+  { name:"Perplexity", cat:"AI search", cats:["Research"], verdict:"Product managers and researchers who live in fast, source-verified lookups...", conf:"m", href:"perplexity.html" },
+  { name:"Notion AI", cat:"Productivity", cats:["Productivity","Research"], verdict:"Product managers and teams who already run their roadmaps, meeting notes,...", conf:"m", href:"notion-ai.html" },
+  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings"], verdict:"Sales and account executives who run frequent 1:1 or 2-person discovery and...", conf:"m", href:"otterai.html" },
+  { name:"LangChain", cat:"AI automation", cats:["Automation","Coding"], verdict:"Use LangChain if you are a data engineer or Python backend developer who...", conf:"m", href:"langchain.html" },
+  { name:"Lindy AI", cat:"AI automation", cats:["Automation","Productivity"], verdict:"Solo operators and small teams who handle high-volume email, calendar, and...", conf:"m", href:"lindy-ai.html" },
+  { name:"Glean", cat:"AI search", cats:["Research"], verdict:"Mid-market and enterprise teams whose knowledge lives across Google...", conf:"m", href:"glean.html" },
+  { name:"OpenClaw", cat:"AI automation", cats:["Automation","Coding"], verdict:"Solo technical founders and small-team operators who already live in...", conf:"m", href:"openclaw.html" },
+  { name:"Proactor", cat:"Meeting transcription", cats:["Meetings","Productivity"], verdict:"Sales and account executives who run back-to-back calls and want an...", conf:"m", href:"proactor.html" },
+  { name:"ChatGPT", cat:"AI assistant", cats:["Productivity","Research","Coding"], verdict:"Product managers and solo operators who turn raw feedback files into...", conf:"m", href:"chatgpt.html" },
+  { name:"Writesonic", cat:"Writing assistant", cats:["Writing","SEO"], verdict:"Solo marketers and small content teams who publish SEO blog posts on tight...", conf:"m", href:"writesonic.html" },
+  { name:"QuillBot", cat:"Writing assistant", cats:["Writing"], verdict:"Students and content writers who spend hours rephrasing source material to...", conf:"m", href:"quillbot.html" },
+  { name:"GetGenie", cat:"Writing assistant", cats:["Writing","SEO"], verdict:"Use GetGenie if you publish inside WordPress, want keyword research to final...", conf:"m", href:"getgenie.html" },
+  { name:"InVideo", cat:"Video tool", cats:["Video"], verdict:"Use InVideo if you are a marketer or solopreneur who needs to turn text...", conf:"m", href:"invideo.html" },
+  { name:"HeadshotPro", cat:"Image generation", cats:["Image"], verdict:"Use HeadshotPro if you are a solo professional or aspiring model who wants a...", conf:"m", href:"headshotpro.html" },
+  { name:"AISEO", cat:"Writing assistant", cats:["Writing","SEO"], verdict:"Solo marketers and content writers who start from AI drafts and need...", conf:"m", href:"aiseo.html" },
+  { name:"NeuronWriter", cat:"Writing assistant", cats:["Writing","SEO"], verdict:"Solo SEO writers and small content teams who produce 8-15 optimized articles...", conf:"m", href:"neuronwriter.html" },
+  { name:"Synthesia", cat:"Video tool", cats:["Video"], verdict:"L&D teams and corporate training managers who produce ongoing libraries of...", conf:"m", href:"synthesia.html" },
+  { name:"HeyGen", cat:"Video tool", cats:["Video","Marketing"], verdict:"Sales and marketing teams that create personalized outreach or training...", conf:"m", href:"heygen.html" },
+  { name:"Leonardo.ai", cat:"Image generation", cats:["Image"], verdict:"Use Leonardo if you are a concept artist or illustrator who needs precise...", conf:"m", href:"leonardoai.html" },
+  { name:"AdCreative.ai", cat:"Marketing tool", cats:["Image","Marketing"], verdict:"Use it if you are a DTC or e-commerce marketer who needs dozens of Facebook...", conf:"m", href:"adcreativeai.html" },
+  { name:"GetResponse", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Use GetResponse if you are a solopreneur or small-team marketer who runs...", conf:"m", href:"getresponse.html" },
+  { name:"Grok", cat:"AI assistant", cats:["Research","Coding"], verdict:"Use Grok if your daily workflow centers on real-time X sentiment, unfiltered...", conf:"m", href:"grok.html" },
+  { name:"Claude", cat:"AI assistant", cats:["Research","Writing","Productivity","Coding"], verdict:"Researchers and decision-makers who produce vendor comparisons, proposal...", conf:"m", href:"claude.html" },
+  { name:"Jasper", cat:"Marketing tool", cats:["Writing","Marketing"], verdict:"Marketing teams running structured long-form content and multi-market...", conf:"m", href:"jasper.html" },
+  { name:"TheTop", cat:"Productivity tool", cats:["Productivity","Meetings"], verdict:"Use TheTop if you live in a mixed stack of Gmail, Google Calendar, and Slack...", conf:"m", href:"thetop.html" },
+  { name:"OmniSEO", cat:"SEO tool", cats:["SEO","Research"], verdict:"Solo Shopify operators or small e-commerce teams who already run daily...", conf:"l", href:"omniseo.html" },
+  { name:"Turbotic", cat:"AI automation", cats:["Automation","Productivity"], verdict:"Use Turbotic if you are a power user or small ops team that needs AI to...", conf:"m", href:"turbotic.html" },
+  { name:"Pilim", cat:"Productivity tool", cats:["Automation","Productivity"], verdict:"Small remote teams that want minimal friction and a single place for task...", conf:"m", href:"pilim.html" },
+  { name:"Manychat", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Instagram-first marketers and e-commerce teams who need comment-to-DM lead...", conf:"m", href:"manychat.html" },
+  { name:"Adwisely", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Solo DTC founders who want to hand bid, budget, and creative decisions to AI...", conf:"m", href:"adwisely.html" },
+  { name:"Instantly", cat:"Marketing tool", cats:["Marketing"], verdict:"Solo founders and small agencies who send under 10k emails per month and...", conf:"m", href:"instantly.html" },
+  { name:"Catalister", cat:"AI automation", cats:["Automation"], verdict:"Solo Shopify-only dropshippers who already run Google Ads and can tolerate...", conf:"m", href:"catalister.html" },
+  { name:"Reclaim.ai", cat:"Productivity tool", cats:["Productivity","Meetings"], verdict:"Use Reclaim if you are a solopreneur or individual contributor who already...", conf:"m", href:"reclaimai.html" },
+  { name:"Token Metrics", cat:"AI assistant", cats:["Research"], verdict:"Use Token Metrics if you are a solo crypto investor who tracks 5-10 coins,...", conf:"m", href:"token-metrics-inc.html" },
+  { name:"Springbolt ID", cat:"Automation tool", cats:["Automation","Coding"], verdict:"Use Springbolt ID if you run a self-hosted stack, already manage your own...", conf:"l", href:"springbolt-id.html" },
+  { name:"Instapage", cat:"Marketing tool", cats:["Marketing","Image"], verdict:"Paid acquisition teams and agencies running multiple campaigns should use...", conf:"m", href:"instapage.html" },
+  { name:"Survicate", cat:"Productivity tool", cats:["Productivity","Automation"], verdict:"Product teams that validate features and pricing hypotheses through targeted...", conf:"m", href:"survicate.html" },
+  { name:"Sender", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Use Sender if you are a small-to-mid e-commerce store sending under 50k...", conf:"m", href:"sender.html" },
+  { name:"Auware", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Shopify brand managers or agencies who already exhaust their time building...", conf:"l", href:"auware-by-buyist.html" },
+  { name:"iContact", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Solo marketers and small-business owners running under 2,500 contacts with...", conf:"m", href:"icontact.html" },
+  { name:"Beautiful.ai", cat:"Design tool", cats:["Image","Writing"], verdict:"Solo marketers or sales leaders who create consistent on-brand client decks...", conf:"m", href:"beautifulai.html" },
+  { name:"TestDriver.ai", cat:"Automation tool", cats:["Coding","Automation"], verdict:"Use TestDriver.ai if you are a QA or product team that needs non-engineers...", conf:"m", href:"testdriverai.html" },
+  { name:"Closely", cat:"Marketing tool", cats:["Marketing"], verdict:"Solo SDRs or small teams whose primary channel is LinkedIn outreach combined...", conf:"m", href:"closely.html" },
+  { name:"Webydo", cat:"Design tool", cats:["Coding"], verdict:"Agencies that deliver multi-page client sites with CMS-driven content and...", conf:"m", href:"webydo.html" },
+  { name:"Kit", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Solo creators who run simple tag-based funnels and prioritize deliverability...", conf:"m", href:"kit-formerly-convertkit.html" },
+  { name:"Moosend", cat:"Marketing tool", cats:["Marketing","Automation"], verdict:"Use Moosend if you are a small-to-mid marketing team or solo marketer...", conf:"m", href:"moosend.html" },
+  { name:"Calilio", cat:"Meeting tool", cats:["Meetings","Automation"], verdict:"Small sales or support teams that want fast setup and 90% of basic VoIP...", conf:"m", href:"calilio.html" },
+];
+
+const cats = ["All","Writing","Coding","Automation","Research","Meetings","Productivity","Video","Image","Marketing","SEO"];
+
+let activecat = "All", sel = null;
+
+
 /* ==================== SMART STACK QUIZ ==================== */
 
 // Curated tool-to-slot mapping (overrides auto-categorization)
@@ -1035,8 +1098,6 @@ function copyStack() {
   });
 }
 
-// Initialize stack builder
-renderStack();
 
 /* ==================== SAVE / BOOKMARK ==================== */
 function getSaved() {
@@ -1140,7 +1201,7 @@ function nlSubmit() {
   }, 1000);
 }
 
-buildTrending(); buildCats(); buildTools();
+buildTrending(); buildCats(); buildTools(); renderStack();
 </script>
 
 </body>
