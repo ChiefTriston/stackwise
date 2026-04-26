@@ -503,15 +503,62 @@ function advance() {
 
 function showResult() {
   document.getElementById('quizInner').style.display = 'none';
-  const r = document.getElementById('quizResult'); r.style.display = 'block';
-  const matches = calculateBestMatches(answers);
-  document.getElementById('resTitle').innerHTML = `Your top matches`;
-  document.getElementById('resSub').innerHTML = `Based on your answers, hereâ€™s what fits best right now:`;
-  const container = document.getElementById('resTools');
+  var r = document.getElementById('quizResult'); r.style.display = 'block';
+  var matches = calculateBestMatches(answers);
+  document.getElementById('resTitle').innerHTML = 'Your top matches';
+  document.getElementById('resSub').innerHTML = "Based on your answers \u2014 we also built a recommended stack below:";
+  var container = document.getElementById('resTools');
   container.innerHTML = '';
-  matches.forEach(([name, verdict, href]) => {
-    container.innerHTML += `<a href="${href}" class="res-tool"><div><div class="res-tool-name">${name}</div><div class="res-tool-why">${verdict}</div></div><div class="res-arr">â†’</div></a>`;
+  matches.forEach(function(m) {
+    var name = m[0], verdict = m[1], href = m[2];
+    container.innerHTML += '<a href="' + href + '" class="res-tool"><div><div class="res-tool-name">' + name + '</div><div class="res-tool-why">' + verdict + '</div></div><div class="res-arr">\u2192</div></a>';
   });
+  autoFillStack(answers, matches);
+}
+
+function autoFillStack(quizAnswers, topMatches) {
+  var goal = quizAnswers[0] || '';
+  var role = 'founder';
+  if (goal.includes('Code')) role = 'developer';
+  else if (goal.includes('Written content') || goal.includes('SEO')) role = 'marketer';
+  else if (goal.includes('Videos') || goal.includes('Images')) role = 'creator';
+  else if (goal.includes('Research')) role = 'researcher';
+  else if (goal.includes('Email') || goal.includes('Advertising')) role = 'marketer';
+  else if (goal.includes('Meeting')) role = 'researcher';
+
+  currentRole = role;
+  document.querySelectorAll('#roleBar .pill').forEach(function(p) {
+    p.classList.toggle('active', p.textContent.toLowerCase() === role);
+  });
+
+  selectedStack = {};
+  var slots = stackSlots[role] || [];
+  var topNames = topMatches.map(function(m) { return m[0]; });
+
+  slots.forEach(function(slot) {
+    var matching = tools.filter(function(t) { return t.cats && t.cats.includes(slot.cat); });
+    if (matching.length === 0) return;
+    var fromTop = matching.find(function(t) { return topNames.includes(t.name); });
+    if (fromTop) { selectedStack[slot.label] = fromTop; return; }
+    var best = matching[0], bestScore = 0;
+    matching.forEach(function(t) {
+      var score = 0, v = (t.verdict || '').toLowerCase();
+      var teamSize = quizAnswers[1] || '';
+      if (teamSize.includes('Just me') && v.includes('solo')) score += 2;
+      if (teamSize.includes('Small team') && v.includes('team')) score += 2;
+      var budget = quizAnswers[2] || '';
+      if (budget.includes('Free') && v.includes('free')) score += 2;
+      if (t.conf === 'h') score += 1;
+      else if (t.conf === 'm') score += 0.5;
+      if (score > bestScore) { bestScore = score; best = t; }
+    });
+    selectedStack[slot.label] = best;
+  });
+
+  renderStack();
+  setTimeout(function() {
+    document.getElementById('stackBuilder').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }, 600);
 }
 
 function resetQuiz() {
