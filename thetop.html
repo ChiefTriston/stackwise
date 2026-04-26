@@ -235,15 +235,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Microsoft Copilot for Microsoft 365</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Copilot works only inside Outlook, Teams, and Planner with native Microsoft Graph access, while TheTop aggregates signals from any connected email, calendar, or Slack without requiring a full Microsoft stack. TheTop's daily brief is a single consolidated view; Copilot requires you to ask separate questions across each app.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Copilot for Microsoft 365 when your team already lives entirely inside the Microsoft 365 ecosystem and you want zero extra integrations. Choose TheTop when you use a mixed tool stack and need one morning overview that ranks importance across all of them.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Reclaim.ai</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Reclaim.ai focuses on automatic calendar blocking and meeting rescheduling, whereas TheTop emphasizes AI-generated importance-ranked daily briefs pulled from email and messages. Reclaim does not produce a consolidated morning summary report.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Reclaim.ai when your primary pain is meeting overload and fragmented calendar time. Choose TheTop when the bigger problem is information overload across email, tasks, and chat that buries what actually needs attention first.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Copilot for Microsoft 365 when your team already lives entirely inside the Microsoft 365 ecosystem and you want zero extra integrations. Choose TheTop when you use a mixed tool stack and need one morning overview that ranks importance across all of them.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">TheTop</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Microsoft Copilot for Microsoft 365</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">TheTop <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $9/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use TheTop if you live in a mixed stack of Gmail, Google Calendar, and Slack and need one consolidated importance-ranked morning brief instead of manu</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers one ranked daily brief across email, calendar, and Slack when those accounts are connected,</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Surfaces blockers and @mentions in under five minutes for solo operators on mixed tool stacks, thoug</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free credits exhaust after 10-15 daily briefs, forcing an immediate upgrade or complete loss of the </li><li style="font-size:12px;color:var(--text3);padding:3px 0;">The importance-ranking algorithm sometimes buries non-obvious but critical cross-thread signals that</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Microsoft Copilot for Microsoft 365</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Copilot works only inside Outlook, Teams, and Planner with native Microsoft Graph access, while TheTop aggregates signals from any connected email, calendar, or Slack without requiring a full Microsoft stack. TheTop's daily brief is a single consolidated view; Copilot requires you to ask separate questions across each app.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Reclaim.ai when your primary pain is meeting overload and fragmented calendar time. Choose TheTop when the bigger problem is information overload across email, tasks, and chat that buries what actually needs attention first.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">TheTop</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Reclaim.ai</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">TheTop <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $9/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use TheTop if you live in a mixed stack of Gmail, Google Calendar, and Slack and need one consolidated importance-ranked morning brief instead of manu</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers one ranked daily brief across email, calendar, and Slack when those accounts are connected,</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Surfaces blockers and @mentions in under five minutes for solo operators on mixed tool stacks, thoug</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free credits exhaust after 10-15 daily briefs, forcing an immediate upgrade or complete loss of the </li><li style="font-size:12px;color:var(--text3);padding:3px 0;">The importance-ranking algorithm sometimes buries non-obvious but critical cross-thread signals that</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Reclaim.ai</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Reclaim.ai focuses on automatic calendar blocking and meeting rescheduling, whereas TheTop emphasizes AI-generated importance-ranked daily briefs pulled from email and messages. Reclaim does not produce a consolidated morning summary report.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

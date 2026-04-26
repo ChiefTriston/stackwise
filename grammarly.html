@@ -250,15 +250,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">ProWritingAid</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">ProWritingAid runs deeper style and structure reports with 25+ writing reports versus Grammarly's real-time underlines, but lacks seamless browser extension coverage across Gmail and LinkedIn. It offers a one-time lifetime license option while Grammarly is strictly subscription with usage limits on generative AI.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ProWritingAid when you do long-form editing and want detailed reports on repetition and style. Choose Grammarly when you need frictionless real-time checks inside email and docs.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">LanguageTool</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">LanguageTool is open-source with a free desktop app and broader language support, but its suggestions are less contextual and lack Grammarly's tone detector or generative Rewrite. Premium LanguageTool removes the 20,000 character limit while Grammarly Premium adds plagiarism and audience adaptation.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LanguageTool when you want a free or low-cost offline checker and write in multiple languages. Choose Grammarly when you are a non-native English speaker or professional who values tone and clarity suggestions.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose ProWritingAid when you do long-form editing and want detailed reports on repetition and style. Choose Grammarly when you need frictionless real-time checks inside email and docs.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Grammarly</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">ProWritingAid</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Grammarly <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $12/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Grammarly if you are a non-native speaker or professional who writes high-volume external communication in Gmail, Docs, or LinkedIn and wants real</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time underlines and one-click fixes inside Gmail, Google Docs, and LinkedIn for extern</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Provides audience-specific tone detection and Rewrite suggestions that improve clarity for non-nativ</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Suggestions frequently flag intentional style choices and push passive-to-active conversions that pr</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free version is limited to basic spelling and grammar, forcing most regular users to pay $12/month w</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">ProWritingAid</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">ProWritingAid runs deeper style and structure reports with 25+ writing reports versus Grammarly's real-time underlines, but lacks seamless browser extension coverage across Gmail and LinkedIn. It offers a one-time lifetime license option while Grammarly is strictly subscription with usage limits on generative AI.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose LanguageTool when you want a free or low-cost offline checker and write in multiple languages. Choose Grammarly when you are a non-native English speaker or professional who values tone and clarity suggestions.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Grammarly</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">LanguageTool</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Grammarly <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $12/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Grammarly if you are a non-native speaker or professional who writes high-volume external communication in Gmail, Docs, or LinkedIn and wants real</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time underlines and one-click fixes inside Gmail, Google Docs, and LinkedIn for extern</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Provides audience-specific tone detection and Rewrite suggestions that improve clarity for non-nativ</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Suggestions frequently flag intentional style choices and push passive-to-active conversions that pr</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free version is limited to basic spelling and grammar, forcing most regular users to pay $12/month w</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LanguageTool</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">LanguageTool is open-source with a free desktop app and broader language support, but its suggestions are less contextual and lack Grammarly's tone detector or generative Rewrite. Premium LanguageTool removes the 20,000 character limit while Grammarly Premium adds plagiarism and audience adaptation.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

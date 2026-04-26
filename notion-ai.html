@@ -255,19 +255,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="claude.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">Claude</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Claude offers superior long-form writing quality and document analysis with far larger context windows, while Notion AI is restricted to the Notion workspace and lacks custom instructions or memory. Claude is a standalone $20/month chat; Notion AI requires the $10/user add-on on top of your workspace plan.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Claude when you need deep reasoning, long document analysis, or custom projects outside Notion. Choose Notion AI when every output must stay natively inside your existing Notion pages, databases, and team workspace without copy-paste.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Coda AI</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Coda AI delivers similar workspace-native prompts and automations at $10/user/month while Notion AI charges the same add-on price on top of higher base plans. Coda's AI is more tightly coupled to its doc and table automations; Notion AI excels at Research Mode across connected tools and the open web.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Coda AI when you want lower total cost and stronger table-driven automations. Choose Notion AI when your team already lives in Notion databases, roadmaps, and wikis and values its Research Mode synthesis.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="chatgpt.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">ChatGPT</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">ChatGPT provides stronger standalone reasoning, custom GPTs, and web browsing at a flat $20/month, whereas Notion AI is weaker on advanced features and limited to your workspace context. Notion AI wins only on zero-friction access via /AI commands and Ask AI inside every page.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ChatGPT when you need maximum model power and don't mind copying text in and out of Notion. Choose Notion AI when the value is in never leaving your workspace and having AI act directly on live meeting notes or databases.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Claude when you need deep reasoning, long document analysis, or custom projects outside Notion. Choose Notion AI when every output must stay natively inside your existing Notion pages, databases, and team workspace without copy-paste.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Notion AI</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Claude</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Notion AI <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $10/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and teams who already run their roadmaps, meeting notes, and wikis inside Notion should use it for zero-friction extraction of action</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers workspace-native extraction of action items and summaries from meeting notes without copy-p</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Research Mode synthesizes questions across your Notion databases and the open web into shareable pag</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">The free tier's 20 responses per user are exhausted in 1-2 days of normal summarization, forcing mos</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Limited context window causes hallucinations and loss of accuracy after a few paragraphs, requiring </li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="claude.html" style="color:var(--accent);text-decoration:none;">Claude</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Claude offers superior long-form writing quality and document analysis with far larger context windows, while Notion AI is restricted to the Notion workspace and lacks custom instructions or memory. Claude is a standalone $20/month chat; Notion AI requires the $10/user add-on on top of your workspace plan.</div>
+    <div style="margin-top:12px;"><a href="claude.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Coda AI when you want lower total cost and stronger table-driven automations. Choose Notion AI when your team already lives in Notion databases, roadmaps, and wikis and values its Research Mode synthesis.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Notion AI</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Coda AI</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Notion AI <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $10/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and teams who already run their roadmaps, meeting notes, and wikis inside Notion should use it for zero-friction extraction of action</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers workspace-native extraction of action items and summaries from meeting notes without copy-p</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Research Mode synthesizes questions across your Notion databases and the open web into shareable pag</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">The free tier's 20 responses per user are exhausted in 1-2 days of normal summarization, forcing mos</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Limited context window causes hallucinations and loss of accuracy after a few paragraphs, requiring </li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Coda AI</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Coda AI delivers similar workspace-native prompts and automations at $10/user/month while Notion AI charges the same add-on price on top of higher base plans. Coda's AI is more tightly coupled to its doc and table automations; Notion AI excels at Research Mode across connected tools and the open web.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose ChatGPT when you need maximum model power and don't mind copying text in and out of Notion. Choose Notion AI when the value is in never leaving your workspace and having AI act directly on live meeting notes or databases.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Notion AI</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">ChatGPT</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Notion AI <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $10/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and teams who already run their roadmaps, meeting notes, and wikis inside Notion should use it for zero-friction extraction of action</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers workspace-native extraction of action items and summaries from meeting notes without copy-p</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Research Mode synthesizes questions across your Notion databases and the open web into shareable pag</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">The free tier's 20 responses per user are exhausted in 1-2 days of normal summarization, forcing mos</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Limited context window causes hallucinations and loss of accuracy after a few paragraphs, requiring </li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="chatgpt.html" style="color:var(--accent);text-decoration:none;">ChatGPT</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">ChatGPT provides stronger standalone reasoning, custom GPTs, and web browsing at a flat $20/month, whereas Notion AI is weaker on advanced features and limited to your workspace context. Notion AI wins only on zero-friction access via /AI commands and Ask AI inside every page.</div>
+    <div style="margin-top:12px;"><a href="chatgpt.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

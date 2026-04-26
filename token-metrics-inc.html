@@ -245,15 +245,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">CoinGecko</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">CoinGecko provides free on-chain metrics, sentiment, and rankings without any AI wrapper or subscription, while Token Metrics charges $49.99–$99.99/month for its AI scores that users often say repackage the same public data.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose CoinGecko when you want free, transparent data and are comfortable doing your own synthesis. Choose Token Metrics when you value the pre-ranked AI list and are willing to pay for the convenience and Telegram community.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">DexScreener</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">DexScreener delivers real-time token launches, liquidity, and chart data for free with zero subscription, whereas Token Metrics bundles that information into paid monthly plans and adds AI ratings that critics call overhyped.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose DexScreener when hunting new launches and on-chain momentum with no budget. Choose Token Metrics when you prefer curated daily rankings and educational reports over raw real-time charts.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose CoinGecko when you want free, transparent data and are comfortable doing your own synthesis. Choose Token Metrics when you value the pre-ranked AI list and are willing to pay for the convenience and Telegram community.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Token Metrics Inc.</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">CoinGecko</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Token Metrics Inc. <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $9/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Token Metrics if you are a solo crypto investor who tracks 5-10 coins, values pre-ranked daily lists and Telegram analyst explanations, and accept</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers daily AI-ranked shortlists with fundamental, on-chain, and sentiment breakdowns that reduce</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Includes Portfolio Tracker, Trading Signals with confidence levels, and Telegram community access in</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Priority early signals that move markets are locked behind the $99.99 Premium tier once you track mo</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">AI scoring system often feels like repackaged public data, requiring extra validation against CoinGe</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">CoinGecko</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">CoinGecko provides free on-chain metrics, sentiment, and rankings without any AI wrapper or subscription, while Token Metrics charges $49.99–$99.99/month for its AI scores that users often say repackage the same public data.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose DexScreener when hunting new launches and on-chain momentum with no budget. Choose Token Metrics when you prefer curated daily rankings and educational reports over raw real-time charts.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Token Metrics Inc.</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">DexScreener</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Token Metrics Inc. <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $9/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Token Metrics if you are a solo crypto investor who tracks 5-10 coins, values pre-ranked daily lists and Telegram analyst explanations, and accept</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers daily AI-ranked shortlists with fundamental, on-chain, and sentiment breakdowns that reduce</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Includes Portfolio Tracker, Trading Signals with confidence levels, and Telegram community access in</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Priority early signals that move markets are locked behind the $99.99 Premium tier once you track mo</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">AI scoring system often feels like repackaged public data, requiring extra validation against CoinGe</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">DexScreener</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">DexScreener delivers real-time token launches, liquidity, and chart data for free with zero subscription, whereas Token Metrics bundles that information into paid monthly plans and adds AI ratings that critics call overhyped.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

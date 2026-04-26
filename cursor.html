@@ -255,15 +255,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Claude Code</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Cursor is an always-on IDE with Composer and Plan Mode for in-editor multi-file edits, while Claude Code is a chat-first interface that produces deeper reasoning steps before touching code. Cursor offers fast iteration inside your existing workspace; Claude Code has higher per-task reasoning quality but lacks the seamless diff-review loop.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Claude Code when you need careful planning and confidence on complex logic changes. Choose Cursor when you live in daily IDE refactoring across many files and want the fastest edit-apply-review cycle.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Bolt</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Bolt offers a free tier with simpler prompt-to-app generation but lacks Cursor’s deep codebase indexing and multi-file Composer. Cursor requires a paid Pro plan for unlimited fast generations; Bolt stays free for basic use but struggles with large existing repositories.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Bolt when you are building small new projects from scratch on a budget. Choose Cursor when you maintain and refactor a mature, multi-file codebase that needs contextual understanding.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Claude Code when you need careful planning and confidence on complex logic changes. Choose Cursor when you live in daily IDE refactoring across many files and want the fastest edit-apply-review cycle.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Cursor</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Claude Code</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Cursor <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Cursor if you spend your days refactoring and iterating across multiple files in an existing codebase and want the fastest edit-apply-review cycle</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Composer delivers coherent multi-file edits that follow your project's patterns when the change fits</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Plan Mode surfaces technical considerations and produces an editable markdown task list before any c</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro tier rate limits are hit within hours of heavy Composer or Agent use, forcing slow fallback gene</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Edits sometimes rewrite working code into broken versions with missing imports or type errors, requi</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Claude Code</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Cursor is an always-on IDE with Composer and Plan Mode for in-editor multi-file edits, while Claude Code is a chat-first interface that produces deeper reasoning steps before touching code. Cursor offers fast iteration inside your existing workspace; Claude Code has higher per-task reasoning quality but lacks the seamless diff-review loop.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Bolt when you are building small new projects from scratch on a budget. Choose Cursor when you maintain and refactor a mature, multi-file codebase that needs contextual understanding.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Cursor</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Bolt</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Cursor <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Cursor if you spend your days refactoring and iterating across multiple files in an existing codebase and want the fastest edit-apply-review cycle</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Composer delivers coherent multi-file edits that follow your project's patterns when the change fits</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Plan Mode surfaces technical considerations and produces an editable markdown task list before any c</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro tier rate limits are hit within hours of heavy Composer or Agent use, forcing slow fallback gene</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Edits sometimes rewrite working code into broken versions with missing imports or type errors, requi</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Bolt</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Bolt offers a free tier with simpler prompt-to-app generation but lacks Cursor’s deep codebase indexing and multi-file Composer. Cursor requires a paid Pro plan for unlimited fast generations; Bolt stays free for basic use but struggles with large existing repositories.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

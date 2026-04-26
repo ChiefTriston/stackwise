@@ -240,15 +240,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">AutoDS</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">AutoDS supports automated product research and listing across 80+ marketplaces and stores including Shopify, Amazon, and eBay, while Catalister is restricted to Shopify plus Google Ads. AutoDS uses a fixed monthly fee without per-listing credit consumption.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose AutoDS when you sell on multiple platforms or want predictable monthly costs without credit metering. Choose Catalister when you are a Shopify-only dropshipper who values deep AI-generated listing copy and can stay under 3,000 SKUs.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Sell The Trend</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Sell The Trend focuses on trend-based product discovery with viral score metrics and one-click import to Shopify, whereas Catalister emphasizes competitor analysis, real-time performance metrics, and full AI listing generation that consumes credits.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Sell The Trend when your workflow is trend-first and you want to avoid extra credit costs for listings. Choose Catalister when you need AI-written descriptions and images at volume and already run Google Ads.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose AutoDS when you sell on multiple platforms or want predictable monthly costs without credit metering. Choose Catalister when you are a Shopify-only dropshipper who values deep AI-generated listing copy and can stay under 3,000 SKUs.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Catalister</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">AutoDS</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Catalister <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $39/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Solo Shopify-only dropshippers who already run Google Ads and can tolerate credit-based pricing plus post-generation editing should use Catalister. Ag</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers AI-generated market trends, competitor analysis, and full Shopify listing drafts in one ses</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Reduces VA team size for product research and listing tasks when you stay under 3,000 SKUs and accep</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Every AI listing generation burns extra paid credits on top of the monthly fee, creating unpredictab</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Growth plan caps at 3,000 SKUs so most users hit the custom/quote tier within 3-4 months once they s</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">AutoDS</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">AutoDS supports automated product research and listing across 80+ marketplaces and stores including Shopify, Amazon, and eBay, while Catalister is restricted to Shopify plus Google Ads. AutoDS uses a fixed monthly fee without per-listing credit consumption.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Sell The Trend when your workflow is trend-first and you want to avoid extra credit costs for listings. Choose Catalister when you need AI-written descriptions and images at volume and already run Google Ads.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Catalister</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Sell The Trend</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Catalister <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $39/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Solo Shopify-only dropshippers who already run Google Ads and can tolerate credit-based pricing plus post-generation editing should use Catalister. Ag</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers AI-generated market trends, competitor analysis, and full Shopify listing drafts in one ses</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Reduces VA team size for product research and listing tasks when you stay under 3,000 SKUs and accep</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Every AI listing generation burns extra paid credits on top of the monthly fee, creating unpredictab</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Growth plan caps at 3,000 SKUs so most users hit the custom/quote tier within 3-4 months once they s</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Sell The Trend</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Sell The Trend focuses on trend-based product discovery with viral score metrics and one-click import to Shopify, whereas Catalister emphasizes competitor analysis, real-time performance metrics, and full AI listing generation that consumes credits.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

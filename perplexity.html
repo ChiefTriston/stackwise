@@ -249,15 +249,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="chatgpt.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">ChatGPT</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Perplexity pulls live web data with inline citations on every response while ChatGPT relies on a static cutoff unless you enable browsing in Plus; Perplexity returns concise cited answers whereas ChatGPT produces longer, more flexible creative or conversational output.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ChatGPT when you need versatile writing, coding, or open-ended brainstorming. Choose Perplexity when your workflow centers on fast, source-verified research and market intelligence.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="claude.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">Claude</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Perplexity focuses on real-time web search with citations while Claude emphasizes deeper reasoning and cleaner long-form synthesis without native live search; Perplexity's interface stays distraction-free for quick lookups whereas Claude's artifact and project modes support extended iterative writing.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Claude when you need nuanced synthesis or long-form content from existing knowledge. Choose Perplexity when you must ground every claim in fresh, cited web sources.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose ChatGPT when you need versatile writing, coding, or open-ended brainstorming. Choose Perplexity when your workflow centers on fast, source-verified research and market intelligence.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Perplexity</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">ChatGPT</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Perplexity <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and researchers who live in fast, source-verified lookups should use it as their default research engine. Developers or writers needi</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time web answers with clickable inline citations that let you verify claims in seconds</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Threaded follow-ups and Spaces keep project context without restarting searches, replacing the multi</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Hallucinations still occur on niche topics, forcing you to manually check every cited link before yo</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro plan's 120 advanced-model searches per 5 hours push heavy research days onto slower fallback mod</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="chatgpt.html" style="color:var(--accent);text-decoration:none;">ChatGPT</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Perplexity pulls live web data with inline citations on every response while ChatGPT relies on a static cutoff unless you enable browsing in Plus; Perplexity returns concise cited answers whereas ChatGPT produces longer, more flexible creative or conversational output.</div>
+    <div style="margin-top:12px;"><a href="chatgpt.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Claude when you need nuanced synthesis or long-form content from existing knowledge. Choose Perplexity when you must ground every claim in fresh, cited web sources.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Perplexity</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Claude</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Perplexity <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and researchers who live in fast, source-verified lookups should use it as their default research engine. Developers or writers needi</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time web answers with clickable inline citations that let you verify claims in seconds</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Threaded follow-ups and Spaces keep project context without restarting searches, replacing the multi</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Hallucinations still occur on niche topics, forcing you to manually check every cited link before yo</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro plan's 120 advanced-model searches per 5 hours push heavy research days onto slower fallback mod</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="claude.html" style="color:var(--accent);text-decoration:none;">Claude</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Perplexity focuses on real-time web search with citations while Claude emphasizes deeper reasoning and cleaner long-form synthesis without native live search; Perplexity's interface stays distraction-free for quick lookups whereas Claude's artifact and project modes support extended iterative writing.</div>
+    <div style="margin-top:12px;"><a href="claude.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

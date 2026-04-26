@@ -255,15 +255,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Fellow</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Fellow bakes collaborative agendas, pre-meeting briefs, and 50+ native integrations (Slack, Asana, Hubspot) into every meeting workflow, while Otter focuses on real-time transcription and post-meeting search. Fellow stores all recordings and notes in one secure workspace with automatic post-meeting emails; Otter relies on its separate dashboard and requires manual exports.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Fellow when your team runs structured project or sales meetings that need agenda collaboration and CRM handoff. Choose Otter when you primarily need accurate real-time transcription and searchable historical meeting archives.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Wave</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Wave runs on-device via Whisper v3, offers unlimited recording length and Siri integration on iOS with no monthly minute caps, while Otter depends on cloud processing with strict Pro/Business minute limits. Wave produces summaries from any audio (lectures, calls, appointments) but lacks live captions, speaker ID during meetings, and team workspaces.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Wave when you record solo or small-group audio on mobile and want zero minute limits or privacy from cloud uploads. Choose Otter when you need live meeting participation, multi-user collaboration, and enterprise admin controls.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Fellow when your team runs structured project or sales meetings that need agenda collaboration and CRM handoff. Choose Otter when you primarily need accurate real-time transcription and searchable historical meeting archives.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Otter.ai</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Fellow</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Otter.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $8/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and account executives who run frequent 1:1 or 2-person discovery and pipeline calls with clear American English should use Otter for its search</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time transcripts with live captions and searchable archives for clean 1:1 or 2-person </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates usable meeting summaries and action items that integrate with calendar and CRM exports whe</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro's 5000-minute monthly limit is consumed at 1:1 with meeting time, forcing most 10+ hour weekly u</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Speaker identification frequently fails with three or more participants, requiring manual correction</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Fellow</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Fellow bakes collaborative agendas, pre-meeting briefs, and 50+ native integrations (Slack, Asana, Hubspot) into every meeting workflow, while Otter focuses on real-time transcription and post-meeting search. Fellow stores all recordings and notes in one secure workspace with automatic post-meeting emails; Otter relies on its separate dashboard and requires manual exports.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Wave when you record solo or small-group audio on mobile and want zero minute limits or privacy from cloud uploads. Choose Otter when you need live meeting participation, multi-user collaboration, and enterprise admin controls.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Otter.ai</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Wave</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Otter.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $8/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and account executives who run frequent 1:1 or 2-person discovery and pipeline calls with clear American English should use Otter for its search</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers real-time transcripts with live captions and searchable archives for clean 1:1 or 2-person </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates usable meeting summaries and action items that integrate with calendar and CRM exports whe</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro's 5000-minute monthly limit is consumed at 1:1 with meeting time, forcing most 10+ hour weekly u</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Speaker identification frequently fails with three or more participants, requiring manual correction</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Wave</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Wave runs on-device via Whisper v3, offers unlimited recording length and Siri integration on iOS with no monthly minute caps, while Otter depends on cloud processing with strict Pro/Business minute limits. Wave produces summaries from any audio (lectures, calls, appointments) but lacks live captions, speaker ID during meetings, and team workspaces.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

@@ -260,19 +260,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">ActiveCampaign</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">ActiveCampaign offers deeper conditional logic, if/then branching, and AI optimization inside its visual builder while GetResponse’s builder stops at basic rules and webinar triggers. ActiveCampaign’s automation depth suits complex B2B journeys; GetResponse bundles webinars, funnels, and landing pages in one lower-cost account.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ActiveCampaign when you run sophisticated multi-step automations with heavy branching and lead scoring. Choose GetResponse when you want an all-in-one platform with built-in webinars and fast AI website generation under $59/month.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Brevo</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Brevo gives unlimited contacts on its free tier plus native SMS/WhatsApp while GetResponse caps free at 500 contacts and charges extra for SMS. Brevo’s starter plan starts at $25/month; GetResponse’s equivalent Email Marketing plan starts at $19/month but scales faster once contacts exceed 1,000.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Brevo when you need multichannel messaging and never want to pay per contact. Choose GetResponse when you rely on webinar hosting, conversion funnels, and AI-generated landing pages.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">HubSpot</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">HubSpot ties automation directly to its CRM with contact-based triggers and lead scoring; GetResponse uses a standalone visual builder without native CRM depth. HubSpot’s advanced automation requires Professional plans starting near $890/month while GetResponse’s Marketing Automation tier begins at $59/month.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose HubSpot when your entire team lives inside a CRM and you can afford enterprise pricing. Choose GetResponse when you need quick email-plus-webinar campaigns without CRM overhead.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose ActiveCampaign when you run sophisticated multi-step automations with heavy branching and lead scoring. Choose GetResponse when you want an all-in-one platform with built-in webinars and fast AI website generation under $59/month.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">GetResponse</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">ActiveCampaign</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">GetResponse <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use GetResponse if you are a solopreneur or small-team marketer who runs straightforward email-plus-webinar campaigns and wants fast AI-assisted setup</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Visual builder and AI copy tools let you launch a basic newsletter or nurture sequence in under an h</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Combines email, landing pages, popups, webinars, and funnels inside one account, removing the need t</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Automation builder supports only basic conditional rules and webinar triggers, forcing manual workar</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Contact-based pricing jumps at 1k, 2.5k, 5k thresholds, so adding 4,000 subscribers can move you fro</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">ActiveCampaign</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">ActiveCampaign offers deeper conditional logic, if/then branching, and AI optimization inside its visual builder while GetResponse’s builder stops at basic rules and webinar triggers. ActiveCampaign’s automation depth suits complex B2B journeys; GetResponse bundles webinars, funnels, and landing pages in one lower-cost account.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Brevo when you need multichannel messaging and never want to pay per contact. Choose GetResponse when you rely on webinar hosting, conversion funnels, and AI-generated landing pages.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">GetResponse</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Brevo</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">GetResponse <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use GetResponse if you are a solopreneur or small-team marketer who runs straightforward email-plus-webinar campaigns and wants fast AI-assisted setup</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Visual builder and AI copy tools let you launch a basic newsletter or nurture sequence in under an h</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Combines email, landing pages, popups, webinars, and funnels inside one account, removing the need t</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Automation builder supports only basic conditional rules and webinar triggers, forcing manual workar</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Contact-based pricing jumps at 1k, 2.5k, 5k thresholds, so adding 4,000 subscribers can move you fro</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Brevo</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Brevo gives unlimited contacts on its free tier plus native SMS/WhatsApp while GetResponse caps free at 500 contacts and charges extra for SMS. Brevo’s starter plan starts at $25/month; GetResponse’s equivalent Email Marketing plan starts at $19/month but scales faster once contacts exceed 1,000.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose HubSpot when your entire team lives inside a CRM and you can afford enterprise pricing. Choose GetResponse when you need quick email-plus-webinar campaigns without CRM overhead.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">GetResponse</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">HubSpot</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">GetResponse <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use GetResponse if you are a solopreneur or small-team marketer who runs straightforward email-plus-webinar campaigns and wants fast AI-assisted setup</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Visual builder and AI copy tools let you launch a basic newsletter or nurture sequence in under an h</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Combines email, landing pages, popups, webinars, and funnels inside one account, removing the need t</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Automation builder supports only basic conditional rules and webinar triggers, forcing manual workar</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Contact-based pricing jumps at 1k, 2.5k, 5k thresholds, so adding 4,000 subscribers can move you fro</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">HubSpot</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">HubSpot ties automation directly to its CRM with contact-based triggers and lead scoring; GetResponse uses a standalone visual builder without native CRM depth. HubSpot’s advanced automation requires Professional plans starting near $890/month while GetResponse’s Marketing Automation tier begins at $59/month.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

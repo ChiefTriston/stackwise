@@ -250,19 +250,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Otter.ai</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Otter.ai offers speaker identification and searchable transcripts but requires explicit commands for summaries and action items, whereas Proactor generates them proactively in real time without prompting. Otter's free tier gives 300 minutes per month while Proactor's free tier caps at 60 minutes plus limited AI credits.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Otter.ai when you need reliable, searchable transcripts on a budget and are comfortable prompting the AI yourself. Choose Proactor when you want an autonomous agent that anticipates tasks and drafts CRM entries during the conversation.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Supernormal</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Supernormal focuses on post-meeting polished notes and templates with higher per-month transcription limits on its Pro plan, but it does not offer real-time transcription or proactive suggestions while you are still speaking. Supernormal's Business tier is priced similarly to Proactor's but lacks the live Smart Suggestions feature.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Supernormal when you record meetings asynchronously and prioritize clean, branded meeting notes after the fact. Choose Proactor when you need live insights, action items, and CRM updates while the conversation is still happening.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Granola</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Granola is a lightweight notepad that uses AI to enhance what you type rather than transcribing audio; it has no real-time transcription or proactive agent behavior. Its pricing tiers are lower than Proactor's but it cannot replace an always-listening meeting copilot.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Granola when you prefer to take your own notes and just want AI cleanup. Choose Proactor when you want to stay fully present in the meeting while an AI teammate listens, summarizes, and acts autonomously.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Otter.ai when you need reliable, searchable transcripts on a budget and are comfortable prompting the AI yourself. Choose Proactor when you want an autonomous agent that anticipates tasks and drafts CRM entries during the conversation.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Proactor</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Otter.ai</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Proactor <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and account executives who run back-to-back calls and want an always-listening AI teammate that surfaces suggestions and drafts CRM tasks in the</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates Smart Suggestions, action items, and CRM task drafts proactively during the live conversat</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers speaker-separated structured notes and AI Advice immediately after the meeting for sales fo</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro tier credits run out after 20-25 hours of monthly meeting transcription for daily users, forcing</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">iOS users encounter performance and speed problems that interrupt real-time transcription flow.</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Otter.ai</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Otter.ai offers speaker identification and searchable transcripts but requires explicit commands for summaries and action items, whereas Proactor generates them proactively in real time without prompting. Otter's free tier gives 300 minutes per month while Proactor's free tier caps at 60 minutes plus limited AI credits.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Supernormal when you record meetings asynchronously and prioritize clean, branded meeting notes after the fact. Choose Proactor when you need live insights, action items, and CRM updates while the conversation is still happening.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Proactor</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Supernormal</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Proactor <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and account executives who run back-to-back calls and want an always-listening AI teammate that surfaces suggestions and drafts CRM tasks in the</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates Smart Suggestions, action items, and CRM task drafts proactively during the live conversat</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers speaker-separated structured notes and AI Advice immediately after the meeting for sales fo</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro tier credits run out after 20-25 hours of monthly meeting transcription for daily users, forcing</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">iOS users encounter performance and speed problems that interrupt real-time transcription flow.</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Supernormal</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Supernormal focuses on post-meeting polished notes and templates with higher per-month transcription limits on its Pro plan, but it does not offer real-time transcription or proactive suggestions while you are still speaking. Supernormal's Business tier is priced similarly to Proactor's but lacks the live Smart Suggestions feature.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Granola when you prefer to take your own notes and just want AI cleanup. Choose Proactor when you want to stay fully present in the meeting while an AI teammate listens, summarizes, and acts autonomously.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Proactor</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Granola</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Proactor <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and account executives who run back-to-back calls and want an always-listening AI teammate that surfaces suggestions and drafts CRM tasks in the</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates Smart Suggestions, action items, and CRM task drafts proactively during the live conversat</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers speaker-separated structured notes and AI Advice immediately after the meeting for sales fo</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Pro tier credits run out after 20-25 hours of monthly meeting transcription for daily users, forcing</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">iOS users encounter performance and speed problems that interrupt real-time transcription flow.</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Granola</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Granola is a lightweight notepad that uses AI to enhance what you type rather than transcribing audio; it has no real-time transcription or proactive agent behavior. Its pricing tiers are lower than Proactor's but it cannot replace an always-listening meeting copilot.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

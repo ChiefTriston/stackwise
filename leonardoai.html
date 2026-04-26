@@ -260,15 +260,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Midjourney</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Leonardo offers superior anatomy, hands, and prompt adherence plus built-in Canvas for real-time editing; Midjourney runs inside Discord with simpler prompting but produces more artistic and coherent compositions according to many users.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Midjourney when you want fast, artistic results with minimal UI friction and are okay with Discord-based workflow. Choose Leonardo when you need precise control, Canvas editing, custom models, and commercial royalty-free output.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">LlamaGen.AI</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Leonardo focuses on general image generation with hundreds of community models and fast Canvas; LlamaGen.AI specializes in comic creation with superior face, clothing, expression, and body proportion consistency across panels.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LlamaGen.AI when you are creating comics or multi-panel stories that require strict character consistency. Choose Leonardo when you need photorealistic, concept art, or general creative images with broad model variety.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Midjourney when you want fast, artistic results with minimal UI friction and are okay with Discord-based workflow. Choose Leonardo when you need precise control, Canvas editing, custom models, and commercial royalty-free output.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Leonardo.ai</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Midjourney</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Leonardo.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $10/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Leonardo if you are a concept artist or illustrator who needs precise anatomy, custom fine-tuned models, and an integrated Canvas editor for rapid</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers strong anatomy, hands, and prompt adherence on photorealistic and concept-art prompts when </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">AI Canvas enables real-time inpainting and outward expansion directly inside the generation workflow</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Token system burns through daily allotments in 10-15 generations on Canvas, Alchemy, or video, forci</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Interface contains too many sliders, toggles, and menus, creating a steep learning curve that slows </li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Midjourney</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Leonardo offers superior anatomy, hands, and prompt adherence plus built-in Canvas for real-time editing; Midjourney runs inside Discord with simpler prompting but produces more artistic and coherent compositions according to many users.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose LlamaGen.AI when you are creating comics or multi-panel stories that require strict character consistency. Choose Leonardo when you need photorealistic, concept art, or general creative images with broad model variety.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Leonardo.ai</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">LlamaGen.AI</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Leonardo.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $10/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Leonardo if you are a concept artist or illustrator who needs precise anatomy, custom fine-tuned models, and an integrated Canvas editor for rapid</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers strong anatomy, hands, and prompt adherence on photorealistic and concept-art prompts when </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">AI Canvas enables real-time inpainting and outward expansion directly inside the generation workflow</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Token system burns through daily allotments in 10-15 generations on Canvas, Alchemy, or video, forci</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Interface contains too many sliders, toggles, and menus, creating a steep learning curve that slows </li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LlamaGen.AI</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Leonardo focuses on general image generation with hundreds of community models and fast Canvas; LlamaGen.AI specializes in comic creation with superior face, clothing, expression, and body proportion consistency across panels.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

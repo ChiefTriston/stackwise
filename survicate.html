@@ -250,19 +250,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Qualtrics</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Qualtrics offers deeper branching logic, embedded data, real-time in-survey API calls, and seamless SaaS integrations that Survicate lacks on its lower plans. Survicate provides faster in-app and website widget setup with simpler targeting for product teams, while Qualtrics is built for complex enterprise CX programs with heavier admin overhead.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Qualtrics when you need advanced automation, real-time data workflows, and campus-wide integrations. Choose Survicate when you want quick hypothesis validation through targeted in-app surveys and fast setup under 10 minutes.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Medallia</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Medallia delivers pervasive support, self-service admin features, and flexible logic to work around data shortcomings that Survicate's support cannot match at scale. Survicate is lighter and cheaper for website and mobile in-app feedback, whereas Medallia is positioned for long-term CX and EX programs with frontline and executive buy-in.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Medallia when you run mature CX programs needing creative support and self-service administration. Choose Survicate when you are a product team validating features rapidly with in-app NPS and CSAT surveys.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">SurveySparrow</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">SurveySparrow focuses on conversational surveys, real-time sentiment analysis, and online review management that Survicate does not emphasize. Survicate excels at precise audience targeting and mobile SDK deployment for in-app feedback, while SurveySparrow is stronger for qualitative data analysis and customer query handling.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose SurveySparrow when your primary need is managing reviews, queries, and large-scale qualitative sentiment analysis. Choose Survicate when you need fast in-app and website feedback collection tied to user segments.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Qualtrics when you need advanced automation, real-time data workflows, and campus-wide integrations. Choose Survicate when you want quick hypothesis validation through targeted in-app surveys and fast setup under 10 minutes.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Survicate</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Qualtrics</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Survicate <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $59/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product teams that validate features and pricing hypotheses through targeted in-app and website surveys should use Survicate for its sub-10-minute set</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Sub-10-minute survey creation and SDK initialization for in-app NPS and CSAT that replaces custom en</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Precise audience targeting via user traits and URL rules that enables fast hypothesis validation whe</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Response limits on Free and Starter plans are hit within 30-60 days by teams running frequent in-app</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Audience targeting UI lacks dropdowns for attribute values, creating repeated friction when defining</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Qualtrics</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Qualtrics offers deeper branching logic, embedded data, real-time in-survey API calls, and seamless SaaS integrations that Survicate lacks on its lower plans. Survicate provides faster in-app and website widget setup with simpler targeting for product teams, while Qualtrics is built for complex enterprise CX programs with heavier admin overhead.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Medallia when you run mature CX programs needing creative support and self-service administration. Choose Survicate when you are a product team validating features rapidly with in-app NPS and CSAT surveys.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Survicate</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Medallia</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Survicate <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $59/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product teams that validate features and pricing hypotheses through targeted in-app and website surveys should use Survicate for its sub-10-minute set</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Sub-10-minute survey creation and SDK initialization for in-app NPS and CSAT that replaces custom en</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Precise audience targeting via user traits and URL rules that enables fast hypothesis validation whe</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Response limits on Free and Starter plans are hit within 30-60 days by teams running frequent in-app</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Audience targeting UI lacks dropdowns for attribute values, creating repeated friction when defining</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Medallia</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Medallia delivers pervasive support, self-service admin features, and flexible logic to work around data shortcomings that Survicate's support cannot match at scale. Survicate is lighter and cheaper for website and mobile in-app feedback, whereas Medallia is positioned for long-term CX and EX programs with frontline and executive buy-in.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose SurveySparrow when your primary need is managing reviews, queries, and large-scale qualitative sentiment analysis. Choose Survicate when you need fast in-app and website feedback collection tied to user segments.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Survicate</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">SurveySparrow</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Survicate <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $59/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product teams that validate features and pricing hypotheses through targeted in-app and website surveys should use Survicate for its sub-10-minute set</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Sub-10-minute survey creation and SDK initialization for in-app NPS and CSAT that replaces custom en</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Precise audience targeting via user traits and URL rules that enables fast hypothesis validation whe</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Response limits on Free and Starter plans are hit within 30-60 days by teams running frequent in-app</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Audience targeting UI lacks dropdowns for attribute values, creating repeated friction when defining</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">SurveySparrow</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">SurveySparrow focuses on conversational surveys, real-time sentiment analysis, and online review management that Survicate does not emphasize. Survicate excels at precise audience targeting and mobile SDK deployment for in-app feedback, while SurveySparrow is stronger for qualitative data analysis and customer query handling.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

@@ -250,15 +250,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Motion</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Motion is a full AI task and project manager that schedules specific tasks with dependencies inside its own system, while Reclaim only defends calendar blocks and pulls tasks from external tools like Todoist without managing them. Motion costs $19–34/user/month with no usable free tier; Reclaim offers a functional free plan and charges $8–15/user/month.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Motion when you want to replace both your task manager and calendar with one AI system that handles project workflows. Choose Reclaim when you already have a task system you like and only need intelligent calendar defense plus habit protection.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Clockwise</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Clockwise optimizes team meeting schedules and automatically moves focus time on shared calendars but does not auto-schedule individual tasks or recurring habits the way Reclaim does. Reclaim gives you personal task scheduling and habit protection while Clockwise focuses more on team-wide meeting load reduction and shared focus time.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Clockwise when you manage meeting-heavy team calendars and want to minimize meeting fragmentation across the group. Choose Reclaim when you are a solopreneur or individual who needs tasks and personal habits automatically blocked around meetings.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Motion when you want to replace both your task manager and calendar with one AI system that handles project workflows. Choose Reclaim when you already have a task system you like and only need intelligent calendar defense plus habit protection.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Reclaim.ai</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Motion</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Reclaim.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $8/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Reclaim if you are a solopreneur or individual contributor who already lives in Google Calendar and a separate task tool like Linear or Todoist an</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Automatically defends recurring habits and focus time on Google Calendar even when new meetings appe</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Pulls tasks from external tools like Linear or Todoist and schedules them into remaining free slots </li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Aggressive auto-rescheduling creates frequent notifications and calendar churn when last-minute item</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free tier limits on habits and tasks force most users protecting daily focus time plus 2-3 habits to</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Motion</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Motion is a full AI task and project manager that schedules specific tasks with dependencies inside its own system, while Reclaim only defends calendar blocks and pulls tasks from external tools like Todoist without managing them. Motion costs $19–34/user/month with no usable free tier; Reclaim offers a functional free plan and charges $8–15/user/month.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Clockwise when you manage meeting-heavy team calendars and want to minimize meeting fragmentation across the group. Choose Reclaim when you are a solopreneur or individual who needs tasks and personal habits automatically blocked around meetings.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Reclaim.ai</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Clockwise</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Reclaim.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $8/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Reclaim if you are a solopreneur or individual contributor who already lives in Google Calendar and a separate task tool like Linear or Todoist an</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Automatically defends recurring habits and focus time on Google Calendar even when new meetings appe</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Pulls tasks from external tools like Linear or Todoist and schedules them into remaining free slots </li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Aggressive auto-rescheduling creates frequent notifications and calendar churn when last-minute item</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Free tier limits on habits and tasks force most users protecting daily focus time plus 2-3 habits to</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Clockwise</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Clockwise optimizes team meeting schedules and automatically moves focus time on shared calendars but does not auto-schedule individual tasks or recurring habits the way Reclaim does. Reclaim gives you personal task scheduling and habit protection while Clockwise focuses more on team-wide meeting load reduction and shared focus time.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

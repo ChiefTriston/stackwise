@@ -225,19 +225,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Selenium</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Selenium requires you to write explicit locators and scripts in code, while TestDriver.ai uses natural language and screen understanding to drive the mouse and keyboard without selectors. Selenium runs deterministically in CI but breaks on UI changes; TestDriver.ai survives redesigns but needs human oversight during initial test creation.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Selenium when you have engineering bandwidth to maintain a code-based test suite inside CI/CD with zero tolerance for flakiness. Choose TestDriver.ai when you want non-technical QA or product team members to create and own end-to-end tests without writing code.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Testim</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Testim uses AI to suggest stable locators from recorded actions, whereas TestDriver.ai performs true black-box testing by watching pixels and controlling the actual cursor. Testim focuses on web only; TestDriver.ai supports both web and desktop applications including OS-level settings.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Testim when your tests are entirely web-based and you want a low-code recorder with smart self-healing locators. Choose TestDriver.ai when you need to test desktop apps, control system settings, or run truly selector-free tests across any UI technology.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">LEAPWORK</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">LEAPWORK offers a visual flow-based automation builder that still relies on predefined building blocks, while TestDriver.ai lets you describe the entire test in natural language and lets the AI figure out the clicks and keystrokes. Both support desktop, but TestDriver.ai's agent can adapt to previously unseen screens without rebuilding flows.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose LEAPWORK when you prefer building tests from visual blocks inside a controlled studio environment. Choose TestDriver.ai when you want an autonomous agent that behaves like a QA employee who can be given high-level instructions.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Selenium when you have engineering bandwidth to maintain a code-based test suite inside CI/CD with zero tolerance for flakiness. Choose TestDriver.ai when you want non-technical QA or product team members to create and own end-to-end tests without writing code.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">TestDriver.ai</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Selenium</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">TestDriver.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $49/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use TestDriver.ai if you are a QA or product team that needs non-engineers to own end-to-end tests for web, mobile, and desktop apps without writing c</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates executable tests from natural-language goals using screen understanding, replacing selecto</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Survives UI redesigns better than locator-based tools because it reads pixels instead of DOM element</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Requires you to stay in the loop reviewing and correcting every new test; full autonomy only appears</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Vision-based execution introduces flakiness on slow networks or complex animations where the agent m</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Selenium</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Selenium requires you to write explicit locators and scripts in code, while TestDriver.ai uses natural language and screen understanding to drive the mouse and keyboard without selectors. Selenium runs deterministically in CI but breaks on UI changes; TestDriver.ai survives redesigns but needs human oversight during initial test creation.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Testim when your tests are entirely web-based and you want a low-code recorder with smart self-healing locators. Choose TestDriver.ai when you need to test desktop apps, control system settings, or run truly selector-free tests across any UI technology.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">TestDriver.ai</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Testim</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">TestDriver.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $49/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use TestDriver.ai if you are a QA or product team that needs non-engineers to own end-to-end tests for web, mobile, and desktop apps without writing c</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates executable tests from natural-language goals using screen understanding, replacing selecto</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Survives UI redesigns better than locator-based tools because it reads pixels instead of DOM element</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Requires you to stay in the loop reviewing and correcting every new test; full autonomy only appears</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Vision-based execution introduces flakiness on slow networks or complex animations where the agent m</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Testim</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Testim uses AI to suggest stable locators from recorded actions, whereas TestDriver.ai performs true black-box testing by watching pixels and controlling the actual cursor. Testim focuses on web only; TestDriver.ai supports both web and desktop applications including OS-level settings.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose LEAPWORK when you prefer building tests from visual blocks inside a controlled studio environment. Choose TestDriver.ai when you want an autonomous agent that behaves like a QA employee who can be given high-level instructions.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">TestDriver.ai</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">LEAPWORK</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">TestDriver.ai <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">From $49/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use TestDriver.ai if you are a QA or product team that needs non-engineers to own end-to-end tests for web, mobile, and desktop apps without writing c</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Generates executable tests from natural-language goals using screen understanding, replacing selecto</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Survives UI redesigns better than locator-based tools because it reads pixels instead of DOM element</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Requires you to stay in the loop reviewing and correcting every new test; full autonomy only appears</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Vision-based execution introduces flakiness on slow networks or complex animations where the agent m</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LEAPWORK</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">LEAPWORK offers a visual flow-based automation builder that still relies on predefined building blocks, while TestDriver.ai lets you describe the entire test in natural language and lets the AI figure out the clicks and keystrokes. Both support desktop, but TestDriver.ai's agent can adapt to previously unseen screens without rebuilding flows.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

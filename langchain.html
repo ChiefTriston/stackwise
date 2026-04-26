@@ -255,19 +255,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">CrewAI</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">CrewAI provides higher-level multi-agent orchestration with explicit roles, tasks, and delegation flows, while LangChain requires you to manually compose agents, tools, and memory using LCEL. CrewAI includes built-in collaboration patterns and a simpler mental model for task handoff; LangChain gives you more granular control over every chain step but at the cost of added complexity.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose CrewAI when you need structured multi-agent teams that collaborate on complex business tasks with minimal boilerplate. Choose LangChain when you require deep customization of chains, retrievers, and memory across a broad set of LLM providers and vector stores.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Dify</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Dify offers a visual workflow builder, built-in RAG pipeline, and monitoring UI so non-engineers can own parts of the application, whereas LangChain is purely code-first with no visual layer. Dify includes evaluation and prompt management out of the box; LangChain requires LangSmith subscription for comparable observability.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Dify when your team includes subject-matter experts who must review outputs and iterate on workflows without writing Python. Choose LangChain when you want the full flexibility of open-source Python or JS libraries and are comfortable managing observability separately.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Continue.dev</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Continue.dev is an open-source AI coding assistant that lives inside VS Code or JetBrains and uses Ollama or cloud models to edit code directly, while LangChain is a backend framework for building user-facing LLM applications and agents. Continue.dev focuses on developer productivity inside the IDE; LangChain focuses on production chains, agents, and RAG pipelines.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Continue.dev when you are writing, refactoring, or debugging the code that powers your LLM app. Choose LangChain when you have moved past prototyping and need to ship production agent workflows, tool calling, or retrieval systems.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose CrewAI when you need structured multi-agent teams that collaborate on complex business tasks with minimal boilerplate. Choose LangChain when you require deep customization of chains, retrievers, and memory across a broad set of LLM providers and vector stores.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">LangChain</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">CrewAI</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LangChain <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $39/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use LangChain if you are a data engineer or Python backend developer who prototypes RAG pipelines and agents by composing modular components and is wi</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">LCEL syntax and 100+ integrations let you assemble retrievers, tools, and memory with minimal custom</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Free core library plus LangSmith tracing and Prompt Hub support rapid iteration from local experimen</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Nested abstractions create LangChain hell where debugging complex agents, custom memory, or async st</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">LangSmith Starter tier credits exhaust after 5-10k traces in production agent workflows, forcing mos</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">CrewAI</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">CrewAI provides higher-level multi-agent orchestration with explicit roles, tasks, and delegation flows, while LangChain requires you to manually compose agents, tools, and memory using LCEL. CrewAI includes built-in collaboration patterns and a simpler mental model for task handoff; LangChain gives you more granular control over every chain step but at the cost of added complexity.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Dify when your team includes subject-matter experts who must review outputs and iterate on workflows without writing Python. Choose LangChain when you want the full flexibility of open-source Python or JS libraries and are comfortable managing observability separately.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">LangChain</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Dify</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LangChain <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $39/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use LangChain if you are a data engineer or Python backend developer who prototypes RAG pipelines and agents by composing modular components and is wi</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">LCEL syntax and 100+ integrations let you assemble retrievers, tools, and memory with minimal custom</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Free core library plus LangSmith tracing and Prompt Hub support rapid iteration from local experimen</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Nested abstractions create LangChain hell where debugging complex agents, custom memory, or async st</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">LangSmith Starter tier credits exhaust after 5-10k traces in production agent workflows, forcing mos</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Dify</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Dify offers a visual workflow builder, built-in RAG pipeline, and monitoring UI so non-engineers can own parts of the application, whereas LangChain is purely code-first with no visual layer. Dify includes evaluation and prompt management out of the box; LangChain requires LangSmith subscription for comparable observability.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Continue.dev when you are writing, refactoring, or debugging the code that powers your LLM app. Choose LangChain when you have moved past prototyping and need to ship production agent workflows, tool calling, or retrieval systems.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">LangChain</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Continue.dev</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">LangChain <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $39/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use LangChain if you are a data engineer or Python backend developer who prototypes RAG pipelines and agents by composing modular components and is wi</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">LCEL syntax and 100+ integrations let you assemble retrievers, tools, and memory with minimal custom</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Free core library plus LangSmith tracing and Prompt Hub support rapid iteration from local experimen</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Nested abstractions create LangChain hell where debugging complex agents, custom memory, or async st</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">LangSmith Starter tier credits exhaust after 5-10k traces in production agent workflows, forcing mos</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Continue.dev</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Continue.dev is an open-source AI coding assistant that lives inside VS Code or JetBrains and uses Ollama or cloud models to edit code directly, while LangChain is a backend framework for building user-facing LLM applications and agents. Continue.dev focuses on developer productivity inside the IDE; LangChain focuses on production chains, agents, and RAG pipelines.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

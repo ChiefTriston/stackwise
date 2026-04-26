@@ -260,15 +260,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="perplexity.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">Perplexity</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Perplexity pulls live web data for every query and always cites sources, while ChatGPT relies on a static cutoff unless you enable browsing and still frequently hallucinates facts. Perplexity responses are concise and research-focused; ChatGPT is more versatile for writing roadmaps, generating code, or creative brainstorming.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Perplexity when you need real-time accurate research with citations and minimal hallucination risk. Choose ChatGPT when you need a versatile assistant for product vision briefs, roadmap drafting, coding, and iterative creative work across multiple modalities.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="claude.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">Claude</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Claude leads coding benchmarks and handles long context better for analyzing large feedback exports, while ChatGPT offers broader features like DALL·E 3 image generation, Advanced Voice Mode, and custom GPTs. Claude has fewer reported hallucinations on technical tasks; ChatGPT's o1-pro reasoning is stronger on complex product strategy but costs $200/month for unlimited access.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Claude when your workflow centers on coding, deep writing, or processing very large documents without hitting rate limits. Choose ChatGPT when you need multimodal capabilities, voice interaction, image generation, and a single workspace for product management tasks.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Perplexity when you need real-time accurate research with citations and minimal hallucination risk. Choose ChatGPT when you need a versatile assistant for product vision briefs, roadmap drafting, coding, and iterative creative work across multiple modalities.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">ChatGPT</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Perplexity</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">ChatGPT <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and solo operators who turn raw feedback files into structured roadmaps and vision briefs should use ChatGPT because it collapses res</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Uploads CSVs and spreadsheets then returns categorized themes, impact/effort matrices, and roadmap d</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Projects and Canvas keep iterative product artifacts organized inside one workspace instead of scatt</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Hallucinations on competitor names, dates, and invented CSV metrics require constant double-checking</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Plus message limits are exhausted in 1-2 days of heavy file analysis or o1 reasoning, forcing most p</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="perplexity.html" style="color:var(--accent);text-decoration:none;">Perplexity</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Perplexity pulls live web data for every query and always cites sources, while ChatGPT relies on a static cutoff unless you enable browsing and still frequently hallucinates facts. Perplexity responses are concise and research-focused; ChatGPT is more versatile for writing roadmaps, generating code, or creative brainstorming.</div>
+    <div style="margin-top:12px;"><a href="perplexity.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Claude when your workflow centers on coding, deep writing, or processing very large documents without hitting rate limits. Choose ChatGPT when you need multimodal capabilities, voice interaction, image generation, and a single workspace for product management tasks.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">ChatGPT</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Claude</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">ChatGPT <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $20/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Product managers and solo operators who turn raw feedback files into structured roadmaps and vision briefs should use ChatGPT because it collapses res</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Uploads CSVs and spreadsheets then returns categorized themes, impact/effort matrices, and roadmap d</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Projects and Canvas keep iterative product artifacts organized inside one workspace instead of scatt</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Hallucinations on competitor names, dates, and invented CSV metrics require constant double-checking</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Plus message limits are exhausted in 1-2 days of heavy file analysis or o1 reasoning, forcing most p</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="claude.html" style="color:var(--accent);text-decoration:none;">Claude</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Claude leads coding benchmarks and handles long context better for analyzing large feedback exports, while ChatGPT offers broader features like DALL·E 3 image generation, Advanced Voice Mode, and custom GPTs. Claude has fewer reported hallucinations on technical tasks; ChatGPT's o1-pro reasoning is stronger on complex product strategy but costs $200/month for unlimited access.</div>
+    <div style="margin-top:12px;"><a href="claude.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

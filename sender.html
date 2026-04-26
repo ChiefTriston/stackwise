@@ -250,19 +250,108 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Mailchimp</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Mailchimp offers AI-powered send-time optimization and multivariate testing that Sender lacks on all but Pro, plus a Content Studio for centralized assets, while Sender provides smoother campaign duplication and a less overwhelming dashboard that lets you launch in 10 minutes instead of getting lost in menus.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Mailchimp when you need advanced optimization features and can tolerate a steeper learning curve. Choose Sender when you want a cleaner UI, faster campaign creation, and better value on monthly email volume under 50k.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">ActiveCampaign</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">ActiveCampaign supplies comprehensive automation workflows and deep behavioral triggers that go far beyond Sender’s visual builder, while Sender delivers superior inbox placement for small lists and a genuinely free forever plan up to 15k emails versus ActiveCampaign’s paid-only entry.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose ActiveCampaign when you run complex SaaS or e-commerce automation sequences with heavy segmentation. Choose Sender when you are a small business prioritizing deliverability, simplicity, and staying under $49/month.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">Omnisend</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">Omnisend is purpose-built for Shopify and WooCommerce with native cart recovery flows and SMS that Sender routes through basic automations, whereas Sender gives cleaner reporting and lower pricing on unlimited emails once you reach Pro.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Omnisend when your entire business lives inside an ecommerce store and you need deep platform integrations. Choose Sender when you want an all-in-one tool that is not tied to one cart and scales on email volume alone.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Mailchimp when you need advanced optimization features and can tolerate a steeper learning curve. Choose Sender when you want a cleaner UI, faster campaign creation, and better value on monthly email volume under 50k.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Sender</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Mailchimp</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Sender <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Sender if you are a small-to-mid e-commerce store sending under 50k emails per month and value a clean interface plus strong deliverability on war</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers campaigns and basic automations in under 20 minutes via a clean drag-and-drop editor that a</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Provides strong inbox placement for warm lists on the Free and Starter tiers, reducing spam complain</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Segmentation cannot handle combined purchase-history logic without separate manual lists, forcing ex</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Support response times stretch to 24–48 hours on Starter and Pro, leaving you to debug complex flows</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Mailchimp</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Mailchimp offers AI-powered send-time optimization and multivariate testing that Sender lacks on all but Pro, plus a Content Studio for centralized assets, while Sender provides smoother campaign duplication and a less overwhelming dashboard that lets you launch in 10 minutes instead of getting lost in menus.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose ActiveCampaign when you run complex SaaS or e-commerce automation sequences with heavy segmentation. Choose Sender when you are a small business prioritizing deliverability, simplicity, and staying under $49/month.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Sender</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">ActiveCampaign</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Sender <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Sender if you are a small-to-mid e-commerce store sending under 50k emails per month and value a clean interface plus strong deliverability on war</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers campaigns and basic automations in under 20 minutes via a clean drag-and-drop editor that a</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Provides strong inbox placement for warm lists on the Free and Starter tiers, reducing spam complain</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Segmentation cannot handle combined purchase-history logic without separate manual lists, forcing ex</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Support response times stretch to 24–48 hours on Starter and Pro, leaving you to debug complex flows</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">ActiveCampaign</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">ActiveCampaign supplies comprehensive automation workflows and deep behavioral triggers that go far beyond Sender’s visual builder, while Sender delivers superior inbox placement for small lists and a genuinely free forever plan up to 15k emails versus ActiveCampaign’s paid-only entry.</div>
+    
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Omnisend when your entire business lives inside an ecommerce store and you need deep platform integrations. Choose Sender when you want an all-in-one tool that is not tied to one cart and scales on email volume alone.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_2_tabA" onclick="switchSplit('split_2','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">Sender</button>
+    <button id="split_2_tabB" onclick="switchSplit('split_2','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Omnisend</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_2_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Sender <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $19/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Use Sender if you are a small-to-mid e-commerce store sending under 50k emails per month and value a clean interface plus strong deliverability on war</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers campaigns and basic automations in under 20 minutes via a clean drag-and-drop editor that a</li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Provides strong inbox placement for warm lists on the Free and Starter tiers, reducing spam complain</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Segmentation cannot handle combined purchase-history logic without separate manual lists, forcing ex</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Support response times stretch to 24–48 hours on Starter and Pro, leaving you to debug complex flows</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_2_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">Omnisend</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Omnisend is purpose-built for Shopify and WooCommerce with native cart recovery flows and SMS that Sender routes through basic automations, whereas Sender gives cleaner reporting and lower pricing on unlimited emails once you reach Pro.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->

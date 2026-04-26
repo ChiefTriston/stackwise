@@ -255,15 +255,80 @@
     <!-- ALTERNATIVES -->
     <div class="tool-section fade-up fade-up-4">
       <div class="tool-section-title">Typical alternatives <span class="section-num">04</span></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;"><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;"><a href="synthesia.html" style="color:var(--text); text-decoration:none; border-bottom:1px solid var(--border);">Synthesia</a></div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">HeyGen offers 700+ avatars and Instant Avatar cloning from your own video while Synthesia focuses on enterprise templates, team workspaces, and stricter script-to-avatar consistency without the same instant cloning speed. HeyGen's credit system limits heavy use to 6-10 videos per month on Business; Synthesia uses a seat-based model at $39/seat that scales differently for teams.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose Synthesia when you need enterprise SSO, dedicated compliance features, and predictable team billing for training videos. Choose HeyGen when you prioritize Instant Avatar realism, 175-language translation, and fast personalized sales outreach.</div>
-</div><div style="background:var(--bg2); border:0.5px solid var(--border); border-radius:12px; padding:20px;">
-  <div style="font-size:14px; font-weight:500; margin-bottom:8px;">D-ID</div>
-  <div style="font-size:13px; color:var(--text2); line-height:1.55; margin-bottom:12px;">HeyGen generates full scripted videos with templates and multi-scene editing while D-ID specializes in quick talking-head animations from photos or short clips with lower resolution output. HeyGen's Pro/Business tiers unlock 4K and priority processing; D-ID remains cheaper per minute but lacks HeyGen's voice cloning depth and enterprise on-prem options.</div>
-  <div style="font-size:13px; color:var(--text); line-height:1.5; font-weight:500;">Choose D-ID when you only need simple photo-to-talking-head clips under 1 minute for social media. Choose HeyGen when you produce longer marketing, training, or personalized videos that require script control and higher quality exports.</div>
-</div></div>
+      
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose Synthesia when you need enterprise SSO, dedicated compliance features, and predictable team billing for training videos. Choose HeyGen when you prioritize Instant Avatar realism, 175-language translation, and fast personalized sales outreach.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_0_tabA" onclick="switchSplit('split_0','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">HeyGen</button>
+    <button id="split_0_tabB" onclick="switchSplit('split_0','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">Synthesia</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_0_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">HeyGen <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $29/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and marketing teams that create personalized outreach or training videos should use HeyGen because it delivers realistic avatars and fast genera</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers realistic lip-sync and video quality for controlled-lighting personalized outreach videos, </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Enables avatar creation from a short uploaded clip and script-to-video generation in minutes, replac</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Credit system burns 3-5 credits on a 2-minute custom avatar video, exhausting Creator and Business a</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Occasional unnatural facial expressions or artifacts require manual post-generation tweaks, undermin</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_0_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;"><a href="synthesia.html" style="color:var(--accent);text-decoration:none;">Synthesia</a></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">HeyGen offers 700+ avatars and Instant Avatar cloning from your own video while Synthesia focuses on enterprise templates, team workspaces, and stricter script-to-avatar consistency without the same instant cloning speed. HeyGen's credit system limits heavy use to 6-10 videos per month on Business; Synthesia uses a seat-based model at $39/seat that scales differently for teams.</div>
+    <div style="margin-top:12px;"><a href="synthesia.html" style="font-size:12px;color:var(--accent);text-decoration:none;">Read full review →</a></div>
+  </div>
+</div>
+<div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;">
+  <!-- Decision rule header -->
+  <div style="padding:16px 20px;border-bottom:0.5px solid var(--border);background:rgba(255,255,255,0.02);">
+    <div style="font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;font-family:'DM Mono',monospace;margin-bottom:6px;">When to choose which</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">Choose D-ID when you only need simple photo-to-talking-head clips under 1 minute for social media. Choose HeyGen when you produce longer marketing, training, or personalized videos that require script control and higher quality exports.</div>
+  </div>
+
+  <!-- Toggle tabs -->
+  <div style="display:flex;border-bottom:0.5px solid var(--border);">
+    <button id="split_1_tabA" onclick="switchSplit('split_1','A')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:var(--bg);border:none;border-bottom:2px solid var(--accent);color:var(--text);cursor:pointer;font-family:inherit;">HeyGen</button>
+    <button id="split_1_tabB" onclick="switchSplit('split_1','B')" style="flex:1;padding:10px;font-size:12px;font-weight:500;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--text3);cursor:pointer;font-family:inherit;">D-ID</button>
+  </div>
+
+  <!-- Panel A: Current tool -->
+  <div id="split_1_panelA" style="padding:20px;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">HeyGen <span style="font-size:11px;padding:2px 8px;background:var(--bg);border:0.5px solid var(--border);border-radius:6px;color:var(--text3);font-family:DM Mono,monospace;margin-left:6px;">Free to $29/mo</span></div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:8px;">Sales and marketing teams that create personalized outreach or training videos should use HeyGen because it delivers realistic avatars and fast genera</div>
+    <ul style="margin:8px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text2);padding:3px 0;">Delivers realistic lip-sync and video quality for controlled-lighting personalized outreach videos, </li><li style="font-size:12px;color:var(--text2);padding:3px 0;">Enables avatar creation from a short uploaded clip and script-to-video generation in minutes, replac</li></ul>
+    <ul style="margin:6px 0 0;padding-left:14px;list-style:disc;"><li style="font-size:12px;color:var(--text3);padding:3px 0;">Credit system burns 3-5 credits on a 2-minute custom avatar video, exhausting Creator and Business a</li><li style="font-size:12px;color:var(--text3);padding:3px 0;">Occasional unnatural facial expressions or artifacts require manual post-generation tweaks, undermin</li></ul>
+  </div>
+
+  <!-- Panel B: Alternative (hidden by default) -->
+  <div id="split_1_panelB" style="padding:20px;display:none;">
+    <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:8px;">D-ID</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.55;">HeyGen generates full scripted videos with templates and multi-scene editing while D-ID specializes in quick talking-head animations from photos or short clips with lower resolution output. HeyGen's Pro/Business tiers unlock 4K and priority processing; D-ID remains cheaper per minute but lacks HeyGen's voice cloning depth and enterprise on-prem options.</div>
+    
+  </div>
+</div>
+<script>
+function switchSplit(id, side) {
+  const panelA = document.getElementById(id + '_panelA');
+  const panelB = document.getElementById(id + '_panelB');
+  const tabA = document.getElementById(id + '_tabA');
+  const tabB = document.getElementById(id + '_tabB');
+  if (side === 'A') {
+    panelA.style.display = 'block'; panelB.style.display = 'none';
+    tabA.style.borderBottomColor = 'var(--accent)'; tabA.style.color = 'var(--text)'; tabA.style.background = 'var(--bg)';
+    tabB.style.borderBottomColor = 'transparent'; tabB.style.color = 'var(--text3)'; tabB.style.background = 'transparent';
+  } else {
+    panelA.style.display = 'none'; panelB.style.display = 'block';
+    tabB.style.borderBottomColor = 'var(--accent)'; tabB.style.color = 'var(--text)'; tabB.style.background = 'var(--bg)';
+    tabA.style.borderBottomColor = 'transparent'; tabA.style.color = 'var(--text3)'; tabA.style.background = 'transparent';
+  }
+}
+</script>
     </div>
 
     <!-- WORKFLOW -->
