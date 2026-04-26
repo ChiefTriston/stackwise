@@ -191,7 +191,19 @@
 
 <!-- QUIZ -->
 <div class="quiz-wrap fade-up fade-up-2" id="quizWrap">
-  <div id="quizInner">
+  <!-- Step 0: Role selection -->
+  <div id="roleSelect">
+    <div class="quiz-q">What best describes your role?</div>
+    <div class="quiz-opts">
+      <button class="quiz-opt" onclick="startQuizPath('marketer')">Marketer</button>
+      <button class="quiz-opt" onclick="startQuizPath('developer')">Developer</button>
+      <button class="quiz-opt" onclick="startQuizPath('founder')">Founder / Entrepreneur</button>
+      <button class="quiz-opt" onclick="startQuizPath('creator')">Content Creator</button>
+      <button class="quiz-opt" onclick="startQuizPath('researcher')">Researcher / Analyst</button>
+    </div>
+  </div>
+  <!-- Step 1+: Path-specific questions -->
+  <div id="quizInner" style="display:none;">
     <div class="quiz-q" id="quizQ"></div>
     <div class="quiz-opts" id="quizOpts"></div>
     <div class="quiz-foot">
@@ -204,7 +216,7 @@
     <div class="res-title" id="resTitle"></div>
     <div class="res-sub" id="resSub"></div>
     <div class="res-tools" id="resTools"></div>
-    <span class="retake" ← Start over</span>
+    <span class="retake" onclick="resetQuiz()">&#8592; Start over</span>
   </div>
 </div>
 <span class="quiz-skip fade-up fade-up-2" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">Skip — browse all tools below</span>
@@ -377,116 +389,268 @@
 </footer>
 
 <script>
-/* ==================== 8-QUESTION DEEP HERO QUIZ ==================== */
-const Qs = [
-  { q: "What are you mainly trying to create or improve?", opts: ["Written content & marketing copy","Videos with AI avatars","Images, graphics or headshots","Advertising creatives & ads","Email campaigns & automation","SEO-optimized articles & content","Code or software development","Meeting transcription & notes","Research & knowledge search"] },
-  { q: "How big is your current setup?", opts: ["Just me (solo)","Small team (2â€“10 people)","Larger team or agency","Enterprise"] },
-  { q: "Whatâ€™s your realistic monthly budget?", opts: ["Free or under $30","$30 â€“ $100","$100 â€“ $300","Over $300 or enterprise"] },
-  { q: "How experienced are you with AI tools?", opts: ["Beginner â€“ just getting started","Intermediate","Advanced","Power user"] },
-  { q: "What matters most to you right now?", opts: ["Speed & high volume","Highest quality / realism","Easiest possible to use","Advanced features & control","Best value for money"] },
-  { q: "Any specific platform or focus you need?", opts: ["WordPress","VS Code / coding environment","Local computer (runs on my machine)","Social media ads / e-commerce","Realism in avatars / video","SEO & AI search visibility","No specific platform"] },
-  { q: "How much manual editing are you willing to do?", opts: ["I want almost-ready-to-use output","Iâ€™m okay editing a bit","I expect to heavily refine the AIâ€™s work"] },
-  { q: "Do you prefer tools that feel simple or tools that give you maximum control?", opts: ["Simple & beginner-friendly","Balanced","Maximum control & advanced features"] }
-];
 
-const trending = [
-  { name:"Lindy AI", href:"lindy-ai.html", why:"Picking up significant coverage as a no-code alternative to building custom AI agents.", signal:"Rising in AI automation threads" },
-  { name:"Perplexity AI", href:"perplexity.html", why:"Pro tier now competes directly with ChatGPT for research workflows.", signal:"12+ new comparison articles" }
-];
+/* ==================== SMART STACK QUIZ ==================== */
 
-const tools = [
-  { name:"Cursor", cat:"Code editor", cats:["Coding","Research","Automation"], verdict:"Use Cursor if you spend your days refactoring and iterating across multipleâ€¦", conf:"m", href:"cursor.html" },
-  { name:"Grammarly", cat:"AI assistant", cats:["Coding","Writing","Marketing"], verdict:"Use Grammarly if you are a non-native speaker or professional who writesâ€¦", conf:"m", href:"grammarly.html" },
-  { name:"Perplexity", cat:"AI search", cats:["Research","Coding","Automation"], verdict:"Product managers and researchers who live in fast, source-verified lookupsâ€¦", conf:"m", href:"perplexity.html" },
-  { name:"Notion AI", cat:"AI search", cats:["Research","Productivity","Coding"], verdict:"Product managers and teams who already run their roadmaps, meeting notes,â€¦", conf:"m", href:"notion-ai.html" },
-  { name:"Otter.ai", cat:"Meeting transcription", cats:["Meetings","Automation","Coding"], verdict:"Sales and account executives who run frequent 1:1 or 2-person discovery andâ€¦", conf:"m", href:"otterai.html" },
-  { name:"LangChain", cat:"AI automation", cats:["Automation","Coding","Meetings"], verdict:"Use LangChain if you are a data engineer or Python backend developer whoâ€¦", conf:"m", href:"langchain.html" },
-  { name:"Lindy AI", cat:"AI assistant", cats:["Research","Automation","Productivity"], verdict:"Solo operators and small teams who handle high-volume email, calendar, andâ€¦", conf:"m", href:"lindy-ai.html" },
-  { name:"Glean", cat:"AI search", cats:["Research","Automation","Coding"], verdict:"Mid-market and enterprise teams whose knowledge lives across Googleâ€¦", conf:"m", href:"glean.html" },
-  { name:"OpenClaw", cat:"AI automation", cats:["Automation","Coding","Research"], verdict:"Solo technical founders and small-team operators who already live inâ€¦", conf:"m", href:"openclaw.html" },
-  { name:"Proactor", cat:"Meeting transcription", cats:["Meetings","Productivity","Research"], verdict:"Sales and account executives who run back-to-back calls and want anâ€¦", conf:"m", href:"proactor.html" },
-  { name:"ChatGPT", cat:"AI assistant", cats:["Coding","Research","Productivity"], verdict:"Product managers and solo operators who turn raw feedback files intoâ€¦", conf:"m", href:"chatgpt.html" },
-  { name:"Writesonic", cat:"AI assistant", cats:["Writing","Automation","Research"], verdict:"Solo marketers and small content teams who publish SEO blog posts on tightâ€¦", conf:"m", href:"writesonic.html" },
-  { name:"QuillBot", cat:"Writing assistant", cats:["Writing","Coding","Research"], verdict:"Students and content writers who spend hours rephrasing source material toâ€¦", conf:"m", href:"quillbot.html" },
-  { name:"GetGenie", cat:"Writing assistant", cats:["Writing","Research","Coding"], verdict:"Use GetGenie if you publish inside WordPress, want keyword research to finalâ€¦", conf:"m", href:"getgenie.html" },
-  { name:"InVideo", cat:"AI assistant", cats:["Coding","Writing","Automation"], verdict:"Use InVideo if you are a marketer or solopreneur who needs to turn textâ€¦", conf:"m", href:"invideo.html" },
-  { name:"HeadshotPro", cat:"Image generation", cats:["Image","Coding","Automation"], verdict:"Use HeadshotPro if you are a solo professional or aspiring model who wants aâ€¦", conf:"m", href:"headshotpro.html" },
-  { name:"AISEO", cat:"Writing assistant", cats:["Writing","SEO","Coding"], verdict:"Solo marketers and content writers who start from AI drafts and needâ€¦", conf:"m", href:"aiseo.html" },
-  { name:"NeuronWriter", cat:"Writing assistant", cats:["Writing","Research","Coding"], verdict:"Solo SEO writers and small content teams who produce 8-15 optimized articlesâ€¦", conf:"m", href:"neuronwriter.html" },
-  { name:"Synthesia", cat:"AI assistant", cats:["Video","Coding","Automation"], verdict:"L&D teams and corporate training managers who produce ongoing libraries ofâ€¦", conf:"m", href:"synthesia.html" },
-  { name:"HeyGen", cat:"AI assistant", cats:["Automation","Video","Coding"], verdict:"Sales and marketing teams that create personalized outreach or trainingâ€¦", conf:"m", href:"heygen.html" },
-  { name:"Leonardo.ai", cat:"AI assistant", cats:["Image","Coding","Writing"], verdict:"Use Leonardo if you are a concept artist or illustrator who needs preciseâ€¦", conf:"m", href:"leonardoai.html" },
-  { name:"AdCreative.ai", cat:"AI assistant", cats:["Image","Coding","Video"], verdict:"Use it if you are a DTC or e-commerce marketer who needs dozens of Facebookâ€¦", conf:"m", href:"adcreativeai.html" },
-  { name:"GetResponse", cat:"AI assistant", cats:["Marketing","Automation","Image"], verdict:"Use GetResponse if you are a solopreneur or small-team marketer who runsâ€¦", conf:"m", href:"getresponse.html" },
-  { name:"Grok", cat:"AI assistant", cats:["Coding","Automation","Writing"], verdict:"Use Grok if your daily workflow centers on real-time X sentiment, unfilteredâ€¦", conf:"m", href:"grok.html" },
-  { name:"Claude", cat:"AI assistant", cats:["Research","Writing","Productivity"], verdict:"Researchers and decision-makers who produce vendor comparisons, proposalâ€¦", conf:"m", href:"claude.html" },
-  { name:"Jasper", cat:"AI assistant", cats:["Writing","Marketing","Automation"], verdict:"Marketing teams running structured long-form content and multi-marketâ€¦", conf:"m", href:"jasper.html" },
-  { name:"TheTop", cat:"AI assistant", cats:["Productivity","Coding","Meetings"], verdict:"Use TheTop if you live in a mixed stack of Gmail, Google Calendar, and Slack…", conf:"m", href:"thetop.html" },
-  { name:"OmniSEO", cat:"SEO & content", cats:["SEO","Research"], verdict:"Solo Shopify operators or small e-commerce teams who already run daily…", conf:"l", href:"omniseo.html" },
-  { name:"Turbotic", cat:"AI automation", cats:["Automation","Research","Productivity"], verdict:"Use Turbotic if you are a power user or small ops team that needs AI to…", conf:"m", href:"turbotic.html" },
-  { name:"Pilim", cat:"AI assistant", cats:["Automation","Writing","Productivity"], verdict:"Small remote teams that want minimal friction and a single place for task…", conf:"m", href:"pilim.html" },
-  { name:"Manychat", cat:"AI assistant", cats:["Coding","Automation","Meetings"], verdict:"Instagram-first marketers and e-commerce teams who need comment-to-DM lead…", conf:"m", href:"manychat.html" },
-  { name:"Adwisely", cat:"AI assistant", cats:["Automation","Marketing","Meetings"], verdict:"Solo DTC founders who want to hand bid, budget, and creative decisions to AI…", conf:"m", href:"adwisely.html" },
-  { name:"Instantly", cat:"AI assistant", cats:["Research","Marketing","Coding"], verdict:"Solo founders and small agencies who send under 10k emails per month and…", conf:"m", href:"instantly.html" },
-  { name:"Catalister", cat:"AI search", cats:["Research","Writing","Automation"], verdict:"Solo Shopify-only dropshippers who already run Google Ads and can tolerate…", conf:"m", href:"catalister.html" },
-  { name:"Reclaim.ai", cat:"Productivity tool", cats:["Productivity","Meetings","Coding"], verdict:"Use Reclaim if you are a solopreneur or individual contributor who already…", conf:"m", href:"reclaimai.html" },
-  { name:"Token Metrics Inc.", cat:"AI assistant", cats:["Coding","Research","Automation"], verdict:"Use Token Metrics if you are a solo crypto investor who tracks 5-10 coins,…", conf:"m", href:"token-metrics-inc.html" },
-  { name:"Springbolt ID", cat:"Code editor", cats:["Coding","Automation"], verdict:"Use Springbolt ID if you run a self-hosted stack, already manage your own…", conf:"l", href:"springbolt-id.html" },
-  { name:"Instapage", cat:"AI assistant", cats:["Coding","Automation","Image"], verdict:"Paid acquisition teams and agencies running multiple campaigns should use…", conf:"m", href:"instapage.html" },
-  { name:"Survicate", cat:"AI assistant", cats:["Coding","Automation","Productivity"], verdict:"Product teams that validate features and pricing hypotheses through targeted…", conf:"m", href:"survicate.html" },
-  { name:"Sender", cat:"AI assistant", cats:["Marketing","Automation","Image"], verdict:"Use Sender if you are a small-to-mid e-commerce store sending under 50k…", conf:"m", href:"sender.html" },
-  { name:"Auware by Buyist", cat:"AI assistant", cats:["Coding","Automation","Image"], verdict:"Shopify brand managers or agencies who already exhaust their time building…", conf:"l", href:"auware-by-buyist.html" },
-  { name:"iContact", cat:"AI assistant", cats:["Marketing","Automation","Image"], verdict:"Solo marketers and small-business owners running under 2,500 contacts with…", conf:"m", href:"icontact.html" },
-  { name:"Beautiful.ai", cat:"AI assistant", cats:["Image","Writing","Automation"], verdict:"Solo marketers or sales leaders who create consistent on-brand client decks…", conf:"m", href:"beautifulai.html" },
-  { name:"TestDriver.ai", cat:"AI assistant", cats:["Coding","Automation","Image"], verdict:"Use TestDriver.ai if you are a QA or product team that needs non-engineers…", conf:"m", href:"testdriverai.html" },
-  { name:"Closely", cat:"Marketing tool", cats:["Marketing","Coding"], verdict:"Solo SDRs or small teams whose primary channel is LinkedIn outreach combined…", conf:"m", href:"closely.html" },
-  { name:"Webydo", cat:"Code editor", cats:["Coding","Writing","Automation"], verdict:"Agencies that deliver multi-page client sites with CMS-driven content and…", conf:"m", href:"webydo.html" },
-  { name:"Kit (formerly ConvertKit)", cat:"AI assistant", cats:["Marketing","Automation","Image"], verdict:"Solo creators who run simple tag-based funnels and prioritize deliverability…", conf:"m", href:"kit-formerly-convertkit.html" },
-  { name:"Moosend", cat:"Marketing tool", cats:["Marketing","Coding","Automation"], verdict:"Use Moosend if you are a small-to-mid marketing team or solo marketer…", conf:"m", href:"moosend.html" },
-  { name:"Calilio", cat:"AI assistant", cats:["Meetings","Automation","Image"], verdict:"Small sales or support teams that want fast setup and 90% of basic VoIP…", conf:"m", href:"calilio.html" },
-];
+// Curated tool-to-slot mapping (overrides auto-categorization)
+const stackDB = {
+  writing: [
+    {name:"Grammarly",slug:"grammarly.html",price:"Free-$30/mo",best:"Non-native speakers, professionals, grammar-heavy editing",avoid:"Already strong writers who just need templates"},
+    {name:"Jasper",slug:"jasper.html",price:"$49-69/mo",best:"Marketing teams, long-form campaigns, brand voice",avoid:"Solo writers on a budget"},
+    {name:"Writesonic",slug:"writesonic.html",price:"$16-33/mo",best:"SEO blog posts at volume, solo marketers",avoid:"Teams needing brand governance"},
+    {name:"QuillBot",slug:"quillbot.html",price:"Free-$10/mo",best:"Students, paraphrasing, academic writing",avoid:"Original content creation"},
+    {name:"GetGenie",slug:"getgenie.html",price:"$19-59/mo",best:"WordPress publishers, keyword-to-article",avoid:"Non-WordPress workflows"},
+    {name:"NeuronWriter",slug:"neuronwriter.html",price:"$23-57/mo",best:"SEO-optimized articles, content briefs",avoid:"Non-SEO writing"},
+    {name:"AISEO",slug:"aiseo.html",price:"$16-47/mo",best:"SEO writers who need humanized AI content",avoid:"Teams wanting collaboration features"},
+    {name:"Claude",slug:"claude.html",price:"Free-$20/mo",best:"Long-form analysis, vendor comparisons, research docs",avoid:"Quick short-form copy"},
+  ],
+  coding: [
+    {name:"Cursor",slug:"cursor.html",price:"Free-$40/mo",best:"Full-time developers, AI-native IDE",avoid:"Casual scripting"},
+    {name:"ChatGPT",slug:"chatgpt.html",price:"Free-$20/mo",best:"Quick code questions, prototyping, debugging",avoid:"Deep codebase work"},
+    {name:"Claude",slug:"claude.html",price:"Free-$20/mo",best:"Complex reasoning, code review, large files",avoid:"Real-time autocomplete needs"},
+    {name:"LangChain",slug:"langchain.html",price:"Free-$39/mo",best:"Python developers building AI pipelines",avoid:"Non-developers"},
+  ],
+  research: [
+    {name:"Perplexity",slug:"perplexity.html",price:"Free-$20/mo",best:"Source-verified research, fact-checking",avoid:"Creative writing tasks"},
+    {name:"Glean",slug:"glean.html",price:"Enterprise",best:"Teams with knowledge spread across Google, Slack, Notion",avoid:"Solo users, small teams"},
+    {name:"ChatGPT",slug:"chatgpt.html",price:"Free-$20/mo",best:"Broad research, brainstorming, quick answers",avoid:"Needs citations/sources"},
+    {name:"Claude",slug:"claude.html",price:"Free-$20/mo",best:"Deep analysis, long documents, nuanced questions",avoid:"Real-time web search"},
+    {name:"Grok",slug:"grok.html",price:"X Premium",best:"Real-time X/social sentiment, unfiltered search",avoid:"Formal research with citations"},
+  ],
+  meetings: [
+    {name:"Otter.ai",slug:"otterai.html",price:"Free-$25/mo",best:"Sales calls, 1:1 transcription, action items",avoid:"Large team meetings"},
+    {name:"Proactor",slug:"proactor.html",price:"$15-30/mo",best:"Back-to-back calls, CRM integration",avoid:"Casual meeting users"},
+    {name:"Reclaim.ai",slug:"reclaimai.html",price:"Free-$15/mo",best:"Calendar optimization, focus time protection",avoid:"Meeting recording needs"},
+    {name:"Calilio",slug:"calilio.html",price:"$12-25/mo",best:"Small sales/support teams, VoIP + transcription",avoid:"Enterprise telephony"},
+  ],
+  video: [
+    {name:"Synthesia",slug:"synthesia.html",price:"$22-67/mo",best:"Training videos, L&D, corporate content",avoid:"Creative/artistic video"},
+    {name:"HeyGen",slug:"heygen.html",price:"$24-72/mo",best:"Personalized outreach, marketing avatars",avoid:"Long-form training"},
+    {name:"InVideo",slug:"invideo.html",price:"Free-$25/mo",best:"Social media clips, text-to-video",avoid:"Professional production"},
+  ],
+  image: [
+    {name:"Leonardo.ai",slug:"leonardoai.html",price:"Free-$24/mo",best:"Concept art, illustrations, precise control",avoid:"Quick headshots"},
+    {name:"HeadshotPro",slug:"headshotpro.html",price:"$29 one-time",best:"Professional headshots from selfies",avoid:"Ongoing creative work"},
+    {name:"AdCreative.ai",slug:"adcreativeai.html",price:"$29-99/mo",best:"Ad creatives at scale, e-commerce",avoid:"Non-advertising design"},
+    {name:"Beautiful.ai",slug:"beautifulai.html",price:"$12-50/mo",best:"Pitch decks, presentations, proposals",avoid:"Image generation"},
+  ],
+  marketing: [
+    {name:"GetResponse",slug:"getresponse.html",price:"$15-49/mo",best:"Email campaigns, landing pages, automation",avoid:"Enterprise CRM needs"},
+    {name:"Manychat",slug:"manychat.html",price:"Free-$15/mo",best:"Instagram DM automation, comment triggers",avoid:"Non-social channels"},
+    {name:"Instantly",slug:"instantly.html",price:"$30-78/mo",best:"Cold email outreach at scale",avoid:"Warm list marketing"},
+    {name:"Sender",slug:"sender.html",price:"Free-$15/mo",best:"Budget email marketing, small lists",avoid:"Advanced automation"},
+    {name:"Closely",slug:"closely.html",price:"$30-80/mo",best:"LinkedIn outreach, B2B prospecting",avoid:"B2C marketing"},
+    {name:"Jasper",slug:"jasper.html",price:"$49-69/mo",best:"Campaign copy, multi-channel content",avoid:"Email delivery/sending"},
+  ],
+  automation: [
+    {name:"Lindy AI",slug:"lindy-ai.html",price:"$49-99/mo",best:"Email triage, calendar, no-code agents",avoid:"Developer-level automation"},
+    {name:"OpenClaw",slug:"openclaw.html",price:"Free-$29/mo",best:"Technical operators, self-hosted AI agents",avoid:"Non-technical users"},
+    {name:"Turbotic",slug:"turbotic.html",price:"$29-79/mo",best:"No-code workflow automation, RPA",avoid:"Simple single-tool needs"},
+    {name:"LangChain",slug:"langchain.html",price:"Free-$39/mo",best:"Developer AI pipelines, custom chains",avoid:"Non-coders"},
+  ],
+  productivity: [
+    {name:"Notion AI",slug:"notion-ai.html",price:"$10-15/mo add-on",best:"Teams already in Notion, docs + project mgmt",avoid:"Non-Notion users"},
+    {name:"ChatGPT",slug:"chatgpt.html",price:"Free-$20/mo",best:"General assistant, brainstorming, drafts",avoid:"Specialized deep work"},
+    {name:"Claude",slug:"claude.html",price:"Free-$20/mo",best:"Long analysis, writing, code review",avoid:"Quick Q&A"},
+    {name:"Reclaim.ai",slug:"reclaimai.html",price:"Free-$15/mo",best:"Calendar optimization, habit protection",avoid:"Non-Google Calendar users"},
+    {name:"TheTop",slug:"thetop.html",price:"$9-29/mo",best:"Daily briefings, email/calendar synthesis",avoid:"Heavy project management"},
+  ],
+};
 
-const cats = ["All","Writing","Coding","Automation","Research","Meetings","Productivity","Video","Image","Marketing","SEO"];
+// Quiz paths per role - each path asks role-specific questions
+const quizPaths = {
+  marketer: {
+    label: "Marketer",
+    questions: [
+      {q:"What type of content do you create most?", opts:["Blog posts & articles","Social media & ads","Email campaigns","Video content","All of the above"], slot:"writing"},
+      {q:"How do you handle email marketing?", opts:["Manual sends, need automation","Already use a platform, need AI upgrade","Don't do email marketing","Cold outreach focused"], slot:"marketing"},
+      {q:"Do you create visual content?", opts:["Ad creatives & banners","Presentations & decks","Video with avatars","Photos & headshots","Rarely"], slot:"image"},
+      {q:"How do you do research?", opts:["Google + manual reading","AI search (Perplexity, etc)","Team wiki / knowledge base","Social listening","Don't do much research"], slot:"research"},
+      {q:"What's your team size?", opts:["Solo","2-5 people","6-20 people","20+"], meta:"team"},
+      {q:"Monthly budget for AI tools?", opts:["Under $50","$50-150","$150-500","$500+"], meta:"budget"},
+    ]
+  },
+  developer: {
+    label: "Developer",
+    questions: [
+      {q:"What's your primary coding environment?", opts:["VS Code","JetBrains (IntelliJ, PyCharm)","Terminal / CLI","Vim / Neovim","Other"], slot:"coding"},
+      {q:"What do you use AI for most in coding?", opts:["Autocomplete & suggestions","Full feature generation","Code review & debugging","Documentation & tests","Architecture & planning"], slot:"coding"},
+      {q:"How do you handle meetings & standups?", opts:["Need transcription & notes","Just need calendar management","Have too many, need to reduce","Don't have many meetings"], slot:"meetings"},
+      {q:"Do you build AI-powered features?", opts:["Yes, building with LLM APIs","Yes, using no-code AI tools","Planning to start","No"], slot:"automation"},
+      {q:"How do you handle writing (docs, specs, emails)?", opts:["Struggle with it, need help","Use AI occasionally","Pretty comfortable writing","Have a writer/PM for that"], slot:"writing"},
+      {q:"Monthly budget for AI tools?", opts:["Under $30","$30-100","$100-300","$300+"], meta:"budget"},
+    ]
+  },
+  founder: {
+    label: "Founder",
+    questions: [
+      {q:"What stage is your company?", opts:["Pre-revenue / idea stage","Early revenue (<$10K/mo)","Growing ($10K-100K/mo)","Scaled ($100K+/mo)"], meta:"stage"},
+      {q:"Biggest bottleneck right now?", opts:["Creating content & marketing","Managing team & communications","Building product / writing code","Research & strategy","Sales & outreach"], slot:"primary"},
+      {q:"How do you handle marketing?", opts:["Do it myself","Small team handles it","Agency / freelancers","Not doing much yet"], slot:"marketing"},
+      {q:"Do you code?", opts:["Yes, I'm technical","Some scripting","No, I rely on developers","Learning"], slot:"coding"},
+      {q:"How many meetings per week?", opts:["1-5","5-15","15-30","30+"], slot:"meetings"},
+      {q:"Monthly budget for all AI tools?", opts:["Under $50","$50-200","$200-500","$500+"], meta:"budget"},
+    ]
+  },
+  creator: {
+    label: "Creator",
+    questions: [
+      {q:"What's your primary medium?", opts:["Written content (blog, newsletter)","Short-form video (Reels, TikTok, YouTube Shorts)","Long-form video (YouTube, courses)","Design & visual art","Podcasts & audio"], slot:"primary"},
+      {q:"How do you write?", opts:["AI drafts, I edit heavily","AI assists, I write mostly","I write everything manually","Don't write much — mostly visual"], slot:"writing"},
+      {q:"Do you need video with AI avatars?", opts:["Yes, for courses/training","Yes, for marketing","Maybe in the future","No"], slot:"video"},
+      {q:"How do you research topics?", opts:["AI search tools","Manual Google + reading","Social media trends","Industry newsletters"], slot:"research"},
+      {q:"What's your audience size?", opts:["Just starting (< 1K)","Growing (1K - 10K)","Established (10K - 100K)","Large (100K+)"], meta:"audience"},
+      {q:"Monthly budget for AI tools?", opts:["Under $30","$30-100","$100-300","$300+"], meta:"budget"},
+    ]
+  },
+  researcher: {
+    label: "Researcher",
+    questions: [
+      {q:"What do you research?", opts:["Market & competitive intelligence","Academic / scientific papers","Technical documentation & APIs","News & current events","Business data & trends"], slot:"research"},
+      {q:"How do you synthesize findings?", opts:["Write reports & briefs","Build presentations","Share in Slack / team docs","Create data visualizations","Verbal / meeting discussions"], slot:"writing"},
+      {q:"Do you write code for analysis?", opts:["Python / R regularly","Occasionally for data work","No coding","Learning to code"], slot:"coding"},
+      {q:"How do you handle meetings?", opts:["Record & transcribe everything","Take manual notes","Have someone else handle notes","Mostly async communication"], slot:"meetings"},
+      {q:"What's your team setup?", opts:["Solo researcher","Small team (2-5)","Part of larger org","Academic / institutional"], meta:"team"},
+      {q:"Monthly budget for AI tools?", opts:["Under $30","$30-100","$100-300","Employer pays"], meta:"budget"},
+    ]
+  }
+};
 
-let activecat = "All", sel = null, step = 0, answers = [];
+// Smart scoring: given quiz answers, build the optimal stack
+function buildSmartStack(role, quizAnswers) {
+  var stack = {};
+  var path = quizPaths[role];
+  if (!path) return stack;
 
-function calculateBestMatches(answers) {
-  let scores = {};
-  tools.forEach(t => scores[t.name] = 0);
+  var slots = stackSlots[role] || [];
+  var budget = 'medium';
+  var teamSize = 'solo';
 
-  const goal = answers[0] || "";
-  if (goal.includes("Written content")) { scores["Grammarly"] += 3; scores["QuillBot"] += 3; scores["Writesonic"] += 2; scores["GetGenie"] += 2; scores["AISEO"] += 2; scores["NeuronWriter"] += 2; }
-  if (goal.includes("Videos")) { scores["HeyGen"] += 3; scores["Synthesia"] += 3; scores["InVideo"] += 2; }
-  if (goal.includes("Images") || goal.includes("headshots")) { scores["Leonardo.ai"] += 3; scores["HeadshotPro"] += 3; }
-  if (goal.includes("Advertising")) scores["AdCreative.ai"] += 3;
-  if (goal.includes("Email")) scores["GetResponse"] += 3;
-  if (goal.includes("SEO")) { scores["NeuronWriter"] += 3; scores["AISEO"] += 2; }
-  if (goal.includes("Code")) { scores["Cursor"] += 3; scores["LangChain"] += 2; }
-  if (goal.includes("Meeting")) scores["Otter.ai"] += 3;
-  if (goal.includes("Research")) { scores["Perplexity AI"] += 3; scores["Glean"] += 2; }
+  // Extract meta answers
+  quizAnswers.forEach(function(ans, i) {
+    var q = path.questions[i];
+    if (!q) return;
+    if (q.meta === 'budget') {
+      if (ans.includes('Under $30') || ans.includes('Under $50')) budget = 'low';
+      else if (ans.includes('$300') || ans.includes('$500')) budget = 'high';
+    }
+    if (q.meta === 'team' || q.meta === 'stage') {
+      if (ans.includes('Solo') || ans.includes('Just me') || ans.includes('Pre-revenue')) teamSize = 'solo';
+      else if (ans.includes('20+') || ans.includes('Scaled') || ans.includes('Large')) teamSize = 'enterprise';
+      else teamSize = 'team';
+    }
+  });
 
-  return Object.keys(scores)
-    .sort((a,b) => scores[b] - scores[a])
-    .slice(0,3)
-    .map(name => {
-      const t = tools.find(tool => tool.name === name);
-      return [t.name, t.verdict, t.href];
+  slots.forEach(function(slot) {
+    var catKey = slot.cat.toLowerCase();
+    var candidates = stackDB[catKey] || [];
+    if (candidates.length === 0) return;
+
+    // Score each candidate
+    var scored = candidates.map(function(c) {
+      var score = 50; // base
+
+      // Budget filtering
+      if (budget === 'low') {
+        if (c.price.includes('Free')) score += 20;
+        else if (c.price.includes('Enterprise')) score -= 30;
+        var priceMatch = c.price.match(/\$(\d+)/);
+        if (priceMatch && parseInt(priceMatch[1]) > 50) score -= 10;
+      } else if (budget === 'high') {
+        if (c.price.includes('Enterprise')) score += 10;
+      }
+
+      // Team size
+      if (teamSize === 'solo' && c.best.toLowerCase().includes('solo')) score += 15;
+      if (teamSize === 'solo' && c.best.toLowerCase().includes('team')) score -= 5;
+      if (teamSize === 'team' && c.best.toLowerCase().includes('team')) score += 15;
+      if (teamSize === 'enterprise' && c.best.toLowerCase().includes('enterprise')) score += 15;
+
+      // Answer-specific boosts
+      quizAnswers.forEach(function(ans, i) {
+        var q = path.questions[i];
+        if (!q || q.meta) return;
+
+        var ansLower = ans.toLowerCase();
+        var bestLower = c.best.toLowerCase();
+
+        // Direct keyword matches between answer and tool's best-for
+        if (ansLower.includes('blog') && bestLower.includes('blog')) score += 10;
+        if (ansLower.includes('seo') && bestLower.includes('seo')) score += 15;
+        if (ansLower.includes('email') && bestLower.includes('email')) score += 15;
+        if (ansLower.includes('video') && bestLower.includes('video')) score += 10;
+        if (ansLower.includes('cold') && bestLower.includes('cold')) score += 15;
+        if (ansLower.includes('linkedin') && bestLower.includes('linkedin')) score += 15;
+        if (ansLower.includes('instagram') && bestLower.includes('instagram')) score += 15;
+        if (ansLower.includes('wordpress') && bestLower.includes('wordpress')) score += 20;
+        if (ansLower.includes('vs code') && bestLower.includes('ide')) score += 10;
+        if (ansLower.includes('terminal') && bestLower.includes('terminal')) score += 15;
+        if (ansLower.includes('avatar') && bestLower.includes('avatar')) score += 15;
+        if (ansLower.includes('headshot') && bestLower.includes('headshot')) score += 20;
+        if (ansLower.includes('presentation') && bestLower.includes('deck')) score += 15;
+        if (ansLower.includes('transcri') && bestLower.includes('transcri')) score += 15;
+        if (ansLower.includes('calendar') && bestLower.includes('calendar')) score += 15;
+        if (ansLower.includes('academic') && bestLower.includes('academic')) score += 10;
+        if (ansLower.includes('no coding') && c.avoid && c.avoid.toLowerCase().includes('non-developer')) score -= 20;
+      });
+
+      return {tool: c, score: score};
     });
+
+    // Sort by score descending
+    scored.sort(function(a,b) { return b.score - a.score; });
+
+    // Pick the best, but avoid duplicates in the stack
+    var alreadyPicked = Object.values(stack).map(function(s) { return s.name; });
+    for (var i = 0; i < scored.length; i++) {
+      if (!alreadyPicked.includes(scored[i].tool.name)) {
+        var t = scored[i].tool;
+        // Find the matching tool in the global tools array for the card renderer
+        var globalTool = tools.find(function(gt) { return gt.href === t.slug; });
+        if (globalTool) {
+          stack[slot.label] = globalTool;
+        }
+        break;
+      }
+    }
+  });
+
+  return stack;
 }
 
-function renderQ() {
-  const q = Qs[step];
+
+// Quiz state
+var quizRole = null;
+var quizStep = 0;
+var quizAnswers = [];
+var quizPath = null;
+
+function startQuizPath(role) {
+  quizRole = role;
+  quizPath = quizPaths[role];
+  quizStep = 0;
+  quizAnswers = [];
+  sel = null;
+
+  // Hide role selection, show questions
+  document.getElementById('roleSelect').style.display = 'none';
+  document.getElementById('quizInner').style.display = 'block';
+  renderQuizStep();
+}
+
+function renderQuizStep() {
+  var q = quizPath.questions[quizStep];
   document.getElementById('quizQ').textContent = q.q;
-  document.getElementById('quizProg').textContent = (step+1) + ' of ' + Qs.length;
+  document.getElementById('quizProg').textContent = (quizStep+1) + ' of ' + quizPath.questions.length;
   sel = null;
   document.getElementById('quizBtn').classList.remove('on');
-  const opts = document.getElementById('quizOpts');
+  var opts = document.getElementById('quizOpts');
   opts.innerHTML = '';
-  q.opts.forEach(o => {
-    const b = document.createElement('button');
+  q.opts.forEach(function(o) {
+    var b = document.createElement('button');
     b.className = 'quiz-opt'; b.textContent = o;
-    b.onclick = () => {
-      document.querySelectorAll('.quiz-opt').forEach(x => x.classList.remove('selected'));
+    b.onclick = function() {
+      document.querySelectorAll('.quiz-opt').forEach(function(x) { x.classList.remove('selected'); });
       b.classList.add('selected'); sel = o;
       document.getElementById('quizBtn').classList.add('on');
     };
@@ -496,76 +660,47 @@ function renderQ() {
 
 function advance() {
   if (!sel) return;
-  answers.push(sel);
-  if (step < Qs.length - 1) { step++; renderQ(); return; }
-  showResult();
+  quizAnswers.push(sel);
+  if (quizStep < quizPath.questions.length - 1) { quizStep++; renderQuizStep(); return; }
+  showSmartResult();
 }
 
-function showResult() {
+function showSmartResult() {
   document.getElementById('quizInner').style.display = 'none';
   var r = document.getElementById('quizResult'); r.style.display = 'block';
-  var matches = calculateBestMatches(answers);
-  document.getElementById('resTitle').innerHTML = 'Your top matches';
-  document.getElementById('resSub').innerHTML = "Based on your answers \u2014 we also built a recommended stack below:";
-  var container = document.getElementById('resTools');
-  container.innerHTML = '';
-  matches.forEach(function(m) {
-    var name = m[0], verdict = m[1], href = m[2];
-    container.innerHTML += '<a href="' + href + '" class="res-tool"><div><div class="res-tool-name">' + name + '</div><div class="res-tool-why">' + verdict + '</div></div><div class="res-arr">\u2192</div></a>';
-  });
-  autoFillStack(answers, matches);
-}
+  document.getElementById('resTitle').innerHTML = 'Your recommended AI stack';
+  document.getElementById('resSub').innerHTML = "Built for a " + quizPath.label.toLowerCase() + " based on your answers:";
+  document.getElementById('resTools').innerHTML = '';
 
-function autoFillStack(quizAnswers, topMatches) {
-  var goal = quizAnswers[0] || '';
-  var role = 'founder';
-  if (goal.includes('Code')) role = 'developer';
-  else if (goal.includes('Written content') || goal.includes('SEO')) role = 'marketer';
-  else if (goal.includes('Videos') || goal.includes('Images')) role = 'creator';
-  else if (goal.includes('Research')) role = 'researcher';
-  else if (goal.includes('Email') || goal.includes('Advertising')) role = 'marketer';
-  else if (goal.includes('Meeting')) role = 'researcher';
-
-  currentRole = role;
+  // Build and apply the smart stack
+  currentRole = quizRole;
   document.querySelectorAll('#roleBar .pill').forEach(function(p) {
-    p.classList.toggle('active', p.textContent.toLowerCase() === role);
+    p.classList.toggle('active', p.textContent.toLowerCase() === quizRole);
   });
 
-  selectedStack = {};
-  var slots = stackSlots[role] || [];
-  var topNames = topMatches.map(function(m) { return m[0]; });
-
-  slots.forEach(function(slot) {
-    var matching = tools.filter(function(t) { return t.cats && t.cats.includes(slot.cat); });
-    if (matching.length === 0) return;
-    var fromTop = matching.find(function(t) { return topNames.includes(t.name); });
-    if (fromTop) { selectedStack[slot.label] = fromTop; return; }
-    var best = matching[0], bestScore = 0;
-    matching.forEach(function(t) {
-      var score = 0, v = (t.verdict || '').toLowerCase();
-      var teamSize = quizAnswers[1] || '';
-      if (teamSize.includes('Just me') && v.includes('solo')) score += 2;
-      if (teamSize.includes('Small team') && v.includes('team')) score += 2;
-      var budget = quizAnswers[2] || '';
-      if (budget.includes('Free') && v.includes('free')) score += 2;
-      if (t.conf === 'h') score += 1;
-      else if (t.conf === 'm') score += 0.5;
-      if (score > bestScore) { bestScore = score; best = t; }
-    });
-    selectedStack[slot.label] = best;
-  });
-
+  selectedStack = buildSmartStack(quizRole, quizAnswers);
   renderStack();
+
+  // Show summary in quiz result area
+  var container = document.getElementById('resTools');
+  Object.entries(selectedStack).forEach(function(entry) {
+    var slotLabel = entry[0], t = entry[1];
+    container.innerHTML += '<a href="' + t.href + '" class="res-tool"><div><div class="res-tool-name">' + t.name + '</div><div class="res-tool-why">' + slotLabel + '</div></div><div class="res-arr">\u2192</div></a>';
+  });
+
   setTimeout(function() {
     document.getElementById('stackBuilder').scrollIntoView({behavior: 'smooth', block: 'start'});
   }, 600);
 }
 
+
 function resetQuiz() {
-  step = 0; answers = []; sel = null;
-  document.getElementById('quizInner').style.display = 'block';
+  quizStep = 0; quizAnswers = []; sel = null; quizRole = null; quizPath = null;
+  document.getElementById('roleSelect').style.display = 'block';
+  document.getElementById('quizInner').style.display = 'none';
   document.getElementById('quizResult').style.display = 'none';
-  renderQ();
+  selectedStack = {};
+  renderStack();
 }
 
 function buildTrending() {
@@ -1005,7 +1140,7 @@ function nlSubmit() {
   }, 1000);
 }
 
-renderQ(); buildTrending(); buildCats(); buildTools();
+buildTrending(); buildCats(); buildTools();
 </script>
 
 </body>
